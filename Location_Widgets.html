@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedes de Tiendas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .container1 {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .zone-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .zone-center {
+            color: #26a69a;
+        }
+
+        .zone-south {
+            color: #e91e63;
+        }
+
+        .zone-east {
+            color: #fbc02d;
+        }
+
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            max-width: 900px; /* Limita el ancho para evitar que se estiren demasiado */
+            margin: 0 auto; /* Centra el contenedor */
+            gap: 15px;
+        }
+        
+        .location {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        
+
+        .location h3 {
+            margin: 5px 0;
+        }
+
+        .contact-info,
+        .address-info {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .contact-info i,
+        .address-info i {
+            color: #00c4b6;
+            margin-right: 8px;
+        }
+
+        .address {
+            font-weight: bold;
+        }
+
+        .location-city {
+            font-size: 14px;
+            color: gray;
+        }
+
+        @media (max-width: 600px) {
+            .location {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <h1>Nuestras Sedes</h1>
+
+        <div class="zone-title zone-center">Zona Centro</div>
+        <div class="locations">
+            <div class="location">
+                <h3>C.C. EL TESORO</h3>
+                <div class="address-info-bold">
+                    <span class="address">Locales 305 y 406</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 880 56 47
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 301 500 93 53
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 7 #13 - 70</span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+
+            <div class="location">
+                <h3>C.C. CALICENTRO</h3>
+                <div class="address-info-bold">
+                    <span class="address">Locales 122 y 132</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 881 08 77
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 324 494 48 09
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 8 #13 - 47 </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+
+            <div class="location">
+                <h3>C.C. TODOS</h3>
+                <div class="address-info-bold">
+                    <span class="address">Locales 122 y 132</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 881 10 92
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 316 717 34 52
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 13 # 7 - 10 </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+
+            <div class="location">
+                <h3>CALLE 14</h3>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 885 64 32
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 318 297 68 58
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle 14 # 4 - 16                    </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+            <div class="location">
+                <h3>CC. MIAMI</h3>
+                <div class="address-info-bold">
+                    <span class="address">Local 20 Piso 3</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (+57) 301 500 91 84
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 301 500 93 53
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 7 #13 - 55                    </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="zone-title zone-south">Zona Sur</div>
+        <div class="locations">
+            <div class="location">
+                <h3>CC. COSMOCENTRO CALI</h3>
+                <div class="address-info-bold">
+                    <span class="address">Local 113C - 114C</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 885 64 32
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 318 297 69 63
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cl. 5 # 50 - 103                    </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+
+            <div class="location">
+                <h3>CC. UNICENTRO CALI</h3>
+                <div class="address-info-bold">
+                    <span class="address">Locales 311 - 312</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032) 555 47 03
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 300 413 63 65
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 100 # 5 - 169                    </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="zone-title zone-east">Zona Oriente</div>
+        <div class="locations">
+            <div class="location">
+                <h3>CC. COMPLETÍSIMA</h3>
+                <div class="address-info-bold">
+                    <span class="address">Piso 2</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> (032)  426 22 41
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-mobile-alt"></i> (+57) 301 501 12 31
+                </div>
+                <div class="address-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cra. 28 D #72F - 175                    </span>
+                </div>
+                <div class="address-info">
+                    <span class="location-city">Cali, Colombia</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

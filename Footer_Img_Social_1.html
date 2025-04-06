@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen y Redes Sociales</title>
+    <style>
+
+        .main-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+        
+
+        @media (max-width: 480px) {
+            .social-icons img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/logowhite.PNG?v=1615929186" alt="Imagen Principal" class="main-image">
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100086471234941" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/facebook-logo.png?v=1741710712" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/matchalii_tea" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/intagram-logo.png?v=1741710712" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@matchalii_tea" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/tiktok-logo_3424abbe-57de-45dd-9581-6da9c0e84171.png?v=1741710712" alt="TikTok">
+        </a>
+        <a href="https://www.youtube.com/@matchalii_tea" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/youtube-logo.png?v=1741710712" alt="YouTube">
+        </a>
+    </div>
+
+</body>
+</html>

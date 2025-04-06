@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos Columnas con Efecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .columna {
+            flex: 1;
+            min-width: 300px;
+        }
+        .columna h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .columna p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .imagenes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .imagenes img {
+            width: 30%;
+            min-width: 100px;
+            border-radius: 10px;
+        }
+        .imagen-rebote {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .boton {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .boton button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .boton button:hover {
+            background-color: #cc5500;
+        }
+        /* Efecto de rebote */
+        .rebote {
+            animation: bounce 0.6s ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .imagenes {
+                flex-direction: column;
+                align-items: center;
+            }
+            .imagenes img {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="columna">
+            <h2>¿Qué es el Matcha?</h2>
+            <p>Son las hojas de Té verde (Camellia Sinensis) cuidadosamente cultivadas,seleccionadas y pulverizadas. En Matchali, manejamos matcha cultivado enJapón de la más alta calidad,calificado como grado ceremonial. En su procesose eliminan los tallos para reducir la oxidación y mantener el más alto nivel deantioxidantes que hacen de este té una opción perfecta para cuidarte ybrindarte todos los beneficios de esta fórmula ancestral. </p>
+            <div class="imagenes">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_azucar.png?v=1701789073" alt="Imagen 1">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_gluten.png?v=1701789073" alt="Imagen 2">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_carb.png?v=1701789073" alt="Imagen 3">
+            </div>
+        </div>
+        <div class="columna">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Kit-Matchali-Black-Tea-Tilt2-TransparentBG.png?v=1741545785" alt="Imagen grande" class="imagen-rebote" id="imagenRebote">
+            <div class="boton">
+                <button>LO QUIERO</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function() {
+            let imagen = document.getElementById('imagenRebote');
+            let posicion = imagen.getBoundingClientRect().top;
+            let alturaVentana = window.innerHeight;
+            if (posicion < alturaVentana) {
+                imagen.classList.add('rebote');
+            } else {
+                imagen.classList.remove('rebote');
+            }
+        });
+    </script>
+</body>
+</html>

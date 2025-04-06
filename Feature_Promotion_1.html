@@ -1,0 +1,88 @@
+<style>
+    .noMobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .noMobile .icon-container {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .noMobile img {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    .noMobile strong {
+        font-weight: normal;
+    }
+
+    .noDesk {
+        display: none;
+        background-color: #fff;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .noDesk .icon-container {
+        margin-bottom: 15px;
+    }
+
+    .noDesk img {
+        width: 45px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .noDesk span {
+        font-weight: normal;
+    }
+
+    @media (max-width: 768px) {
+        .noMobile {
+            display: none;
+        }
+
+        .noDesk {
+            display: block;
+        }
+    }
+</style>
+
+<div class="noMobile">
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Compra_segura.png?v=1741878109" alt="Compra segura">
+        <span>Compra 100% segura</span>
+    </div>
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Colombia.png?v=1741878109" alt="Hecho En Colombia">
+        <span>Hecho En Colombia</span>
+    </div>
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Envio.png?v=1741878109" alt="Envíos A Todo El País">
+        <span>Envíos A Todo El País</span>
+    </div>
+</div>
+
+<div class="noDesk">
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Compra_segura.png?v=1741878109" alt="Compra segura">
+        <span>Compra 100% segura</span>
+    </div>
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Colombia.png?v=1741878109" alt="Hecho En Colombia">
+        <span>Hecho En Colombia</span>
+    </div>
+    <div class="icon-container">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/Envio.png?v=1741878109" alt="Envíos A Todo El País">
+        <span>Envíos A Todo El País</span>
+    </div>
+</div>

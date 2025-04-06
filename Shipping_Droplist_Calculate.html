@@ -1,0 +1,94 @@
+<div class="cart__item-row cart__item--shipping">
+    <label for="shippingCity">Selecciona tu departamento:</label>
+    <select id="shippingCity" class="input-full">
+      <option value="" selected disabled>Elige un departamento</option>
+      <option value="Bogotá">Bogotá</option>
+      <option value="Antioquia">Antioquia</option>
+      <option value="Valle">Valle</option>
+      <option value="Atlántico">Atlántico</option>
+      <option value="Bolívar">Bolívar</option>
+      <option value="Boyacá">Boyacá</option>
+      <option value="Caldas">Caldas</option>
+      <option value="Caquetá">Caquetá</option>
+      <option value="Casanare">Casanare</option>
+      <option value="Cauca">Cauca</option>
+      <option value="Cesar">Cesar</option>
+      <option value="Córdoba">Córdoba</option>
+      <option value="Cundinamarca">Cundinamarca</option>
+      <option value="Huila">Huila</option>
+      <option value="Magdalena">Magdalena</option>
+      <option value="Meta">Meta</option>
+      <option value="Nariño">Nariño</option>
+      <option value="Norte de Santander">Norte de Santander</option>
+      <option value="Quindío">Quindío</option>
+      <option value="Risaralda">Risaralda</option>
+      <option value="Santander">Santander</option>
+      <option value="Sucre">Sucre</option>
+      <option value="Tolima">Tolima</option>
+      <option value="Arauca">Arauca</option>
+      <option value="Chocó">Chocó</option>
+      <option value="Guaviare">Guaviare</option>
+      <option value="La Guajira">La Guajira</option>
+      <option value="Putumayo">Putumayo</option>
+      <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+      <option value="Amazonas">Amazonas</option>
+      <option value="Guainía">Guainía</option>
+      <option value="Vaupés">Vaupés</option>
+      <option value="Vichada">Vichada</option>
+    </select>
+  </div>
+  
+  <div class="cart__item-row cart__item--shipping-cost">
+    <div>Tarifa de envío:</div>
+    <div id="shippingCost">Seleccione un departamento</div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const citySelect = document.getElementById("shippingCity");
+      const shippingCostDisplay = document.getElementById("shippingCost");
+  
+      // Definir tarifas según la tabla proporcionada
+      const shippingRates = {
+        "Bogotá": "$10.000",
+        "Antioquia": "$10.000",
+        "Valle": "$10.000",
+        "Atlántico": "$15.000",
+        "Bolívar": "$15.000",
+        "Boyacá": "$15.000",
+        "Caldas": "$15.000",
+        "Caquetá": "$15.000",
+        "Casanare": "$15.000",
+        "Cauca": "$15.000",
+        "Cesar": "$15.000",
+        "Córdoba": "$15.000",
+        "Cundinamarca": "$15.000",
+        "Huila": "$15.000",
+        "Magdalena": "$15.000",
+        "Meta": "$15.000",
+        "Nariño": "$15.000",
+        "Norte de Santander": "$15.000",
+        "Quindío": "$15.000",
+        "Risaralda": "$15.000",
+        "Santander": "$15.000",
+        "Sucre": "$15.000",
+        "Tolima": "$15.000",
+        "Arauca": "$40.000",
+        "Chocó": "$40.000",
+        "Guaviare": "$40.000",
+        "La Guajira": "$40.000",
+        "Putumayo": "$40.000",
+        "San Andrés y Providencia": "$40.000",
+        "Amazonas": "$50.000",
+        "Guainía": "$50.000",
+        "Vaupés": "$50.000",
+        "Vichada": "$50.000"
+      };
+  
+      citySelect.addEventListener("change", function () {
+        const selectedCity = citySelect.value;
+        shippingCostDisplay.textContent = selectedCity ? shippingRates[selectedCity] : "Seleccione un departamento";
+      });
+    });
+  </script>
+  

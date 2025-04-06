@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .header img {
+            max-width: 150px;
+        }
+
+        .schedule-meeting {
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #555555;
+            margin: 0 0 20px;
+        }
+
+        .separator {
+            border-top: 1px solid #dddddd;
+            margin: 20px 0;
+        }
+
+        .content {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .main-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .main-text {
+            font-size: 16px;
+            color: #333333;
+            margin: 0 0 20px;
+            line-height: 1.6;
+        }
+
+        .main-subtitle {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555555;
+            margin: 0 0 10px;
+        }
+
+        .list {
+            font-size: 16px;
+            color: #333333;
+            margin: 0 0 20px;
+            padding-left: 20px;
+        }
+
+        .list li {
+            margin-bottom: 10px;
+        }
+
+        .number {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .number-min {
+            color: rgb(17, 168, 126);
+        }
+
+        .container-green {
+            background-color: rgb(17, 168, 126);
+            color: white;
+        }
+
+        .btn-white-green {
+            display: inline-block;
+            background-color: white;
+            color: rgb(12, 137, 97);
+            font-family: Arial;
+            font-size: 18px;
+            line-height: 120%;
+            margin: 0px;
+            padding: 16px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            border: 2px solid rgb(12, 137, 97);
+        }
+
+        .footer-logo {
+            margin-top: 20px;
+        }
+
+        .footer-logo img {
+            max-width: 100px;
+        }
+
+        /* styles.css */
+        .table {
+            font-family: Arial;
+            line-height: 22px;
+            table-layout: auto;
+            width: 100%;
+            border: none;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 0 0 24px;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+        }
+
+        .container-bg {
+            background-image: url('1721131594494116200_background-image_url_5');
+        }
+
+        .table th {
+            text-align: left;
+        }
+
+        .table td {
+            font-size: 16px;
+            padding: 24px 0;
+            border-bottom: 1px solid #b9b9b9;
+        }
+
+        .table td a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .table .right {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* styles.css */
+        .table-container {
+            border-collapse: collapse;
+            width: 100%;
+            height: 106.695px;
+        }
+
+        .table-cell {
+            padding: 10px 0;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .content {
+            font-size: 14px;
+            font-family: Arial;
+            line-height: 1.5;
+        }
+
+        .img-logo {
+            border: 0;
+            height: auto;
+            line-height: 0;
+            outline: none;
+            text-decoration: none;
+            vertical-align: top;
+            margin-bottom: 12px;
+            width: 89px;
+        }
+
+        .inner-cell {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0 20px;
+            border-width: 0;
+            text-align: center;
+        }
+
+        .text-content {
+            line-height: 20px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: rgb(109, 113, 117);
+            font-family: verdana;
+            font-size: 13.3333px;
+        }
+
+
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header img {
+                max-width: 100px;
+                margin-bottom: 10px;
+            }
+
+            .schedule-meeting {
+                font-size: 14px;
+            }
+
+            .main-title,
+            .main-text,
+            .main-subtitle,
+            .title,
+            .subtitle,
+            .content {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="header">
+            <img src="https://static.wixstatic.com/media/8ec98c_91a64f1f70ff4fdd8f81e86004271106~mv2.png" alt="Logo">
+            <a href="https://rabbitstudio.co/meet"
+                style="font-size: 16px; line-height: 1.5; color: rgb(0, 0, 0); cursor: pointer" target="_blank">
+                Programa
+                una
+                reunión
+                →
+            </a>
+        </div>
+
+        <div class="container">
+            <div class="subtitle">Hola OSPINA & ASOCIADOS S.A.S.,</div>
+            <div class="title" style="font-size: 35px;">¡Gracias por elegir nuestros servicios!</div>
+            <div class="separator"></div>
+            <div class="content">
+                Soy Karen y quiero contarte cómo nos ha ido diseñando tu estrategia digital durante esta segunda mitad
+                del mes de <span style="font-weight: bold; color: black">JUNIO 2024</span>.
+            </div>
+        </div>
+
+        <div class="title">Para empezar</div>
+        <div class="content">
+            Estos 15 días fueron muy importantes. En ellos pudimos entender más a profundidad el portafolio de O&A
+            gracias al recorrido y capacitación que recibimos. También logramos acceder a los activos digitales de la
+            empresa, indispensables para la estrategia que vamos a implementar.
+        </div>
+        <div class="title">Qué tenemos:</div>
+        <ul class="list">
+            <li>Acceso a la cuenta de Instagram , Facebook y al Administrador de anuncios de Meta listos para correr
+                campañas. Para el madrugón de julio hicimos una campaña de alcance: se invirtieron $26.751 y llegamos a
+                26.047 hombres y mujeres en Cali entre 18 y 65 años. Mostramos este anuncio en Facebook e Instagram.
+                Pensamos rediseñar este tipo de campañas.</li>
+            <li>Acceso al Panel de control de la Página web . Esto nos permitirá re-diseñarla completamente en 2 fases:
+                una primera versión informativa para crear páginas exclusivas para anuncios y otra versión posterior
+                transaccional.</li>
+            <li>Acceso a la cuenta de Google MyBusiness , esto determina cómo nos encuentran nuestros clientes en Google
+                Maps. Permite configurar direcciones, horarios, promociones, entre otras configuraciones de cada sede.
+                Esto estaba configurado con el correo acabadosospinayasociados@gmail.com al que también ya tenemos
+                acceso</li>
+            <li>Contacto con ejecutivos de cuenta para radio.</li>
+        </ul>
+        <div class="title">Qué no teníamos:</div>
+        <ul class="list">
+            <li>Cuenta de Google Ads, necesaria para crear campañas de búsqueda. No es suficiente pautar sólo en redes
+                sociales. Creamos una con un correo de O&A.</li>
+            <li>Cuenta de Google Analytics, necesaria para medir el impacto de cada campaña a página web en sesiones,
+                formularios llenados, compras, etc. La plataforma que se utilizaba para la medición era propia de la
+                agencia anterior. Creamos una con un correo de O&A.</li>
+            <li>Fanpage oficial de Facebook para Ospina y Asociados, actualmente hay 2 cada una con 24 seguidores.
+                debemos unificarlas y compartir información relevante tanto en ella como en las demás: Instagram y
+                LinkedIn.</li>
+        </ul>
+        <div class="separator"></div>
+        <div class="title">Lo que debes saber</div>
+        <div class="content">
+            Estas son las estadísticas clave de tu Página web y Redes sociales. Muy pronto incluiremos las líneas de
+            atención telefónicas y WhatsApp.
+        </div>
+        <div class="separator"></div>
+        <div class="subtitle">SEGUIDORES EN REDES</div>
+        <span class="number" style="font-size:30px">
+            1.163&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +1&nbsp;%
+        </span>
+        <div class="separator"></div>
+        <div class="subtitle">CUENTAS ALCANZADAS POR ANUNCIOS</div>
+        <span class="number" style="font-size:30px">
+            3.245&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +1&nbsp;%
+        </span>
+        <div class="separator"></div>
+
+        <div class="subtitle">SESIONES DEL SITIO WEB</div>
+        <span class="number" style="font-size:30px">
+            3.690&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +1&nbsp;%
+        </span>
+        <div class="separator"></div>
+
+        <div class="subtitle">NUEVOS CLIENTES POR FORMULARIOS</div>
+        <span class="number" style="font-size:30px">
+            439&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +1&nbsp;%
+        </span>
+        <div class="separator"></div>
+
+        <div style="padding: 50px;" class="container container-bg">
+            <div style="text-align: center;" class="title">Calidad de las visitas</div>
+            <div class="separator"></div>
+            <div style="text-align: center;" class="content">
+                La duración promedio de cada sesión que recibimos en nuestra página web fue de un poco más de 4 minutos,
+                un aumento del 3%. Sin embargo la página más visitada fue el Home; esto quiere decir que debemos crear
+                más sub-páginas que cautiven e informen a nuestros visitantes y nos generen ventas.
+            </div>
+        </div>
+
+        <div style="padding: 50px; margin-top: 20px; text-align: center;" class="container container-green">
+            <div style="text-align: center;" class="title">Nuestra recomendación</div>
+            <div class="separator"></div>
+            <div style="color: white; text-align: center" class="content">
+                Los sitios con formularios tuvieron entre 2,3 y 4,3 veces más conversiones. Debemos sacar más provecho
+                de estos formularios creando anuncios que nos ayuden a difundir nuestro catálogo y obtener más ventas.
+                Ya estamos trabajando en estas secciones.
+            </div>
+            <a href="https://drive.google.com/file/d/1NpdQOtZ1QiaPLfhgRxI0QmsXQYL80SjG/view?usp=sharing"
+                class="btn-white-green" target="_blank" style="margin-top: 20px;">
+                Previsualiza la nueva página
+            </a>
+        </div>
+
+        <div class="title">Visitantes y fuentes de tráfico a página web</div>
+        <div class="separator"></div>
+        <div class="subtitle">NUEVOS VISITANTES</div>
+        <span class="number" style="font-size:30px">
+            93&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +11&nbsp;%
+        </span>
+        <div class="separator"></div>
+        <div class="subtitle">VISITANTES RECURRENTES</div>
+        <span class="number" style="font-size:30px">
+            7&nbsp;&nbsp;
+        </span>
+        <span class="number number-min" style="font-size: 14px; padding-left: 6px;">
+            +5&nbsp;%
+        </span>
+        <div class="separator"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Principales fuentes de tráfico</th>
+                    <th class="right">Sesiones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#" target="_blank">Google</a></td>
+                    <td class="right">2.077</td>
+                </tr>
+                <tr>
+                    <td><a href="#" target="_blank">Directa</a></td>
+                    <td class="right">1.224</td>
+                </tr>
+                <tr>
+                    <td><a href="#" target="_blank">Otras páginas</a></td>
+                    <td class="right">389</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin: 50px auto; max-width: 90%; text-align: center;" class="container">
+            <div class="title">
+                Por ahora, eso es todo. Te estaré escribiendo el próximo mes con más buenas noticias.
+            </div>
+            <div class="separator"></div>
+            <div class="content">
+                No dudes en <a href="https://rabbitstudio.co/contact" target="_blank">contactarme</a> para resolver
+                cualquier inquietud que tengas sobre este informe. Procuramos hacerlo muy breve pero si te gustaría
+                conocer alguna otra métrica mes a mes, puedes solicitárnoslo sin problema.
+            </div>
+
+            <div style="background-color: rgb(17, 65, 140); padding: 30px; text-align: left; margin-top:20px;">
+                <div
+                    style="font-size: 16px; font-family: Madefor, Arial; font-weight: bold; color: rgb(255, 255, 255);">
+                    ¡Un último dato!<br>
+                </div>
+                <div style="font-size: 16px; font-family: Madefor, Arial; line-height: 1.5; color: rgb(255, 255, 255);">
+                    No sé si lo sabías, pero en Rabbit donamos una parte de nuestra utilidad mensual a fundaciones,
+                    durante el mes pasado lo hicimos con "Emprendamos Juntos" y <b>esto fue posible gracias a ti</b>.
+                </div>
+                <img style="display: block; margin-top: 10px; max-width: 100%; height: auto;"
+                    src="https://wixmp-2c8f906a62709a387faa1da5.wixmp.com/banner-images/b3f2868c-6317-485a-b9c1-ab39576d684b.png"
+                    alt="imagen">
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;" class="content">
+                Puedes conocer más de estos programas en <a href="https://rabbitstudio.co/social"
+                    target="_blank">rabbitstudio.co/social</a>.
+            </div>
+        </div>
+
+
+
+        <table class="table-container">
+            <tbody>
+                <tr>
+                    <td class="table-cell">
+                        <div class="content">
+                            <img class="img-logo"
+                                src="https://static.wixstatic.com/media/8ec98c_91a64f1f70ff4fdd8f81e86004271106~mv2.png">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="inner-cell">
+                        <p class="text-content">
+                            100 Gansevoort St, New York, NY 10014, Estados Unidos
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</body>
+
+</html>

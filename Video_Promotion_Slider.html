@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección de Videos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e3bcc1;
+            font-family: Arial, sans-serif;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0 5px;
+            position: relative;
+            color: #505050;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #505050;
+            font-style: italic;
+        }
+
+        .video-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding: 20px;
+            white-space: nowrap;
+            /* Ocultar la barra de desplazamiento */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* Internet Explorer y Edge */
+        }
+
+        .video-container::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari y navegadores basados en WebKit */
+        }
+
+        .video-container video {
+            width: 300px;
+            height: 200px;
+            scroll-snap-align: start;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: black;
+        }
+
+        .instagram-button {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .instagram-button a {
+            background-color: #e3bcc1;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video src="https://cdn.shopify.com/videos/c/o/v/0285e5e6fb0040f588d8b40aeba28398.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video1.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/4f572c540d4248c9914561da59674faa.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video2.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/c0d51a98b60044fea09f22efa7df3f21.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video3.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/4470552d7c914d349be9e13593bd6176.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video4.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/5a13397ee26d4746ae59f2d865c8e9c5.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video5.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/f1832c8c87964d7c9a35eae26644b63f.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video6.jpg?v=1739226676"></video>
+        <video src="https://cdn.shopify.com/videos/c/o/v/f0d907d6b54c428485ac88721d5a91bb.mp4" controls
+            poster="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Video7.jpg?v=1739226676"></video>
+    </div>
+
+</body>
+
+</html>

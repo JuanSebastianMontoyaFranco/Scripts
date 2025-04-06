@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos Columnas con Efecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ._col-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            padding: 50px 10px;
+            /* Reduce el padding en móviles */
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        ._col1,
+        ._col2 {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        ._col1 h2,
+        ._col1 h3 {
+            text-align: center;
+            width: 100%;
+        }
+
+
+        ._col1 p {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 20px;
+            padding: 0 15px;
+        }
+
+        ._col1 h2,
+        h3 {
+            padding-bottom: 20px;
+        }
+
+        ._col1 h3 {
+            font-size: 20px;
+        }
+
+        ._img-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        ._img-group img {
+            width: 30%;
+            min-width: 80px;
+            border-radius: 10px;
+        }
+
+        ._main-img {
+            width: 80%;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            max-width: 100%;
+            height: auto;
+            /* Evita distorsión */
+        }
+
+        ._btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        ._btn-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        ._btn-container button:hover {
+            background-color: #cc5500;
+        }
+
+        ._bounce {
+            animation: bounce 1s ease-in-out;
+        }
+
+        .small-img {
+            width: 45%;
+            max-width: 400px;
+            margin: 10px;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            20% {
+                transform: translateY(-25px);
+            }
+
+            50% {
+                transform: translateY(15px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            ._col-container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                /* Asegura que no se corte */
+                padding: 20px;
+                /* Ajusta padding */
+            }
+
+            ._col1 {
+                order: -1;
+            }
+
+            ._col2 {
+                order: 0;
+            }
+
+            ._img-group {
+                flex-wrap: wrap;
+                /* Permite que las imágenes se ajusten */
+                justify-content: center;
+            }
+
+            ._main-img {
+                width: 100%;
+                max-width: 350px;
+                /* Evita imágenes demasiado grandes en móviles */
+            }
+
+            ._col1 p {
+                font-size: 16px;
+                padding: 0 10px;
+                /* Añade padding en los lados */
+            }
+
+            .small-img {
+                width: 50%;
+                max-width: 100px;
+                /* Ajusta el tamaño de las imágenes en móviles */
+            }
+
+            .m-button {
+                width: 50%; /* Cambia el ancho a automático */
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="_col-container">
+        <div class="_col1">
+            <h2>¿Qué es el Matcha?</h2>
+            <p>Son las hojas de Té verde (Camellia Sinensis) cuidadosamente cultivadas,
+                seleccionadas y pulverizadas. En Matchali, manejamos matcha cultivado en
+                Japón de la más alta calidad,calificado como grado ceremonial. En su proceso
+                se eliminan los tallos para reducir la oxidación y mantener el más alto nivel de
+                antioxidantes que hacen de este té una opción perfecta para cuidarte y
+                brindarte todos los beneficios de esta fórmula ancestral.</p>
+            <div class="_img-group noMobile">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_azucar.png?v=1701789073"
+                    alt="Imagen 1">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_gluten.png?v=1701789073"
+                    alt="Imagen 2">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_carb.png?v=1701789073"
+                    alt="Imagen 3">
+            </div>
+        </div>
+        <div class="_col2">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Diseno_sin_titulo_18.png?v=1741628214"
+                alt="Imagen grande" class="_main-img">
+            <div class="m-button m-button--primary">
+                <a href="https://matchali.co/collections/all">LO QUIERO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="_col-container">
+        <div class="_col2">
+            <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/matchaligroup.png?v=1741709127"
+                alt="Imagen secundaria" class="_main-img">
+            <div class="m-button m-button--primary">
+                <a href="https://matchali.co/collections/all/Jap%C3%B3n">DESCÚBRELO</a>
+            </div>
+        </div>
+
+        <div class="_col1">
+            <h2>Las Mezclas más saludables con Matcha</h2>
+            <h3><i>Ingredientes adicionales que hacen esta experiencia mucho
+                    más completa.</i></h3>
+            <p>La mezcla con té matcha, cúrcuma y cultivos probióticos le
+                dará a tu cuerpo resistencia a infecciones por organismos
+                patógenos en el intestino, regulará el movimiento intestinal,
+                mejora la circulación sanguínea y la memoria.
+                El té matcha con jengibre, limón y pimienta cayena es un
+                poderoso termogénico que te hará quemar calorías
+                rápidamente, acelera el metabolismo y aumenta las
+                defensas de tu organismo.</p>
+            <div class="_img-group noMobile">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_azucar.png?v=1701789073"
+                    alt="Imagen 1">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_gluten.png?v=1701789073"
+                    alt="Imagen 2">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/libre_carb.png?v=1701789073"
+                    alt="Imagen 3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            let imagenes = document.querySelectorAll('._main-img');
+            let alturaVentana = window.innerHeight;
+
+            imagenes.forEach(imagen => {
+                let posicion = imagen.getBoundingClientRect().top;
+                if (posicion < alturaVentana && posicion > 0) {
+                    imagen.classList.remove('_bounce');
+                    void imagen.offsetWidth; // Reinicia la animación
+                    imagen.classList.add('_bounce');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

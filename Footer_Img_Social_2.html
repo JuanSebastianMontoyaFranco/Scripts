@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen y Redes Sociales</title>
+    <style>
+        .main-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .main-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .social-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .widget {
+            background-color: #8FD7FF;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+           
+        }
+
+        @media (max-width: 480px) {
+            .social-icons img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-image">
+        <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/LOGO-FOTO-PERFIL-FONDO-BLANCO_1.png?v=1741893059" alt="Imagen Principal">
+    </div>
+
+    <div class="social-container">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/1FEqVCvdDd/?mibextid=wwXIfr" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/facebook-logo.png?v=1741710712" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/mybebecito.co" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/intagram-logo.png?v=1741710712" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@mybebecito.co" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/tiktok-logo_3424abbe-57de-45dd-9581-6da9c0e84171.png?v=1741710712" alt="TikTok">
+            </a>
+        </div>
+        
+        <div class="widget">
+            @mybebecito.co
+        </div>
+    </div>
+
+</body>
+</html>

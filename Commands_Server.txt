@@ -1,0 +1,18 @@
+/home/bitnami/apps/conf/httpd-prefix.conf
+
+Edit the file /opt/bitnami/apache/conf/httpd.conf
+
+Replace #IncludeOptional "/opt/bitnami/apache/conf/vhosts/*.conf"
+With...
+
+Include "/home/bitnami/apps/conf/*.conf"
+
+ProxyPass /api/ http://127.0.0.1:3000/
+ProxyPassReverse /api/ http://127.0.0.1:3000/
+ProxyPass /api http://127.0.0.1:3000/
+ProxyPassReverse /api http://127.0.0.1:3000/
+ProxyPass / http://127.0.0.1:5000/
+ProxyPassReverse / http://127.0.0.1:5000/
+
+Restart Apache:
+sudo /opt/bitnami/ctlscript.sh restart apache

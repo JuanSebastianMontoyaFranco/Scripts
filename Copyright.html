@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen y Copyright</title>
+    <style>
+        .copyright-container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100px;
+            width: 100%;
+            margin: auto; /* Centrado sin afectar otros estilos */
+            text-align: center;
+        }
+
+        .copyright-image {
+            width: 50%;
+            max-width: 20px; /* Imagen más pequeña en desktop */
+            height: auto;
+        }
+
+        .copyright-text {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* En mobile, cambia la imagen y ajusta el tamaño */
+        @media (max-width: 768px) {
+            .copyright-image {
+                content: url("https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Payments-White-Mobile.png?v=1739239972"); 
+                max-width: 150px; /* Imagen más pequeña en mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="copyright-container">
+        <img 
+            src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/Payments-White-Desktop.png?v=1739239972" 
+            alt="Imagen" 
+            class="copyright-image">
+        <p class="copyright-text">GREENERGY LIFE GROUP S.A.S. NIT: 901.501.165-5</p>
+    </div>
+
+</body>
+</html>
