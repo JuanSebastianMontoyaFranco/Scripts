@@ -10,7 +10,7 @@ df = pd.read_excel(excel_file)
 for index, row in df.iterrows():
     direccion = row['billing_address_1']
     ciudad = row['billing_city']
-    key = 'AIzaSyAdmK1VOx3h8sXPhHsk8JtleSRC_-cQtWE'
+    key = 'key'
     
     # Construir la URL de la API de Google Maps
     url = f"https://maps.googleapis.com/maps/api/geocode/json?address={direccion}&key={key}&components=locality:{ciudad}country:CO"
