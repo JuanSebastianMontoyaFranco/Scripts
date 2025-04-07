@@ -24,7 +24,7 @@ worksheetOutput.addRow(['Dirección', 'Ciudad', 'Latitud', 'Longitud']);
     for (const [index, row] of jsonData.entries()) {
         const direccion = row['billing_address_1'];
         const ciudad = row['billing_city'];
-        const key = 'AIzaSyBhS2uKnMaLfRVVCjcByt2kLs_sJG30epE';
+        const key = 'key';
         
         // Construir la URL de la API de Google Maps
         const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${direccion}&key=${key}&components=locality:${ciudad}|country:CO`;
