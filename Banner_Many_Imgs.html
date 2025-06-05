@@ -1,0 +1,96 @@
+<section class="image-grid-shopify">
+  <div class="column-left">
+    <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/CARD_SHAMPOO.png?v=1748992921" alt="Imagen grande" class="img-rounded tall-image" />
+  </div>
+  <div class="column-right">
+    <div class="row-top">
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/CARD_BRUMA.png?v=1748992921" alt="Imagen 1 pequeña" class="img-rounded" />
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/CARD_TOALLITAS.png?v=1748992920" alt="Imagen 2 pequeña" class="img-rounded" />
+    </div>
+    <div class="row-bottom">
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/CARD_TRATAMIENTO.png?v=1748992921" alt="Imagen ancha" class="img-rounded" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-grid-shopify {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .column-left,
+  .column-right {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .column-left {
+    width: 45%;
+  }
+
+  .column-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .img-rounded {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tall-image {
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .row-top {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .row-top img {
+    width: 50%;
+  }
+
+  .row-bottom img {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .image-grid-shopify {
+      flex-direction: column;
+    }
+
+    .column-left,
+    .column-right {
+      width: 100%;
+    }
+
+    .tall-image {
+      height: auto;
+    }
+
+    .row-top {
+      flex-direction: column;
+    }
+
+    .row-top img {
+      width: 100%;
+    }
+  }
+</style>

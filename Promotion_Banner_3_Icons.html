@@ -1,0 +1,81 @@
+
+<div class="info-bar">
+  <div class="info-item">
+    <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Envios.png?v=1748982692" alt="Compra segura" />
+    <div class="info-text">
+      <strong>Envíos a todo Colombia</strong>
+      <span>Compra desde cualquier lugar</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Calidad.png?v=1748982692" alt="Productos garantizados" />
+    <div class="info-text">
+      <strong>Calidad garantizada</strong>
+      <span>Cuidamos lo que más amas</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Pago_seguro.png?v=1748982692" alt="Envíos a todo el mundo" />
+    <div class="info-text">
+      <strong>Pago 100% Seguro</strong>
+      <span>Métodos de pago verificados</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #9b00c0;
+    padding: 20px;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    flex: 1 1 250px;
+    max-width: 300px;
+  }
+
+  .info-item img {
+    width: auto;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .info-text strong {
+    color: white;
+    display: block;
+    font-size: 16px;
+  }
+
+  .info-text span {
+    color: #f3d9f7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+  .info-bar {
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    gap: 1rem;
+  }
+
+  .info-item {
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .info-item img {
+    margin: 0;
+  }
+}
+
+</style>

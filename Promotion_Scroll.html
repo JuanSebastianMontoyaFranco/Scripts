@@ -1,0 +1,101 @@
+<div class="info-bar-wrapper">
+  <div class="info-bar">
+    <div class="info-item">
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Envios.png?v=1748982692" alt="Compra segura" />
+      <div class="info-text">
+        <strong>Envíos a todo Colombia</strong>
+        <span>Compra desde cualquier lugar</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Calidad.png?v=1748982692" alt="Productos garantizados" />
+      <div class="info-text">
+        <strong>Calidad garantizada</strong>
+        <span>Cuidamos lo que más amas</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <img src="https://cdn.shopify.com/s/files/1/0704/6833/7863/files/Pago_seguro.png?v=1748982692" alt="Pago seguro" />
+      <div class="info-text">
+        <strong>Pago 100% Seguro</strong>
+        <span>Métodos de pago verificados</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .info-bar-wrapper {
+    position: relative;
+  }
+
+  .info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #9b00c0;
+    padding: 20px;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    flex: 1 1 250px;
+    max-width: 300px;
+  }
+
+  .info-item img {
+    width: auto;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .info-text strong {
+    color: white;
+    display: block;
+    font-size: 16px;
+  }
+
+  .info-text span {
+    color: #f3d9f7;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .info-bar {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      padding: 12px;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .info-bar::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    .info-item {
+      flex: 0 0 auto;
+      min-width: 250px;
+      max-width: 80%;
+    }
+
+    .info-item img {
+      margin: 0 12px 0 0;
+    }
+
+    .info-bar-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(to left, #9b00c0, transparent);
+      pointer-events: none;
+    }
+  }
+</style>

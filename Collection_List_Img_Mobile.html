@@ -1,0 +1,44 @@
+<section class="image-grid-mobile">
+  <div class="grid-container">
+    <a href="#link1"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/TODOS.jpg?v=1742831274" alt="Imagen 1"></a>
+    <a href="#link2"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/HOGAR.jpg?v=1742831310" alt="Imagen 2"></a>
+    <a href="#link3"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/BELLEZA.jpg?v=1742831310" alt="Imagen 3"></a>
+    <a href="#link4"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/TECNOLOGIA.jpg?v=1742831295" alt="Imagen 4"></a>
+    <a href="#link5"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/MASCOTAS.jpg?v=1742831310" alt="Imagen 5"></a>
+    <a href="#link6"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/SALUD.jpg?v=1742831310" alt="Imagen 6"></a>
+    <a href="#link7"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/DEPORTES.jpg?v=1742831310" alt="Imagen 7"></a>
+    <a href="#link8"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/HERRAMIENTAS.jpg?v=1742831310" alt="Imagen 8"></a>
+    <a href="#link9"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/JUGUETES.jpg?v=1742831310" alt="Imagen 9"></a>
+    <a href="#link10"><img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/MALETAS.jpg?v=1742831310" alt="Imagen 10"></a>
+  </div>
+</section>
+
+
+<style>
+    .image-grid-mobile {
+  display: none; /* Oculto por defecto */
+}
+
+@media (max-width: 767px) {
+  .image-grid-mobile {
+    display: block;
+    padding: 10px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .grid-container img {
+    width: 100%;
+    max-width: 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+</style>

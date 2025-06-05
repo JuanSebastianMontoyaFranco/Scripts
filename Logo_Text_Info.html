@@ -1,0 +1,90 @@
+<section class="info-block">
+    <div class="image-container">
+        <img src="https://cdn.shopify.com/s/files/1/0925/4774/4062/files/Pandu.png?v=1740617362" alt="Imagen representativa">
+    </div>
+    <div class="info-lines">
+        <!-- Ubicación -->
+        <div class="info-item">
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+                </svg>
+            </span>
+            <span class="text">Calle 14 #19-55, Bogotá, Colombia</span>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="info-item">
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M6.6 10.8c1.6 3.3 4.3 6 7.6 7.6l2.5-2.5c.3-.3.7-.4 1.1-.3 1.2.3 2.5.5 3.7.5.6 0 1 .4 1 1v3.9c0 .6-.4 1-1 1C11.3 22 2 12.7 2 2c0-.6.4-1 1-1h3.9c.6 0 1 .4 1 1 0 1.3.2 2.5.5 3.7.1.4 0 .8-.3 1.1L6.6 10.8z" />
+                </svg>
+            </span>
+            <span class="text">+57 320 782 7618</span>
+        </div>
+
+        <!-- Correo -->
+        <div class="info-item">
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z" />
+                </svg>
+            </span>
+            <span class="text">panducol@gmail.com</span>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .info-block {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.image-container img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.info-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.icon svg {
+  fill: #aaa;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .info-block {
+    flex-direction: column;
+    align-items: flex-start;   
+    text-align: left;         
+  }
+
+  .info-item {
+    justify-content: flex-start; 
+  }
+}
+
+</style>
