@@ -1,0 +1,117 @@
+<div class="info-bar-wrapper">
+    <div class="info-bar">
+        <div class="info-item">
+            <img src="https://cdn.shopify.com/s/files/1/0941/0055/4017/files/ENVIOS.png?v=1749425424"
+                alt="Compra segura" />
+            <div class="info-text">
+                <strong>ENVÍOS A TODO COLOMBIA</strong>
+                <span>Recibe tu pedido con amor y propósito</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <img src="https://cdn.shopify.com/s/files/1/0941/0055/4017/files/PRENDAS.png?v=1749425424"
+                alt="Productos garantizados" />
+            <div class="info-text">
+                <strong>PRENDAS HECHAS CON INTENCIÓN</strong>
+                <span>Cada diseño tiene un mensaje que inspira</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <img src="https://cdn.shopify.com/s/files/1/0941/0055/4017/files/COMPRA_SEGURA.png?v=1749425424"
+                alt="Pago seguro" />
+            <div class="info-text">
+                <strong>COMPRA 100% SEGURA</strong>
+                <span>Métodos de pago verificados</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .info-bar-wrapper {
+        position: relative;
+        background-color: #FFEFDC;
+    }
+
+    .info-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #FFEFDC;
+        padding: 20px;
+        text-align: left;
+        gap: 1.5rem;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        flex: 1 1 250px;
+        max-width: 300px;
+    }
+
+    .info-item img {
+        width: auto;
+        height: 40px;
+        margin-right: 12px;
+    }
+
+    .info-text strong,
+    .info-text span {
+        color: #50361F;
+        display: block;
+        font-size: 16px;
+        white-space: nowrap; /* ✅ clave para una sola línea */
+    }
+
+    .info-text span {
+        font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+        .info-bar {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            gap: 1rem;
+            padding: 12px;
+            scrollbar-width: none;
+        }
+
+        .info-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .info-item {
+            flex: 0 0 auto;
+            min-width: 280px;
+            max-width: none;
+        }
+
+        .info-item img {
+            margin: 0 12px 0 0;
+            flex-shrink: 0;
+        }
+
+        .info-bar-wrapper::after,
+        .info-bar-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .info-bar-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #FFEFDC, transparent);
+        }
+
+        .info-bar-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #FFEFDC, transparent);
+        }
+    }
+</style>
