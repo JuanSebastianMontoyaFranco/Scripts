@@ -1,190 +1,159 @@
 <div class="carousel-container noMobile">
+  <div class="carousel-slide active">
+    <a href="/collections/all">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://cdn.shopify.com/videos/c/o/v/6b4b7c0ef6494dde8f14f4bf7ec99ac2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+  </div>
 
-    <!-- <div class="carousel-slide">
-            <a href="/collections/all"> <img
-                    src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/bg_mexpress_dsk.png?v=1738210968"
-                    alt="PROMO EXPRESS 20% OFF"></a>
-        </div> -->
+  <div class="carousel-slide ">
+    <a href="/collections/all">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://cdn.shopify.com/videos/c/o/v/b074a0ac71604758ac14967ebaa52f92.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+  </div>
 
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/bedd3fc0575147e191af55b1a330a5c4.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
+  <button class="carousel-prev">❮</button>
+  <button class="carousel-next">❯</button>
+</div>
 
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/e1175e4f185f4f1e9153e2a9c9f10f03.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
-    
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/c41a2761e3cf4da79a800412c6e6920d.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
+<div class="carousel-container noDesk">
+  <div class="carousel-slide active">
+    <a href="/collections/all">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://cdn.shopify.com/videos/c/o/v/fabe855448ef49e5969901574a36a3a1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+  </div>
 
-    
-    
-        <button class="carousel-prev">❮</button>
-        <button class="carousel-next">❯</button>
-    </div>
-    
-    <div class="carousel-container noDesk">
-    <!--
-    <div class="carousel-slide">
-            <a href="/collections/all"> <img
-                    src="https://cdn.shopify.com/s/files/1/0489/0971/3561/files/bg_mexpress_mob.png?v=1738210968"
-                    alt="PROMO EXPRESS 20% OFF"></a>
-        </div> -->
-    
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/fa203ea8cebe4fb099b002d3d3f7340b.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/4c3fe07bf9c74137944ca2347b54da4a.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
+  <div class="carousel-slide">
+    <a href="/collections/all">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://cdn.shopify.com/videos/c/o/v/e2cd673201c04a89a87a2918b35953b2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+  </div>
 
-        <div class="carousel-slide">
-            <a href="/collections/all"><video autoplay muted loop playsinline>
-                    <source src="https://cdn.shopify.com/videos/c/o/v/b51b51e78da94b83b3735f4ef22120ad.mp4"
-                        type="video/mp4">
-                    Your browser does not support the video tag.
-                </video></a>
-        </div>
-    
+  <button class="carousel-prev">❮</button>
+  <button class="carousel-next">❯</button>
+</div>
 
-       
-        <button class="carousel-prev">❮</button>
-        <button class="carousel-next">❯</button>
-    
-    </div>
-    
-    
-    <style>
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-    
-        .carousel-slide {
-            display: none;
-            width: 100%;
-        }
-    
-        .carousel-slide video,
-        .carousel-slide img {
-            width: 100%;
-            height: auto;
-        }
-    
-        .carousel-prev,
-        .carousel-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-            color: black;
-            font-size: 20px;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 2;
-        }
-    
-        .carousel-prev {
-            left: 0;
-        }
-    
-        .carousel-next {
-            right: 0;
-        }
-    
-        body {
-            margin: 0;
-        }
-    </style>
-    
-    
-    <script>
-        let slideIndexDesktop = 0;
-        let slideIndexMobile = 0;
-    
-        const desktopSlides = document.querySelectorAll(".carousel-container.noMobile .carousel-slide");
-        const mobileSlides = document.querySelectorAll(".carousel-container.noDesk .carousel-slide");
-    
-        const totalDesktopSlides = desktopSlides.length;
-        const totalMobileSlides = mobileSlides.length;
-    
-        function showDesktopSlide(index) {
-            if (index >= totalDesktopSlides) {
-                slideIndexDesktop = 0;
-            } else if (index < 0) {
-                slideIndexDesktop = totalDesktopSlides - 1;
-            }
-    
-            desktopSlides.forEach(slide => {
-                slide.style.display = "none";
-            });
-    
-            desktopSlides[slideIndexDesktop].style.display = "block";
-        }
-    
-        function showMobileSlide(index) {
-            if (index >= totalMobileSlides) {
-                slideIndexMobile = 0;
-            } else if (index < 0) {
-                slideIndexMobile = totalMobileSlides - 1;
-            }
-    
-            mobileSlides.forEach(slide => {
-                slide.style.display = "none";
-            });
-    
-            mobileSlides[slideIndexMobile].style.display = "block";
-        }
-    
-        function nextDesktopSlide() {
-            slideIndexDesktop++;
-            showDesktopSlide(slideIndexDesktop);
-        }
-    
-        function prevDesktopSlide() {
-            slideIndexDesktop--;
-            showDesktopSlide(slideIndexDesktop);
-        }
-    
-        function nextMobileSlide() {
-            slideIndexMobile++;
-            showMobileSlide(slideIndexMobile);
-        }
-    
-        function prevMobileSlide() {
-            slideIndexMobile--;
-            showMobileSlide(slideIndexMobile);
-        }
-    
-        document.querySelector(".carousel-container.noMobile .carousel-next").addEventListener("click", nextDesktopSlide);
-        document.querySelector(".carousel-container.noMobile .carousel-prev").addEventListener("click", prevDesktopSlide);
-    
-        document.querySelector(".carousel-container.noDesk .carousel-next").addEventListener("click", nextMobileSlide);
-        document.querySelector(".carousel-container.noDesk .carousel-prev").addEventListener("click", prevMobileSlide);
-    
-        showDesktopSlide(slideIndexDesktop);
-        showMobileSlide(slideIndexMobile);
-    </script>
+<style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .carousel-slide.active {
+    visibility: visible;
+    position: relative;
+  }
+
+  .carousel-slide video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .carousel-prev {
+    left: 0;
+  }
+
+  .carousel-next {
+    right: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+</style>
+
+<script>
+  const desktopSlides = document.querySelectorAll(".carousel-container.noMobile .carousel-slide");
+  const mobileSlides = document.querySelectorAll(".carousel-container.noDesk .carousel-slide");
+
+  let slideIndexDesktop = Array.from(desktopSlides).findIndex(slide => slide.classList.contains("active"));
+  if (slideIndexDesktop === -1) slideIndexDesktop = 0;
+
+  let slideIndexMobile = Array.from(mobileSlides).findIndex(slide => slide.classList.contains("active"));
+  if (slideIndexMobile === -1) slideIndexMobile = 0;
+
+  const totalDesktopSlides = desktopSlides.length;
+  const totalMobileSlides = mobileSlides.length;
+
+  function showDesktopSlide(index) {
+    if (index >= totalDesktopSlides) slideIndexDesktop = 0;
+    if (index < 0) slideIndexDesktop = totalDesktopSlides - 1;
+
+    desktopSlides.forEach(slide => slide.classList.remove("active"));
+    desktopSlides[slideIndexDesktop].classList.add("active");
+  }
+
+  function showMobileSlide(index) {
+    if (index >= totalMobileSlides) slideIndexMobile = 0;
+    if (index < 0) slideIndexMobile = totalMobileSlides - 1;
+
+    mobileSlides.forEach(slide => slide.classList.remove("active"));
+    mobileSlides[slideIndexMobile].classList.add("active");
+  }
+
+  function nextDesktopSlide() {
+    slideIndexDesktop++;
+    showDesktopSlide(slideIndexDesktop);
+  }
+
+  function prevDesktopSlide() {
+    slideIndexDesktop--;
+    showDesktopSlide(slideIndexDesktop);
+  }
+
+  function nextMobileSlide() {
+    slideIndexMobile++;
+    showMobileSlide(slideIndexMobile);
+  }
+
+  function prevMobileSlide() {
+    slideIndexMobile--;
+    showMobileSlide(slideIndexMobile);
+  }
+
+  document.querySelector(".carousel-container.noMobile .carousel-next").addEventListener("click", nextDesktopSlide);
+  document.querySelector(".carousel-container.noMobile .carousel-prev").addEventListener("click", prevDesktopSlide);
+
+  document.querySelector(".carousel-container.noDesk .carousel-next").addEventListener("click", nextMobileSlide);
+  document.querySelector(".carousel-container.noDesk .carousel-prev").addEventListener("click", prevMobileSlide);
+</script>
