@@ -1,0 +1,101 @@
+<div class="custom-section">
+  <div class="col col1">
+    <img src="imagen1.jpg" alt="Imagen principal" class="main-image" />
+  </div>
+
+  <div class="col col2">
+    <div class="grid-column">
+      <img src="img1.jpg" alt="uno" />
+      <img src="img2.jpg" alt="dos" />
+      <img src="img3.jpg" alt="tres" />
+      <img src="img4.jpg" alt="cuatro" />
+    </div>
+    <div class="grid-column">
+      <img src="img5.jpg" alt="cinco" />
+      <img src="img6.jpg" alt="seis" />
+      <img src="img7.jpg" alt="siete" />
+      <img src="img8.jpg" alt="ocho" />
+    </div>
+  </div>
+
+  <div class="col col3">
+    <div class="center-content">
+      <h2>Título de la sección</h2>
+      <p>Este es un párrafo explicativo. Puedes editar este texto según tu necesidad.</p>
+      <button>Ver más</button>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .custom-section {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .custom-section .col {
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  .custom-section .col1 {
+    flex-basis: 40%; /* Ajusta este valor para cambiar el tamaño relativo */
+  }
+
+  .custom-section .col2 {
+    flex-basis: 30%;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .custom-section .col2 .grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .custom-section .col2 img,
+  .custom-section .col1 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .custom-section .col3 {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom-section .center-content {
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .custom-section .center-content h2 {
+    margin-bottom: 12px;
+    font-size: 1.5em;
+  }
+
+  .custom-section .center-content p {
+    margin-bottom: 16px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .custom-section .center-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+  }
+</style>
