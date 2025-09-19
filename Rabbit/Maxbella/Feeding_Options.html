@@ -1,0 +1,402 @@
+<section id="fo-scope-1" class="feeding-options" aria-label="Feeding Options">
+    <style>
+        /* ===== Scope aislado ===== */
+        #fo-scope-1 {
+            --bg: #E8DECF;
+            --panel: #F5EEE3;
+            --ink: #1E120C;
+            --muted: #5E544C;
+            --brand: #2B1A12;
+            --divider: #CFC3B2;
+            --accent: #2F8A68;
+            --radius: 18px;
+            --gap: clamp(16px, 3vw, 28px);
+            --container: min(1200px, 92vw);
+            --fade: .6s ease;
+            background: var(--bg);
+            padding: clamp(28px, 5vw, 48px) 0;
+            color: var(--ink);
+            font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        #fo-scope-1 .fo-head {
+            width: var(--container);
+            margin: 0 auto clamp(18px, 4vw, 26px);
+            text-align: center;
+            font-weight: 900;
+            line-height: .95;
+            color: var(--brand);
+            font-size: clamp(34px, 6.5vw, 64px);
+        }
+
+        #fo-scope-1 .fo-wrap {
+            width: var(--container);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* mismo tamaño */
+            gap: var(--gap);
+            align-items: start;
+        }
+
+        /* Panel izquierdo */
+        #fo-scope-1 .fo-panel {
+            background: var(--panel);
+            border-radius: var(--radius);
+            border: 2px solid #00000020;
+            box-shadow: 0 2px 0 #00000014 inset;
+            padding: 0;
+            /* sin padding: la imagen llega al borde */
+            overflow: hidden;
+            /* respeta el radio del panel */
+            height: 100%;
+            display: block;
+            /* dejamos que el contenido fluya vertical */
+        }
+
+        #fo-scope-1 .fo-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(12px, 2vw, 20px);
+            align-items: center;
+        }
+
+        /* padding solo para el bloque de texto, no para la imagen */
+        #fo-scope-1 .fo-card>div {
+            padding: clamp(14px, 2.6vw, 22px)
+        }
+
+        #fo-scope-1 .img-stack {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            /* tamaño uniforme */
+            border-radius: 0;
+            /* el clipping lo hace el panel */
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        #fo-scope-1 .img-stack img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity var(--fade);
+            display: block;
+        }
+
+        #fo-scope-1 .img-stack img.is-front {
+            opacity: 1
+        }
+
+        #fo-scope-1 .fo-kicker {
+            font-weight: 800;
+            font-size: clamp(18px, 2.8vw, 24px);
+            color: var(--brand);
+            margin: 0 0 10px;
+        }
+
+        #fo-scope-1 .fo-desc {
+            color: var(--muted);
+            font-size: clamp(14px, 2.1vw, 16px);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        #fo-scope-1 .fo-desc {
+            color: var(--muted);
+            font-size: clamp(14px, 2.1vw, 16px);
+            line-height: 1.55;
+            margin: 0;
+            text-align: justify;
+            /* Justificado */
+        }
+
+
+        /* Acordeón */
+        #fo-scope-1 .fo-acc {
+            background: transparent;
+            border-radius: var(--radius);
+            overflow: hidden
+        }
+
+        #fo-scope-1 .acc-item {
+            border-top: 1px solid var(--divider)
+        }
+
+        #fo-scope-1 .acc-btn {
+            width: 100%;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: transparent;
+            border: 0;
+            padding: 18px 0;
+            text-align: left;
+            cursor: pointer;
+            color: var(--brand);
+        }
+
+        #fo-scope-1 .acc-plus {
+            flex: 0 0 auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 1;
+            transform: translateY(2px);
+        }
+
+        #fo-scope-1 .acc-title {
+            font-weight: 900;
+            font-size: clamp(18px, 2.8vw, 22px);
+            line-height: 1.2
+        }
+
+        #fo-scope-1 .acc-sub {
+            color: var(--muted);
+            font-size: clamp(13px, 2vw, 15px);
+            margin-top: 6px
+        }
+
+        #fo-scope-1 .acc-content {
+            grid-column: 2/-1;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+            color: var(--muted);
+            padding-right: 4px;
+        }
+
+        #fo-scope-1 .acc-item.is-open .acc-content {
+            max-height: 180px
+        }
+
+        #fo-scope-1 .acc-item.is-open .acc-plus {
+            color: var(--accent)
+        }
+
+        #fo-scope-1 .acc-end {
+            border-top: 1px solid var(--divider);
+            height: 1px
+        }
+
+        #fo-scope-1 .acc-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px
+        }
+
+        /* Responsive dentro del scope */
+        @media (max-width:980px) {
+            #fo-scope-1 .fo-wrap {
+                grid-template-columns: 1fr
+            }
+
+            #fo-scope-1 .fo-panel {
+                height: auto
+            }
+
+            #fo-scope-1 .fo-card {
+                gap: clamp(10px, 2.5vw, 16px)
+            }
+
+            #fo-scope-1 .fo-card>div {
+                padding: clamp(12px, 4vw, 18px)
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            #fo-scope-1 .img-stack img {
+                transition: none
+            }
+
+            #fo-scope-1 .acc-content {
+                transition: none
+            }
+        }
+    </style>
+
+    <h2 class="fo-head">Feeding Options</h2>
+
+    <div class="fo-wrap">
+        <!-- Panel izquierdo dinámico -->
+        <article class="fo-panel" aria-live="polite">
+            <div class="fo-card">
+                <figure class="img-stack" id="fo-img">
+                    <img class="is-front"
+                        src="https://images.unsplash.com/photo-1604908176997-431d2d1b9a96?q=80&w=1400&auto=format&fit=crop"
+                        alt="cover A" width="1200" height="900">
+                    <img src="" alt="cover B" width="1200" height="900">
+                </figure>
+                <div>
+                    <h3 class="fo-kicker" id="fo-title">you want get pet nutrition?</h3>
+                    <p class="fo-desc" id="fo-desc">Use our freeze-dried protein bites as instant rewards or break them
+                        into smaller pieces for training sessions. High-protein and irresistible.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Acordeón (7 opciones) -->
+        <div class="fo-acc" id="fo-accordion">
+            <!-- 1 -->
+            <section class="acc-item is-open">
+                <button class="acc-btn" aria-expanded="true"
+                    data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Rectangle_10680.png?v=1758155287"
+                    data-title="Training Treats &amp; Healthy Snacks"
+                    data-desc="Want to reward your furry friend? Use our freeze-dried protein treats straight from the bag, or break them into smaller pieces for training sessions. These high-protein dog treats and cat treats are paw-fect for those “good boy” and “good girl” moments. Whether you’re training a puppy or working with your seasoned cat, these nutritious treats get the job done!">
+                    <span class="acc-plus">—</span>
+                    <div>
+                        <div class="acc-title">Training Treats &amp; Healthy Snacks </div>
+                        <div class="acc-sub">you want get pet nutrition?</div>
+                    </div>
+                </button>
+                <!--         <div class="acc-content"><p>Tip: keep a pocketful during walks—crumb-free and non-greasy.</p></div>
+ -->
+            </section>
+
+            <!-- 2 -->
+            <section class="acc-item">
+                <button class="acc-btn" aria-expanded="false"
+                    data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Rectangle_10681.png?v=1758155287"
+                    data-title="Clean Food Topper"
+                    data-desc="Got a picky eater on your hands? Just crumble some freeze-dried protein pieces over their regular dog food or cat food - it’s like adding seasoning to their meal! This natural pet food topper boosts nutrition and flavor, making it easier to introduce freeze-dried pet food to even the fussiest furry friends. Trust us, mealtime battles will be a thing of the past!">
+                    <span class="acc-plus">+</span>
+                    <div>
+                        <div class="acc-title">Clean Food Topper</div>
+                        <div class="acc-sub">Dried Pet Food for Dogs and Cats</div>
+                    </div>
+                </button>
+                <!--         <div class="acc-content"><p>Great with kibble, wet food, or homemade recipes.</p></div>
+ -->
+            </section>
+
+            <!-- 3 -->
+            <section class="acc-item">
+                <button class="acc-btn" aria-expanded="false"
+                    data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Rectangle_10682.png?v=1758155287"
+                    data-title="Rehydrated Freeze-Dried Bowls" data-desc="Want to make it into a full meal? Simply add warm or cold water (or bone broth for extra flavor!) to our freeze-dried pet food. Just use equal parts food and liquid, give it a good mix, and wait a few minutes for the magic to happen. For portion sizes, follow your pet’s regular feeding guidelines - remember, freeze-dried food expands when rehydrated! This works great for dogs and cats who love wet food or need that extra hydration boost in their diet!​​​​​​​​​​​​​​​​.​​​​​​​​​​​​​​​​
+">
+                    <span class="acc-plus">+</span>
+                    <div>
+                        <div class="acc-title">Rehydrated For Meals</div>
+                        <div class="acc-sub">Dried Pet Food for Dogs and Cats</div>
+                    </div>
+                </button>
+                <!--         <div class="acc-content"><p>Customize the texture adding more or less water.</p></div>
+ -->
+            </section>
+
+            <!-- 4 -->
+            <!--    <section class="acc-item">
+        <button class="acc-btn" aria-expanded="false"
+          data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/image.png?v=1757813156"
+          data-title="Meal Mix-Ins for Picky Eaters"
+          data-desc="Blend a spoonful into regular meals to enhance taste without adding fillers.">
+          <span class="acc-plus">+</span>
+          <div>
+            <div class="acc-title">Meal Mix-Ins for Picky Eaters</div>
+            <div class="acc-sub">Boost flavor and interest</div>
+          </div>
+        </button>
+        <div class="acc-content"><p>Rotate proteins weekly to keep things exciting.</p></div>
+      </section> -->
+
+            <!-- 5 -->
+            <!-- <section class="acc-item">
+        <button class="acc-btn" aria-expanded="false"
+          data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/image.png?v=1757813156"
+          data-title="Complete Freeze-Dried Meals"
+          data-desc="Balanced recipes for everyday feeding with species-appropriate ingredients and zero artificial additives.">
+          <span class="acc-plus">+</span>
+          <div>
+            <div class="acc-title">Complete Freeze-Dried Meals</div>
+            <div class="acc-sub">Convenience of kibble, quality of raw</div>
+          </div>
+        </button>
+        <div class="acc-content"><p>Just add water and serve. Ready in 60 seconds.</p></div>
+      </section> -->
+
+            <!-- 6 -->
+            <!--  <section class="acc-item">
+        <button class="acc-btn" aria-expanded="false"
+          data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/image.png?v=1757813156"
+          data-title="High-Value Training Rewards"
+          data-desc="Small, soft pieces that keep focus high and calories controlled—ideal for shaping behaviors quickly.">
+          <span class="acc-plus">+</span>
+          <div>
+            <div class="acc-title">High-Value Training Rewards</div>
+            <div class="acc-sub">Stay motivated, stay focused</div>
+          </div>
+        </button>
+        <div class="acc-content"><p>Great for puppy classes and agility drills.</p></div>
+      </section> -->
+
+            <!-- 7 -->
+            <!-- <section class="acc-item">
+        <button class="acc-btn" aria-expanded="false"
+          data-img="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/image.png?v=1757813156"
+          data-title="On-the-Go Snack Packs"
+          data-desc="Single-serve pouches for hikes, travel, and reward breaks—no refrigeration needed.">
+          <span class="acc-plus">+</span>
+          <div>
+            <div class="acc-title">On-the-Go Snack Packs</div>
+            <div class="acc-sub">Travel-friendly portions</div>
+          </div>
+        </button>
+        <div class="acc-content"><p>Stash a few in the car or backpack for adventures.</p></div>
+      </section> -->
+
+            <div class="acc-end"></div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const scope = document.getElementById("fo-scope-1");
+            const acc = scope.querySelector("#fo-accordion");
+            const panelImgStack = scope.querySelector("#fo-img");
+            const titleEl = scope.querySelector("#fo-title");
+            const descEl = scope.querySelector("#fo-desc");
+
+            function crossfade(stackEl, nextSrc) {
+                const imgs = stackEl.querySelectorAll("img");
+                const front = imgs[0].classList.contains("is-front") ? imgs[0] : imgs[1];
+                const back = (front === imgs[0]) ? imgs[1] : imgs[0];
+                back.decoding = "async"; back.loading = "eager";
+                back.src = nextSrc; void back.offsetWidth;
+                back.classList.add("is-front"); front.classList.remove("is-front");
+            }
+
+            function openItem(sectionEl, btn) {
+                acc.querySelectorAll(".acc-item").forEach(s => {
+                    const b = s.querySelector(".acc-btn");
+                    if (s === sectionEl) {
+                        s.classList.add("is-open"); b.setAttribute("aria-expanded", "true");
+                        b.querySelector(".acc-plus").textContent = "—";
+                    } else {
+                        s.classList.remove("is-open"); b.setAttribute("aria-expanded", "false");
+                        b.querySelector(".acc-plus").textContent = "+";
+                    }
+                });
+                if (btn.dataset.img) crossfade(panelImgStack, btn.dataset.img);
+                if (btn.dataset.title) titleEl.textContent = btn.dataset.title;
+                if (btn.dataset.desc) descEl.textContent = btn.dataset.desc;
+            }
+
+            acc.addEventListener("click", (e) => {
+                const btn = e.target.closest(".acc-btn"); if (!btn) return;
+                openItem(btn.closest(".acc-item"), btn);
+            });
+
+            // Inicial: sincroniza panel con el primer ítem
+            const first = acc.querySelector(".acc-item");
+            if (first) { openItem(first, first.querySelector(".acc-btn")); }
+        })();
+    </script>
+</section>

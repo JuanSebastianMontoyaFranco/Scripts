@@ -1,0 +1,216 @@
+<section id="packs-scope-4" aria-label="Product Pack Carousel">
+  <style>
+    /* ===== Estilos 100% scopeados a #packs-scope-4 ===== */
+    #packs-scope-4{
+      --ps4-bg:#2B1A12;
+      --ps4-dot:#F6E9D4; --ps4-dot-active:#F3C049;
+      --ps4-pill:#F3C049; --ps4-pill-text:#6B2C1C;
+      --ps4-title:#F4EFE7; --ps4-text:#D9D0C6;
+      --ps4-brown:#5a2f20; /* contorno café */
+      --ps4-card-radius:18px; --ps4-container:min(1200px,92vw);
+      --ps4-gap:clamp(24px,3vw,36px);
+      font-family:system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:var(--ps4-bg); color:var(--ps4-title);
+      padding:clamp(44px,6vw,68px) 0;
+    }
+    #packs-scope-4 .ps4-wrap{width:var(--ps4-container);margin:auto}
+
+    /* Carrusel */
+    #packs-scope-4 .ps4-rail{position:relative;overflow:hidden;height:clamp(280px,34vw,420px);display:grid;place-items:center;margin-bottom:clamp(14px,2.5vw,20px)}
+    #packs-scope-4 .ps4-track{display:flex;align-items:center;gap:var(--ps4-gap);transition:transform .5s ease;will-change:transform}
+    #packs-scope-4 .ps4-card{position:relative;flex:0 0 auto;width:clamp(220px,26vw,340px);aspect-ratio:1/1;border-radius:var(--ps4-card-radius);display:grid;place-items:center;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25));transition:transform .45s ease,opacity .45s ease,filter .45s ease;opacity:.9;cursor:pointer}
+    #packs-scope-4 .ps4-tile{position:relative;width:100%;height:100%;border-radius:inherit;overflow:hidden;display:grid;place-items:center;background:#ccc}
+    #packs-scope-4 .ps4-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:6px solid var(--ps4-brown);border-radius:inherit}
+
+    /* Badge */
+    #packs-scope-4 .ps4-badge{position:absolute;top:10px;right:12px;background:#8F7DD9;color:#fff;font-weight:800;font-size:12px;padding:6px 10px;border-radius:999px;display:flex;align-items:center;gap:6px;z-index:2;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
+
+    /* Centro destacado */
+    #packs-scope-4 .ps4-card.ps4-center{transform:scale(1.14);opacity:1;filter:drop-shadow(0 24px 26px rgba(0,0,0,.35))}
+    #packs-scope-4 .ps4-card.ps4-center .ps4-img{border-width:8px}
+
+    /* Bullets */
+    #packs-scope-4 .ps4-dots{display:flex;gap:10px;justify-content:center;align-items:center;margin:8px 0 18px}
+    #packs-scope-4 .ps4-dot{width:12px;height:12px;border-radius:999px;background:var(--ps4-dot);opacity:.9;border:2px solid rgba(0,0,0,.15);cursor:pointer}
+    #packs-scope-4 .ps4-dot.ps4-active{background:var(--ps4-dot-active);border-color:transparent}
+
+    /* Meta */
+    #packs-scope-4 .ps4-meta{text-align:center}
+    #packs-scope-4 .ps4-title{font-weight:900;font-size:clamp(22px,3.8vw,36px);letter-spacing:.2px}
+    #packs-scope-4 .ps4-rating{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:6px}
+    #packs-scope-4 .ps4-stars{display:flex;gap:6px}
+    #packs-scope-4 .ps4-star{width:14px;height:14px;background:#F3C049;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+    #packs-scope-4 .ps4-score{color:#F1E7D8;font-weight:700}
+    #packs-scope-4 .ps4-desc{color:var(--ps4-text);line-height:1.55;font-size:clamp(14px,2vw,18px);text-align:center;max-width:820px;margin:10px auto 0}
+
+    /* CTA global (Quick Add con link dinámico) */
+    #packs-scope-4 .ps4-cta-wrap{text-align:center;margin-top:14px}
+    #packs-scope-4 .ps4-cta{
+      display:inline-flex;align-items:center;gap:12px;
+      background:var(--ps4-pill);color:var(--ps4-pill-text);
+      border-radius:999px;padding:14px 22px;font-weight:800;
+      box-shadow:0 8px 0 rgba(0,0,0,.22);border:0;text-decoration:none;
+    }
+    #packs-scope-4 .ps4-bag{width:22px;height:22px;border-radius:999px;background:var(--ps4-pill-text);color:var(--ps4-pill);display:grid;place-items:center;font-weight:900;font-size:14px}
+
+    @media (max-width:900px){
+      #packs-scope-4 .ps4-img{border-width:6px}
+    }
+  </style>
+
+  <div class="ps4-wrap">
+    <!-- Carrusel -->
+    <div class="ps4-rail" data-rail>
+      <div class="ps4-track" data-track></div>
+    </div>
+
+    <!-- Bullets -->
+    <div class="ps4-dots" data-dots></div>
+
+    <!-- Meta dinámica -->
+    <div class="ps4-meta">
+      <div class="ps4-title" data-title>The Whole Pack</div>
+      <div class="ps4-rating">
+        <div class="ps4-stars" aria-hidden="true">
+          <span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span>
+        </div>
+        <span class="ps4-score" data-score>4.9</span>
+      </div>
+      <p class="ps4-desc" data-desc>The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.</p>
+    </div>
+
+    <!-- Quick Add => link dinámico al producto activo -->
+    <div class="ps4-cta-wrap">
+      <a class="ps4-cta" data-cta href="#">
+        <span class="ps4-bag">🛍️</span>
+        <span>Quick Add</span>
+        <span data-price>$24.99</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const root   = document.getElementById("packs-scope-4");
+      const rail   = root.querySelector("[data-rail]");
+      const track  = root.querySelector("[data-track]");
+      const dotsEl = root.querySelector("[data-dots]");
+      const tTitle = root.querySelector("[data-title]");
+      const tDesc  = root.querySelector("[data-desc]");
+      const tScore = root.querySelector("[data-score]");
+      const tPrice = root.querySelector("[data-price]");
+      const tCTA   = root.querySelector("[data-cta]");
+
+      /* Datos (con url para el link del Quick Add) */
+      const data = [
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
+        { title:"The Whole Pack", desc:"The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" }
+      ];
+
+      /* Crea tarjeta */
+      function createCard(item){
+        const card = document.createElement("div"); card.className="ps4-card";
+        const tile = document.createElement("div"); tile.className="ps4-tile";
+        const img  = document.createElement("img"); img.className="ps4-img"; img.alt="Product image"; img.decoding="async"; img.src=item.img;
+        tile.appendChild(img);
+        if(item.badge){
+          const b = document.createElement("div"); b.className="ps4-badge"; b.innerHTML = '🏷️ <span>'+item.badge+'</span>';
+          tile.appendChild(b);
+        }
+        card.appendChild(tile);
+        card.addEventListener("click", ()=> focusCard(card));
+        return card;
+      }
+      data.forEach(d=> track.appendChild(createCard(d)));
+
+      const cards = () => Array.from(track.children);
+      const gap   = () => parseFloat(getComputedStyle(track).gap) || 24;
+      const cW    = () => cards()[0].getBoundingClientRect().width;
+      const rW    = () => rail.clientWidth;
+
+      /* Estado */
+      let center = 1;   // índice DOM centrado
+      let active = 1;   // índice lógico (meta/dots)
+      let animating = false;
+
+      function translateTo(i){
+        const x = (rW()/2) - (i*(cW()+gap()) + cW()/2);
+        track.style.transform = `translateX(${x}px)`;
+        cards().forEach((c,idx)=> c.classList.toggle("ps4-center", idx===i));
+      }
+
+      function setMeta(){
+        // Meta fija: no actualizamos por slide
+      }
+
+      /* Bullets */
+      const dots = data.map((_,i)=>{
+        const b=document.createElement("button"); b.type="button"; b.className="ps4-dot";
+        b.addEventListener("click", ()=> goTo(i));
+        dotsEl.appendChild(b);
+        return b;
+      });
+      function renderDots(){ dots.forEach((d,i)=> d.classList.toggle("ps4-active", i===active)); }
+
+      /* Rotación con cola (solo por interacción) */
+      function next(){
+        if(animating) return; animating = true;
+        center += 1; track.style.transition="transform .5s ease"; translateTo(center);
+        track.addEventListener("transitionend", ()=>{
+          track.style.transition="none";
+          track.appendChild(track.firstElementChild); // rota DOM
+          data.push(data.shift());                    // rota datos
+          center -= 1; translateTo(center);
+          void track.offsetWidth;
+          animating = false;
+          active = (active + 1) % data.length; renderDots();
+        }, {once:true});
+      }
+      function prev(){
+        if(animating) return; animating = true;
+        center -= 1; track.style.transition="transform .5s ease"; translateTo(center);
+        track.addEventListener("transitionend", ()=>{
+          track.style.transition="none";
+          track.insertBefore(track.lastElementChild, track.firstElementChild);
+          data.unshift(data.pop());
+          center += 1; translateTo(center);
+          void track.offsetWidth;
+          animating = false;
+          active = (active - 1 + data.length) % data.length; renderDots();
+        }, {once:true});
+      }
+
+      function goTo(target){
+        if(target === active) return;
+        const n=data.length, fwd=(target-active+n)%n, back=(active-target+n)%n;
+        const step = fwd<=back ? next : prev;
+        let i=0; const run=()=>{ if(i++<Math.min(fwd,back)) { step(); setTimeout(run,520); } };
+        run();
+      }
+
+      function focusCard(cardEl){
+        const idx = cards().indexOf(cardEl);
+        if (idx === center) return;
+        const steps = Math.abs(idx - center);
+        const stepFn = idx > center ? next : prev;
+        let i = 0; const run = () => { if (i++ < steps) { stepFn(); setTimeout(run, 520); } };
+        run();
+      }
+
+      /* Init */
+      translateTo(center);
+      setMeta();        // establece título/desc/precio y HREF inicial
+      renderDots();
+
+      /* Teclado scopeado a la sección */
+      root.addEventListener("keydown", (e)=>{
+        if(e.key === "ArrowRight") next();
+        if(e.key === "ArrowLeft")  prev();
+      });
+    })();
+  </script>

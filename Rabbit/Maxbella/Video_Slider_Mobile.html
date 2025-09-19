@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel Vertical</title>
+  <style>
+    :root {
+      --bg-color: #2D1A0E;        /* café */
+      --text-color: #ffffff;      /* blanco */
+      --dot-active: #ffffff;
+      --dot-inactive: #999999;
+    }
+
+    @media (max-width:768px) {
+      .video-carousel {
+        position: relative;
+        overflow: hidden;
+        padding: 1rem 0 2rem;
+        background: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      .carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+      }
+
+      .video-card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+        background: transparent;
+        position: relative;
+        padding-left: 0.5rem; /* margen a la izquierda para texto y vídeo */
+      }
+
+      /* contenedor fijo para textos */
+      .video-info {
+        min-height: 110px; /* altura fija */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+      }
+
+      .carousel-title {
+        font-size: 1rem;
+        margin: 0.3rem 0 0;
+        color: var(--text-color);
+      }
+
+      .carousel-desc {
+        font-size: 0.8rem;
+        margin: 0 0 0.3rem;
+        color: var(--text-color);
+      }
+
+      .action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background-color: #e9ae22;
+        color: var(--text-color);
+        padding: 0.4rem 0.8rem;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        width: auto;
+        align-self: flex-start;
+        font-weight: 600;
+      }
+
+      /* tamaño del icono */
+      .action-btn img {
+        width: 18px;  /* << ajusta aquí ancho */
+        height: 18px; /* << ajusta aquí alto */
+        object-fit: contain;
+        display: block;
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9/16;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        transition: transform 0.3s ease;
+      }
+
+      .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* overlay solo sobre el video */
+      .video-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0);
+        transition: background 0.3s ease;
+        border-radius: 12px;
+        pointer-events: none;
+      }
+
+      /* escala + overlay cuando no activo */
+      .video-card.not-active .video-wrapper {
+        transform: scale(0.9);
+      }
+
+      .video-card.not-active .video-wrapper::after {
+        background: rgba(0,0,0,0.3);
+      }
+
+      .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 0.8rem;
+      }
+
+      .carousel-indicators span {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: var(--dot-inactive);
+        border-radius: 50%;
+        transition: background 0.3s;
+      }
+
+      .carousel-indicators .active {
+        background: var(--dot-active);
+      }
+    }
+
+    @media (min-width:769px) {
+      .video-carousel { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="video-carousel">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="video-card">
+      <div class="video-info">
+        <h3 class="carousel-title">Trusted by Many, Loved by All 1</h3>
+        <p class="carousel-desc">The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 1</p>
+        <button class="action-btn">
+          <img src="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708" alt="icono">
+          Grab Now
+        </button>
+      </div>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-info">
+        <h3 class="carousel-title">Trusted by Many, Loved by All 2</h3>
+        <p class="carousel-desc">The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 2</p>
+        <button class="action-btn">
+          <img src="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708" alt="icono">
+          Grab Now
+        </button>
+      </div>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-info">
+        <h3 class="carousel-title">Trusted by Many, Loved by All 3</h3>
+        <p class="carousel-desc">The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 3</p>
+        <button class="action-btn">
+          <img src="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708" alt="icono">
+          Grab Now
+        </button>
+      </div>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-indicators" id="carouselIndicators"></div>
+</section>
+
+<script>
+const track = document.getElementById('carouselTrack');
+const cards = [...track.children];
+const indicatorsContainer = document.getElementById('carouselIndicators');
+
+// clonar las primeras para bucle
+cards.slice(0, 2).forEach(c => track.appendChild(c.cloneNode(true)));
+
+// indicadores según número original
+cards.forEach((_, i) => {
+  const dot = document.createElement('span');
+  if (i === 0) dot.classList.add('active');
+  indicatorsContainer.appendChild(dot);
+});
+
+const dots = [...indicatorsContainer.children];
+
+// función para detectar la card activa
+function updateActiveCard() {
+  const trackRect = track.getBoundingClientRect();
+  const center = trackRect.left + trackRect.width / 2;
+
+  [...track.children].forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const cardCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(center - cardCenter);
+    if (distance < rect.width / 2) {
+      card.classList.remove('not-active');
+    } else {
+      card.classList.add('not-active');
+    }
+  });
+}
+
+// actualizar al hacer scroll
+track.addEventListener('scroll', () => {
+  const cardWidth = cards[0].getBoundingClientRect().width + 16;
+  let scrollIndex = Math.round(track.scrollLeft / cardWidth) % cards.length;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[scrollIndex].classList.add('active');
+  updateActiveCard();
+});
+
+// inicializar
+updateActiveCard();
+</script>
+
+</body>
+</html>

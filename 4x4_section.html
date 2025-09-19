@@ -1,0 +1,166 @@
+<section class="feature-section">
+    <h5 class="section-pretitle">SYMPHONY</h5> 
+    <h1 class="main-title">La sinfonía diaria de tu bienestar</h1>
+    
+    <h2 class="section-title small-title">Ingredientes:</h2>
+    <p class="intro-paragraph">
+        Proteína de arveja, magnesio, vitamina D, B6, grasas nobles de coco y aguacate.
+    </p>
+
+    <h3 class="section-title small-title">Beneficios:</h3>
+
+    <div class="features-list">
+        <div class="feature-item">
+            <img src="https://cdn.shopify.com/s/files/1/0860/4290/2885/files/image_21.png?v=1757636819" alt="Icono 1"
+                class="feature-icon">
+            <div class="feature-content">
+                <h4>Energía sostenida</h4>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <img src="https://cdn.shopify.com/s/files/1/0860/4290/2885/files/image_21.png?v=1757636819" alt="Icono 2"
+                class="feature-icon">
+            <div class="feature-content">
+                <h4>Equilibrio cuerpo-mente</h4>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <img src="https://cdn.shopify.com/s/files/1/0860/4290/2885/files/image_21.png?v=1757636819" alt="Icono 3"
+                class="feature-icon">
+            <div class="feature-content">
+                <h4>Claridad mental</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón morado -->
+    <div class="button-wrapper">
+        <a href="#" class="discover-btn">DESCUBRE SYMPHONY</a>
+    </div>
+</section>
+
+<style>
+    .feature-section {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        color: #666;
+    }
+
+    .section-pretitle {
+        padding-bottom: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+        color: #473C75; 
+    }
+
+    .main-title {
+        font-size: 40px !important; /* cambiado a 40px */
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        color: #000;
+    }
+
+    .section-title {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 0.8rem;
+        font-size: 15px;
+        color: #666;
+    }
+
+    .intro-paragraph {
+        font-size: 0.9rem;
+        color: #666;
+        text-align: justify;
+        max-width: 800px;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        color: #666;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .features-list {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .feature-icon {
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+    }
+
+    .feature-content h4 {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: left;
+        color: #666;
+    }
+
+    /* BOTÓN */
+    .button-wrapper {
+        text-align: left; /* alineado a la izquierda */
+        margin-top: 1.5rem;
+    }
+
+    .discover-btn {
+        display: inline-block;
+        background-color: #4B0082;
+        color: #fff;
+        padding: 0.9rem 2.5rem; /* más largo */
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .discover-btn:hover {
+        background-color: #6A0DAD;
+        transform: scale(1.05);
+    }
+
+    @media (min-width: 768px) {
+        .feature-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .main-title {
+            font-size: 2rem; /* responsive */
+        }
+
+        .intro-paragraph {
+            font-size: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .feature-content h4 {
+            font-size: 1rem;
+        }
+    }
+</style>
