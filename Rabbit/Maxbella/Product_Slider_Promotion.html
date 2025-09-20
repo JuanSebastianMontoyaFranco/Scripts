@@ -16,9 +16,9 @@
     #packs-scope-4 .ps4-wrap{width:var(--ps4-container);margin:auto}
 
     /* Carrusel */
-    #packs-scope-4 .ps4-rail{position:relative;overflow:hidden;height:clamp(280px,34vw,420px);display:grid;place-items:center;margin-bottom:clamp(14px,2.5vw,20px)}
+    #packs-scope-4 .ps4-rail{position:relative;overflow:hidden;height:clamp(280px,34vw,420px);display:grid;place-items:center;margin-bottom:clamp(14px,2.5vw,20px);touch-action: pan-y;-webkit-user-select:none;user-select:none}
     #packs-scope-4 .ps4-track{display:flex;align-items:center;gap:var(--ps4-gap);transition:transform .5s ease;will-change:transform}
-    #packs-scope-4 .ps4-card{position:relative;flex:0 0 auto;width:clamp(220px,26vw,340px);aspect-ratio:1/1;border-radius:var(--ps4-card-radius);display:grid;place-items:center;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25));transition:transform .45s ease,opacity .45s ease,filter .45s ease;opacity:.9;cursor:pointer}
+    #packs-scope-4 .ps4-card{position:relative;flex:0 0 auto;width:clamp(220px,26vw,340px);aspect-ratio:1/1;border-radius:var(--ps4-card-radius);display:grid;place-items:center;filter:none;transition:transform .45s ease,opacity .45s ease,filter .45s ease;opacity:.9;cursor:pointer}
     #packs-scope-4 .ps4-tile{position:relative;width:100%;height:100%;border-radius:inherit;overflow:hidden;display:grid;place-items:center;background:#ccc}
     #packs-scope-4 .ps4-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:6px solid var(--ps4-brown);border-radius:inherit}
 
@@ -26,7 +26,7 @@
     #packs-scope-4 .ps4-badge{position:absolute;top:10px;right:12px;background:#8F7DD9;color:#fff;font-weight:800;font-size:12px;padding:6px 10px;border-radius:999px;display:flex;align-items:center;gap:6px;z-index:2;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
 
     /* Centro destacado */
-    #packs-scope-4 .ps4-card.ps4-center{transform:scale(1.14);opacity:1;filter:drop-shadow(0 24px 26px rgba(0,0,0,.35))}
+    #packs-scope-4 .ps4-card.ps4-center{transform:scale(1.14);opacity:1;filter:none}
     #packs-scope-4 .ps4-card.ps4-center .ps4-img{border-width:8px}
 
     /* Bullets */
@@ -212,5 +212,39 @@
         if(e.key === "ArrowRight") next();
         if(e.key === "ArrowLeft")  prev();
       });
+
+      /* Gestos táctiles (swipe) en mobile */
+      let tsX=0, tsY=0, dx=0, didSwipe=false, t0=0;
+      function onTouchStart(ev){
+        const t = ev.touches && ev.touches[0];
+        if(!t) return;
+        tsX = t.clientX; tsY = t.clientY; dx = 0; didSwipe = false; t0 = Date.now();
+      }
+      function onTouchMove(ev){
+        const t = ev.touches && ev.touches[0];
+        if(!t) return;
+        const mx = t.clientX - tsX; const my = t.clientY - tsY;
+        // Solo capturamos si predomina el gesto horizontal
+        if(!didSwipe && Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my)){
+          didSwipe = true;
+        }
+        if(didSwipe){
+          ev.preventDefault(); // evitamos desplazamiento de la página
+          dx = mx;
+        }
+      }
+      function onTouchEnd(){
+        if(!didSwipe) return;
+        const dt = Date.now() - t0;
+        const velocity = Math.abs(dx) / Math.max(dt,1);
+        const threshold = 30; // px
+        if(Math.abs(dx) > threshold || velocity > 0.6){
+          if(dx < 0) next(); else prev();
+        }
+        tsX = tsY = dx = 0; didSwipe = false;
+      }
+      rail.addEventListener('touchstart', onTouchStart, {passive:true});
+      rail.addEventListener('touchmove',  onTouchMove,  {passive:false});
+      rail.addEventListener('touchend',   onTouchEnd,   {passive:true});
     })();
   </script>
