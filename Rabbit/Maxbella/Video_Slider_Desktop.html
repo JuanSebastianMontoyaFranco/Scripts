@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrusel Desktop Texto Fijo Click</title>
+  <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #2D1A0E;
@@ -18,21 +20,22 @@
         width: 100%;
         background: var(--bg-color); /* fondo marrón a todo el ancho */
         color: var(--text-color);
-        padding: 2rem 0;
+        padding: 1.25rem 0; /* menos alto vertical */
       }
 
       .video-carousel-inner {
         max-width: 1200px; /* aquí ajustas ancho máximo */
         margin: 0 auto;
         display: flex;
+        align-items: center; /* centra verticalmente el panel de texto */
       }
 
       .text-panel {
         width: 40%;
-        padding: 2rem;
-        position: sticky;
-        top: 0;
-        align-self: flex-start;
+        padding: 1.25rem; /* menos alto vertical */
+        position: static; /* quitar sticky para centrar */
+        top: auto;
+        align-self: center; /* asegurar centrado vertical */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -76,7 +79,7 @@
       }
 
       .carousel-title {
-        font-size: 1rem;
+        font-size: 60px;
         margin: 0.3rem 0 0;
         color: var(--text-color);
       }
@@ -85,6 +88,7 @@
         font-size: 0.8rem;
         margin: 0 0 0.3rem;
         color: var(--text-color);
+        font-family: 'Literata', serif;
       }
 
       .carousel-track {
@@ -98,7 +102,7 @@
       }
 
       .video-card {
-        flex: 0 0 80%;
+        flex: 0 0 70%; /* menor tamaño horizontal -> menor altura del video */
         scroll-snap-align: center;
         position: relative;
         border-radius: 12px;
@@ -183,7 +187,7 @@
           ready for go-time.</p>
         <a href="#" class="action-btn" id="videoBtn">
           <img src="" id="btnIcon" alt="icono">
-          <span id="btnText">Grab Now</span>
+          <span id="btnText" style="font-family: 'Work Sans', sans-serif;">Grab Now</span>
         </a>
       </div>
 
