@@ -1,0 +1,60 @@
+<section class="promo-section">
+  <style>
+    /* Importamos Mouse Memoirs desde Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+
+    .promo-section {
+      width: 100%;
+      overflow: hidden;
+      background: #f3c049; /* fondo */
+      color: #6b2c1c;      /* texto */
+      font-family: 'Mouse Memoirs', sans-serif; /* aplicamos la fuente */
+      font-size: 25px; /* opcional: ajustar tamaño */
+    }
+
+    .promo-section .promo-bar {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      position: relative;
+    }
+
+    .promo-section .scroll-content {
+      display: inline-block;
+      animation: promo-scroll-left 40s linear infinite; /* más lento */
+    }
+
+    .promo-section span {
+      margin: 0 20px;
+    }
+
+    @keyframes promo-scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%); /* se mueve solo la mitad, porque duplicamos contenido */
+      }
+    }
+  </style>
+
+  <div class="promo-bar">
+    <div class="scroll-content">
+      <span>★ No Preservatives</span>
+      <span>★ No Additives</span>
+      <span>★ No Artificial Flavors & Colors</span>
+      <span>★ No Fillers</span>
+      <span>★ Gluten Free</span>
+      <span>★ Grain Free</span>
+
+      <!-- repetimos para continuidad -->
+      <span>★ No Preservatives</span>
+      <span>★ No Additives</span>
+      <span>★ No Artificial Flavors & Colors</span>
+      <span>★ No Fillers</span>
+      <span>★ Gluten Free</span>
+      <span>★ Grain Free</span>
+    </div>
+  </div>
+</section>
