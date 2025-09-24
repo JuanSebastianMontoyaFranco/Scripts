@@ -13,7 +13,9 @@
       background:var(--ps4-bg); color:var(--ps4-title);
       padding:clamp(44px,6vw,68px) 0;
     }
-    #packs-scope-4 .ps4-wrap{width:var(--ps4-container);margin:auto}
+    #packs-scope-4 .ps4-wrap{width:var(--ps4-container);margin:auto;display:grid;justify-items:center}
+    /* Asegura que el carrusel use todo el ancho del contenedor aun con grid centrado */
+    #packs-scope-4 .ps4-rail{width:100%;justify-self:stretch}
 
     /* Carrusel */
     #packs-scope-4 .ps4-rail{position:relative;overflow:hidden;height:clamp(280px,34vw,420px);display:grid;place-items:center;margin-bottom:clamp(14px,2.5vw,20px);touch-action: pan-y;-webkit-user-select:none;user-select:none}
@@ -34,14 +36,19 @@
     #packs-scope-4 .ps4-dot{width:12px;height:12px;border-radius:999px;background:var(--ps4-dot);opacity:.9;border:2px solid rgba(0,0,0,.15);cursor:pointer}
     #packs-scope-4 .ps4-dot.ps4-active{background:var(--ps4-dot-active);border-color:transparent}
 
-    /* Meta */
-    #packs-scope-4 .ps4-meta{text-align:center}
+    /* Meta (layout como imagen) */
+    #packs-scope-4 .ps4-meta{display:grid;place-items:center}
+    #packs-scope-4 .ps4-row{display:grid;grid-template-columns:auto 1px auto;align-items:center;justify-content:center;gap:clamp(16px,2.5vw,28px);margin-inline:auto}
+    #packs-scope-4 .ps4-left{text-align:left}
+    #packs-scope-4 .ps4-right{text-align:left;max-width:520px}
+    #packs-scope-4 .ps4-divider{width:1px;height:70px;background:rgba(244,239,231,.35);border-radius:2px}
+
     #packs-scope-4 .ps4-title{font-weight:900;font-size:40px;letter-spacing:.2px;font-family: 'Mouse Memoirs', sans-serif;}
-    #packs-scope-4 .ps4-rating{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:6px}
+    #packs-scope-4 .ps4-rating{display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-top:8px}
     #packs-scope-4 .ps4-stars{display:flex;gap:6px}
     #packs-scope-4 .ps4-star{width:14px;height:14px;background:#F3C049;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
     #packs-scope-4 .ps4-score{color:#F1E7D8;font-weight:700}
-    #packs-scope-4 .ps4-desc{color:var(--ps4-text);line-height:1.55;font-size:clamp(14px,2vw,18px);text-align:center;max-width:820px;margin:10px auto 0;  font-family: 'Open Sans', sans-serif;}
+    #packs-scope-4 .ps4-desc{color:var(--ps4-text);line-height:1.55;font-size:clamp(14px,2vw,18px);max-width:520px;margin:0;  font-family: 'Open Sans', sans-serif;}
 
     /* CTA global (Quick Add con link dinámico) */
     #packs-scope-4 .ps4-cta-wrap{text-align:center;margin-top:14px}
@@ -51,10 +58,20 @@
       border-radius:999px;padding:14px 22px;font-weight:800;
       box-shadow:0 8px 0 rgba(0,0,0,.22);border:0;text-decoration:none;
     }
-    #packs-scope-4 .ps4-bag{width:22px;height:22px;border-radius:999px;background:var(--ps4-pill-text);color:var(--ps4-pill);display:grid;place-items:center;font-weight:900;font-size:14px}
+    #packs-scope-4 .ps4-bag{width:22px;height:22px;border-radius:999px;background:var(--ps4-pill-text);display:grid;place-items:center}
+    #packs-scope-4 .ps4-bag img{width:14px;height:14px;display:block;object-fit:contain;filter:invert(83%) sepia(42%) saturate(531%) hue-rotate(345deg) brightness(93%) contrast(87%)}
 
     @media (max-width:900px){
       #packs-scope-4 .ps4-img{border-width:6px}
+    }
+
+    /* Responsive para la sección de texto */
+    @media (max-width:720px){
+      #packs-scope-4 .ps4-row{grid-template-columns:1fr;gap:12px}
+      #packs-scope-4 .ps4-divider{display:none}
+      #packs-scope-4 .ps4-left,#packs-scope-4 .ps4-right{text-align:center}
+      #packs-scope-4 .ps4-rating{justify-content:center}
+      #packs-scope-4 .ps4-desc{max-width:min(560px,85vw);margin:0 auto;text-align:center}
     }
   </style>
 
@@ -69,20 +86,27 @@
 
     <!-- Meta dinámica -->
     <div class="ps4-meta">
-      <div class="ps4-title" data-title>The Whole Pack</div>
-      <div class="ps4-rating">
-        <div class="ps4-stars" aria-hidden="true">
-          <span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span>
+      <div class="ps4-row">
+        <div class="ps4-left">
+          <div class="ps4-title" data-title>The Whole Pack</div>
+          <div class="ps4-rating">
+            <div class="ps4-stars" aria-hidden="true">
+              <span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span>
+            </div>
+            <span class="ps4-score" data-score>4.9</span>
+          </div>
         </div>
-        <span class="ps4-score" data-score>4.9</span>
+        <div class="ps4-divider" aria-hidden="true"></div>
+        <div class="ps4-right">
+          <p class="ps4-desc" data-desc>The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.</p>
+        </div>
       </div>
-      <p class="ps4-desc" data-desc>The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time.</p>
     </div>
 
     <!-- Quick Add => link dinámico al producto activo -->
     <div class="ps4-cta-wrap">
       <a class="ps4-cta" data-cta href="/products/the-whole-pack">
-        <span class="ps4-bag">🛍️</span>
+        <span class="ps4-bag"><img src="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708" alt="Add to cart"></span>
         <span>Quick Add</span>
         <span data-price>$24.99</span>
       </a>
