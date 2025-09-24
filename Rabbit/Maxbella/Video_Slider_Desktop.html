@@ -194,8 +194,8 @@
       <!-- Carrusel de vídeos -->
       <div class="carousel-container">
         <div class="carousel-track" id="carouselTrackDesktop">
-          <div class="video-card" data-title="Trusted by Many, Loved by All 1"
-            data-desc="The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 1"
+          <div class="video-card" data-title="Chicken Breast"
+            data-desc="Pure energy in every strip—ideal for daily fuel and easy grab-and-go snacking."
             data-btn="Grab Now" data-link="#"
             data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
             <div class="video-wrapper">
@@ -205,8 +205,8 @@
             </div>
           </div>
 
-          <div class="video-card" data-title="Trusted by Many, Loved by All 2"
-            data-desc="The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 2"
+          <div class="video-card" data-title="Chicken Hearts"
+            data-desc="Taurine-rich crunchies that support heart health and make training moments effortless."
             data-btn="Grab Now" data-link="#"
             data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
             <div class="video-wrapper">
@@ -216,8 +216,52 @@
             </div>
           </div>
 
-          <div class="video-card" data-title="Trusted by Many, Loved by All 3"
-            data-desc="The full flavor tour: seven single-ingredient treats, vacuum-sealed and ready for go-time. 3"
+          <div class="video-card" data-title="Beef Liver"
+            data-desc="Packed with iron and vitamins for shiny coats, strong immunity, and a bold taste pets crave."
+            data-btn="Grab Now" data-link="#"
+            data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
+            <div class="video-wrapper">
+              <video autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="video-card" data-title="Salmon"
+            data-desc="Omega-3 rich bites that keep skin glowing, joints moving, and lifestyles shining."
+            data-btn="Grab Now" data-link="#"
+            data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
+            <div class="video-wrapper">
+              <video autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="video-card" data-title="Capelin"
+            data-desc="Calcium-loaded whole fish that strengthen bones and add foodie flair to treat time."
+            data-btn="Grab Now" data-link="#"
+            data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
+            <div class="video-wrapper">
+              <video autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="video-card" data-title="Antarctic Krill"
+            data-desc="Antioxidant-rich minis with brain, heart, and coat benefits—portable and powerful."
+            data-btn="Grab Now" data-link="#"
+            data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
+            <div class="video-wrapper">
+              <video autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="video-card" data-title="The Whole Pack"
+            data-desc="Six proteins designed for rotation—keeping nutrition balanced, cravings fresh, and discovery ongoing."
             data-btn="Grab Now" data-link="#"
             data-icon="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708">
             <div class="video-wrapper">
@@ -244,7 +288,7 @@
     let cardsDesktop = [...trackDesktop.children];
 
     // clonar primeras para bucle
-    cardsDesktop.slice(0, 2).forEach(c => trackDesktop.appendChild(c.cloneNode(true)));
+    cardsDesktop.slice(0, 7).forEach(c => trackDesktop.appendChild(c.cloneNode(true)));
 
     // indicadores
     cardsDesktop.forEach((_, i) => {
