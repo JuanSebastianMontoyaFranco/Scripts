@@ -54,12 +54,14 @@
     #packs-scope-4 .ps4-cta-wrap{text-align:center;margin-top:14px}
     #packs-scope-4 .ps4-cta{
       display:inline-flex;align-items:center;gap:12px;
-      background:var(--ps4-pill);color:var(--ps4-pill-text);
-      border-radius:999px;padding:14px 22px;font-weight:800;
+      background:var(--ps4-pill);color:#000;
+      border-radius:999px;padding:14px 22px;
       box-shadow:0 8px 0 rgba(0,0,0,.22);border:0;text-decoration:none;
+        font-family: 'Open Sans', sans-serif;
+
     }
-    #packs-scope-4 .ps4-bag{width:22px;height:22px;border-radius:999px;background:var(--ps4-pill-text);display:grid;place-items:center}
-    #packs-scope-4 .ps4-bag img{width:14px;height:14px;display:block;object-fit:contain;filter:invert(83%) sepia(42%) saturate(531%) hue-rotate(345deg) brightness(93%) contrast(87%)}
+    #packs-scope-4 .ps4-bag{display:grid;place-items:center;background:transparent;border-radius:0;padding:0}
+    #packs-scope-4 .ps4-bag svg{width:20px;height:20px;display:block}
 
     @media (max-width:900px){
       #packs-scope-4 .ps4-img{border-width:6px}
@@ -106,7 +108,18 @@
     <!-- Quick Add => link dinámico al producto activo -->
     <div class="ps4-cta-wrap">
       <a class="ps4-cta" data-cta href="/products/the-whole-pack">
-        <span class="ps4-bag"><img src="https://cdn.shopify.com/s/files/1/0941/1457/8711/files/cart-icon.png?v=1758206708" alt="Add to cart"></span>
+        <span class="ps4-bag">
+          <svg
+            class="m-svg-icon--medium"
+            fill="currentColor"
+            stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            aria-hidden="true"
+          >
+            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+          </svg>
+        </span>
         <span>Quick Add</span>
         <span data-price>$24.99</span>
       </a>
