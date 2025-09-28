@@ -224,6 +224,7 @@
         }
 
         /* ====== Sticky de la primera columna SOLO en vistas estrechas ====== */
+
         @media (max-width: 900px) {
             .protein-table th.row-head {
                 position: sticky;
@@ -235,17 +236,13 @@
                 font-size: 11px;
                 line-height: 1.15;
                 width: 110px;
-                /* más estrecha en mobile para ver más columnas */
                 white-space: normal;
-                /* permitir salto de línea en títulos largos */
             }
 
-            /* Sombrilla por detrás para que la columna sticky no tape bordes */
             .protein-scroller {
                 overflow-x: auto;
             }
 
-            /* Ajuste de anchos en mobile */
             .protein-table col.col-head {
                 width: 110px;
             }
@@ -255,7 +252,59 @@
             }
         }
 
-        /* Ajustes visuales finos */
+        @media (max-width: 640px) {
+            .protein-wrap {
+                padding: 16px 10px;
+            }
+
+            .protein-inner {
+                padding-inline: 0;
+            }
+
+            .protein-table {
+                min-width: 0;
+                border-spacing: 6px 8px;
+                padding: 4px;
+            }
+
+            .protein-table thead th {
+                padding: 8px 8px;
+                font-size: 10.5px;
+            }
+
+            .protein-table th.row-head {
+                width: 132px;
+                padding-left: 0;
+                padding-right: 6px;
+                white-space: nowrap;
+                font-size: 10px;
+                line-height: 1.1;
+                background: linear-gradient(90deg, var(--panel) 48%, transparent);
+            }
+
+            .protein-table col.col-head {
+                width: 132px;
+            }
+
+            .protein-table col.col-data {
+                width: 84px;
+            }
+
+            .protein-card {
+                min-width: 32px;
+                height: 32px;
+            }
+
+            .dot {
+                width: 16px;
+                height: 16px;
+            }
+
+            .dot svg {
+                width: 9px;
+                height: 9px;
+            }
+        }
         .protein-table tr {
             height: 46px;
         }
@@ -754,3 +803,9 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
