@@ -1,0 +1,54 @@
+<section class="promo-section">
+  <style>
+    /* Importa Inter */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    .promo-section {
+      width: 100%;
+      overflow: hidden;
+      background: #463D76; /* fondo */
+      color: #FFFFFF;      /* texto */
+      font-family: 'Inter', sans-serif; /* <- aquí */
+      font-weight: bold;
+    }
+
+    .promo-section .promo-bar {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      height: 55px; /* más ancha */
+      position: relative;
+    }
+
+    .promo-section .scroll-content {
+      display: inline-block;
+      animation: promo-scroll-left 40s linear infinite; /* más lento */
+    }
+
+    .promo-section span {
+      margin: 0 25px;
+      font-size: 18px;
+    }
+
+    @keyframes promo-scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%); /* se mueve solo la mitad, porque duplicamos contenido */
+      }
+    }
+  </style>
+
+  <div class="promo-bar">
+    <div class="scroll-content">
+      <span>✔ Ingredientes naturales y seguros</span>
+      <span>✔ Inspirado en la sabiduría japonesa</span>
+      <span>✔ Bienestar que se siente desde adentro</span>
+      <span>✔ Vitalidad con propósito</span>
+      <span>✔ Ingredientes naturales y seguros</span>
+      <span>✔ Inspirado en la sabiduría japonesa</span>
+      <span>✔ Bienestar que se siente desde adentro</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,365 @@
+<section class="product-detail-carousel">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    .product-detail-carousel {
+      width: 100%;
+      background: linear-gradient(135deg, #eaf7ff 0%, #d6e3ff 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.4s ease;
+    }
+
+    .product-detail-carousel__intro {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 48px;
+      color: #3c3c3c;
+    }
+
+    .product-detail-carousel__title-section {
+      font-size: 40px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin: 0 0 18px;
+    }
+
+    .product-detail-carousel__title-section-highlight {
+      display: block;
+      color: #463775;
+    }
+
+    .product-detail-carousel__subtitle-section {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+      color: #4c5161;
+    }
+
+    .product-detail-carousel__wrapper {
+      width: min(1200px, 90vw);
+    }
+
+    .product-detail-carousel__info {
+      color: #3c3c3c;
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(360px, 1fr);
+      grid-template-areas:
+        'title visual'
+        'stars visual'
+        'description visual'
+        'price visual'
+        'cta visual'
+        'nav visual';
+      column-gap: 96px;
+      row-gap: 18px;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .product-detail-carousel__title {
+      grid-area: title;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0;
+      color: #373041;
+    }
+
+    .product-detail-carousel__stars {
+      grid-area: stars;
+      font-size: 22px;
+      letter-spacing: 6px;
+      color: #463775;
+      margin: 0;
+    }
+
+    .product-detail-carousel__description {
+      grid-area: description;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+      color: #4c5161;
+    }
+
+    .product-detail-carousel__price {
+      grid-area: price;
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0;
+      color: #2e2e2e;
+    }
+
+    .product-detail-carousel__cta {
+      grid-area: cta;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 36px;
+      background: #4f3fa5;
+      color: #fff;
+      border-radius: 18px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .product-detail-carousel__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(79, 63, 165, 0.25);
+    }
+
+    .product-detail-carousel__nav {
+      grid-area: nav;
+      margin: 32px auto 0;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .product-detail-carousel__nav-button {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 2px solid #3f356e;
+      background: transparent;
+      color: #3f356e;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .product-detail-carousel__nav-button:hover {
+      background: #3f356e;
+      color: #fff;
+    }
+
+    .product-detail-carousel__visual {
+      grid-area: visual;
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 32px;
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      justify-self: stretch;
+    }
+
+    .product-detail-carousel__image-frame {
+      position: relative;
+      padding-top: 120%;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .product-detail-carousel__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.35s ease;
+    }
+
+    .product-detail-carousel__image--hover {
+      opacity: 0;
+    }
+
+    .product-detail-carousel__image-frame:hover .product-detail-carousel__image--hover {
+      opacity: 1;
+    }
+
+    .product-detail-carousel__image-frame:hover .product-detail-carousel__image--primary {
+      opacity: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .product-detail-carousel__info {
+        grid-template-columns: minmax(260px, 1fr) minmax(320px, 1fr);
+        column-gap: 64px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-detail-carousel {
+        padding: 48px 0;
+      }
+
+      .product-detail-carousel__intro {
+        margin-bottom: 36px;
+      }
+
+      .product-detail-carousel__title-section {
+        font-size: 32px;
+      }
+
+      .product-detail-carousel__title {
+        font-size: 24px;
+      }
+
+      .product-detail-carousel__info {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          'title'
+          'stars'
+          'visual'
+          'description'
+          'price'
+          'cta'
+          'nav';
+        row-gap: 20px;
+      }
+
+      .product-detail-carousel__visual {
+        width: min(420px, 82vw);
+        padding: 0;
+        justify-self: center;
+      }
+
+      .product-detail-carousel__description,
+      .product-detail-carousel__price,
+      .product-detail-carousel__cta,
+      .product-detail-carousel__nav {
+        justify-self: center;
+      }
+    }
+  </style>
+
+  <div class="product-detail-carousel__intro">
+    <h2 class="product-detail-carousel__title-section">Descubre tu<br /><span class="product-detail-carousel__title-section-highlight">vitalidad</span></h2>
+  </div>
+
+  <div class="product-detail-carousel__wrapper" data-carousel>
+    <div class="product-detail-carousel__info">
+      <h3 class="product-detail-carousel__title" data-carousel-title>Symphony</h3>
+      <div class="product-detail-carousel__stars" aria-hidden="true" data-carousel-stars>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="product-detail-carousel__visual" data-carousel-visual>
+        <div class="product-detail-carousel__image-frame">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO.png?v=1759087514"
+            alt="Imagen frontal del producto"
+            class="product-detail-carousel__image product-detail-carousel__image--primary"
+            data-carousel-image-primary
+          />
+          <img
+            src="https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_TABLA.png?v=1759087510"
+            alt="Segunda vista del producto"
+            class="product-detail-carousel__image product-detail-carousel__image--hover"
+            data-carousel-image-hover
+          />
+        </div>
+      </div>
+      <p class="product-detail-carousel__description" data-carousel-description>
+        Para aquellos que entienden que cada día es una nueva oportunidad de cuidarse.
+      </p>
+      <p class="product-detail-carousel__price" data-carousel-price>$120.000</p>
+      <a class="product-detail-carousel__cta" href="#" data-carousel-cta>
+        AÑADIR AL CARRITO
+      </a>
+      <div class="product-detail-carousel__nav">
+        <button class="product-detail-carousel__nav-button" type="button" data-carousel-prev>&lt;</button>
+        <button class="product-detail-carousel__nav-button" type="button" data-carousel-next>&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const products = [
+        {
+          name: 'Symphony',
+          description: 'Para aquellos que entienden que cada día es una nueva oportunidad de cuidarse.',
+          price: '$120.000',
+          rating: 5,
+          primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO.png?v=1759087514',
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_TABLA.png?v=1759087510',
+          background: '#fff9f2',
+          link: '#/producto/symphony'
+        },
+        {
+          name: 'Synergy',
+          description: 'Para quienes abrazan la vida con la sabiduría de los años',
+          price: '$115.000',
+          rating: 5,
+          primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_7caa241b-5649-42b8-8654-c361d6db386d.png?v=1759087519',
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_TABLAT.png?v=1759087518',
+          background: '#f2ffdf',
+          link: '#/producto/synergy'
+        },
+        {
+          name: 'Caja duo',
+          description: 'Ideal para despedir el día con una mezcla que invita al descanso profundo.',
+          price: '$200.000',
+          rating: 5,
+          primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_Nocturne.png?v=1759087523',
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_Nocturne_Tabla.png?v=1759087521',
+          background: '#fff9f2',
+          link: '#/producto/nocturne'
+        }
+      ];
+
+      const sectionEl = document.querySelector('.product-detail-carousel');
+      const titleEl = document.querySelector('[data-carousel-title]');
+      const descEl = document.querySelector('[data-carousel-description]');
+      const priceEl = document.querySelector('[data-carousel-price]');
+      const starsEl = document.querySelector('[data-carousel-stars]');
+      const ctaEl = document.querySelector('[data-carousel-cta]');
+      const primaryImageEl = document.querySelector('[data-carousel-image-primary]');
+      const hoverImageEl = document.querySelector('[data-carousel-image-hover]');
+      const prevButton = document.querySelector('[data-carousel-prev]');
+      const nextButton = document.querySelector('[data-carousel-next]');
+
+      let currentIndex = 0;
+
+      function renderProduct(index) {
+        const product = products[index];
+
+        titleEl.textContent = product.name;
+        descEl.textContent = product.description;
+        priceEl.textContent = product.price;
+        primaryImageEl.src = product.primaryImage;
+        primaryImageEl.alt = `Imagen principal de ${product.name}`;
+        hoverImageEl.src = product.hoverImage;
+        hoverImageEl.alt = `Imagen secundaria de ${product.name}`;
+        ctaEl.textContent = 'AÑADIR AL CARRITO';
+        if (product.link) {
+          ctaEl.setAttribute('href', product.link);
+        } else {
+          ctaEl.setAttribute('href', '#');
+        }
+
+        if (sectionEl) {
+          sectionEl.style.background = product.background;
+        }
+
+        const filledStar = '&#9733;';
+        const emptyStar = '&#9734;';
+        starsEl.innerHTML = `${filledStar.repeat(product.rating)}${emptyStar.repeat(Math.max(0, 5 - product.rating))}`;
+        starsEl.setAttribute('aria-label', `${product.rating} de 5 estrellas`);
+      }
+
+      function showPrevious() {
+        currentIndex = (currentIndex - 1 + products.length) % products.length;
+        renderProduct(currentIndex);
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % products.length;
+        renderProduct(currentIndex);
+      }
+
+      prevButton.addEventListener('click', showPrevious);
+      nextButton.addEventListener('click', showNext);
+
+      renderProduct(currentIndex);
+    })();
+  </script>
+</section>
