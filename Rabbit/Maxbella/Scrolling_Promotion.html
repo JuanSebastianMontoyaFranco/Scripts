@@ -6,10 +6,10 @@
     .promo-section {
       width: 100%;
       overflow: hidden;
-      background: #f3c049;
-      color: #6b2c1c;
-      font-family: 'Mouse Memoirs', sans-serif;
-      font-size: 40px;
+      background: #f3c049; /* fondo */
+      color: #6b2c1c;      /* texto */
+      font-family: 'Mouse Memoirs', sans-serif; /* aplicamos la fuente */
+      font-size: 40px; /* tamaño del texto */
     }
 
     .promo-section .promo-bar {
@@ -22,7 +22,7 @@
 
     .promo-section .scroll-content {
       display: inline-block;
-      animation: promo-scroll-left 40s linear infinite;
+      animation: promo-scroll-left 40s linear infinite; /* más lento */
     }
 
     .promo-section .scroll-content span {
@@ -35,26 +35,6 @@
     .promo-section .scroll-content span img {
       width: 32px;
       height: 32px;
-    }
-
-    @media (max-width: 600px) {
-      .promo-section {
-        font-size: 18px;
-      }
-
-      .promo-section .promo-bar {
-        height: 38px;
-      }
-
-      .promo-section .scroll-content span {
-        gap: 6px;
-        margin: 0 10px;
-      }
-
-      .promo-section .scroll-content span img {
-        width: 18px;
-        height: 18px;
-      }
     }
 
     @keyframes promo-scroll-left {

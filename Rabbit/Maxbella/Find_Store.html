@@ -157,10 +157,13 @@ font-family: 'Open Sans', sans-serif;
 
 @media (max-width:768px){
   .locator-container{flex-direction:column;}
+  .locator-sidebar{display:flex;flex-direction:column;gap:16px;}
+  .locator-search-box{order:1;margin-bottom:20px;padding-bottom:20px;}
+  .locator-location-list{order:2;}
   .locator-map-container{height:300px;}
+  .locator-map-container.mobile-only{order:3;margin-top:0;}
   .mobile-only{display:block;}
   .desktop-only{display:none;}
-  .locator-search-box{margin-bottom:20px; padding-bottom: 20px}
 }
 @media (min-width:769px){
   .locator-container{

@@ -1,0 +1,99 @@
+<div class="custom-menu-container">
+  <div class="custom-menu-wrapper">
+    <div class="custom-menu">
+      <a href="/collections/meet" class="menu-item">Meat</a>
+      <a href="/collections/seafood-fish" class="menu-item">Seafood/fish</a>
+      <a href="/collections/merch" class="menu-item">Merch</a>
+      <a href="/collections/all-goods" class="menu-item">All Goods</a>
+      <a href="/collections/best-sellers" class="menu-item">Best Sellers</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Literata:wght@400;500;600;700&display=swap');
+
+  .custom-menu-container {
+    position: relative;
+    margin: 0 auto;
+    font-family: 'Literata', serif;
+  }
+
+  .custom-menu-wrapper {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem;
+    scrollbar-width: none;
+  }
+  .custom-menu-wrapper::-webkit-scrollbar { display: none; }
+
+  .custom-menu {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .menu-item {
+    flex: 1 1 0;
+    text-decoration: none;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    padding: 0.45rem 0.35rem;
+    border-radius: 6px;
+    white-space: normal;
+    background-color: #FFF2DE;
+    border: 2px solid #2F8A68;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.2s;
+  }
+
+  .menu-item:hover {
+    background-color: #FFF2DE;
+    border-color: #2F8A68;
+  }
+
+  .menu-item:focus-visible {
+    outline: 2px solid #2F8A68;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(47,138,104,0.15);
+  }
+
+  .menu-item.active {
+    background-color: #2F8A68;
+    color: #ffffff;
+    border-color: #2F8A68;
+  }
+
+  @media (min-width: 768px) {
+    .custom-menu-wrapper {
+      overflow: visible;
+    }
+
+    .custom-menu {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      width: auto;
+    }
+
+    .menu-item {
+      flex: 0 0 auto;
+      padding: 0.35rem 1rem;
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname;
+    const menuLinks = document.querySelectorAll(".menu-item");
+
+    menuLinks.forEach((link) => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
