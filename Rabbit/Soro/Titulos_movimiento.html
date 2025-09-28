@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Titulos en Movimiento</title>
+    <style>
+      .titulos-body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #111;
+        font-family: Arial, sans-serif;
+        color: #f5f5f5;
+      }
+
+      .titulos-wrapper {
+        text-align: center;
+        line-height: 1.12;
+        font-size: 2rem;
+        letter-spacing: 0.04em;
+        padding: 1.5rem 0;
+      }
+
+      .titulos-linea {
+        display: block;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .titulos-linea--visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .titulos-linea--principal {
+        font-weight: 700;
+      }
+
+      .titulos-linea--secundaria {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="titulos-body">
+    <div class="titulos-wrapper">
+      <span id="linea1" class="titulos-linea titulos-linea--principal"></span>
+      <span id="linea2" class="titulos-linea titulos-linea--secundaria"></span>
+    </div>
+
+    <script>
+      const frases = [
+        ["Impulsa tu negocio", "con tecnologia inteligente"],
+        ["Automatiza tus procesos", "y gana tiempo para innovar"],
+        ["Transforma tus ideas", "en experiencias memorables"],
+      ];
+
+      let indice = 0;
+      const linea1 = document.getElementById("linea1");
+      const linea2 = document.getElementById("linea2");
+
+      function mostrarFrase() {
+        const [texto1, texto2] = frases[indice];
+        linea1.textContent = texto1;
+        linea2.textContent = texto2;
+
+        requestAnimationFrame(() => {
+          linea1.classList.add("titulos-linea--visible");
+          linea2.classList.add("titulos-linea--visible");
+        });
+      }
+
+      function rotarFrases() {
+        linea1.classList.remove("titulos-linea--visible");
+        linea2.classList.remove("titulos-linea--visible");
+
+        setTimeout(() => {
+          indice = (indice + 1) % frases.length;
+          mostrarFrase();
+        }, 200);
+      }
+
+      mostrarFrase();
+      setInterval(rotarFrases, 5000);
+    </script>
+  </body>
+</html>

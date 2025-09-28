@@ -15,11 +15,10 @@
       --card-shadow: 0 24px 50px -34px rgba(0, 0, 0, 0.55);
       --card-shadow-active: 0 32px 60px -28px rgba(0, 0, 0, 0.65);
       --transition: 360ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      --gap: 28px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -35,11 +34,7 @@
       padding: 100px 40px 128px;
     }
 
-    .hero-header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
+    .hero-header { text-align: center; margin-bottom: 70px; }
     .hero-kicker {
       font-size: clamp(16px, 1.6vw, 18px);
       font-weight: 600;
@@ -48,82 +43,36 @@
       color: rgba(47, 42, 38, 0.45);
       margin-bottom: 18px;
     }
-
-    .hero-title {
-      font-family: var(--header-font);
-      font-size: clamp(36px, 4.6vw, 58px);
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .hero-subtitle {
-      font-family: var(--header-font);
-      font-weight: 300;
-      font-size: clamp(20px, 2.4vw, 30px);
-      margin: 10px 0 20px;
-      color: rgba(47, 42, 38, 0.75);
-      font-style: italic;
-    }
-
-    .hero-description {
-      max-width: 520px;
-      margin: 0 auto;
-      font-size: clamp(15px, 1.5vw, 18px);
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+    .hero-title { font-family: var(--header-font); font-size: clamp(36px, 4.6vw, 58px); font-weight: 600; margin: 0; }
+    .hero-subtitle { font-family: var(--header-font); font-weight: 300; font-size: clamp(20px, 2.4vw, 30px); margin: 10px 0 20px; color: rgba(47, 42, 38, 0.75); font-style: italic; }
+    .hero-description { max-width: 520px; margin: 0 auto; font-size: clamp(15px, 1.5vw, 18px); color: var(--text-muted); line-height: 1.6; }
 
     .card-grid {
       display: grid;
-      grid-template-columns: minmax(240px, 300px) repeat(2, minmax(320px, 1fr));
-      grid-auto-rows: auto;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: var(--gap);
       align-items: stretch;
-      gap: 28px;
-      transition: grid-template-columns var(--transition);
-    }
-
-    .info-block {
-      grid-column: 1;
-      grid-row: 1;
-      align-self: center;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-height: 320px;
-      transition: opacity var(--transition), transform var(--transition), max-height var(--transition), margin var(--transition);
-    }
-
-    .info-block h3 {
-      margin: 0;
-      font-family: var(--header-font);
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 600;
-    }
-
-    .info-block p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: clamp(14px, 1.3vw, 17px);
-      line-height: 1.6;
+      transition: gap var(--transition);
     }
 
     .product-card {
       position: relative;
       border-radius: var(--card-radius);
       overflow: hidden;
-      min-height: 320px;
-      padding: 26px 30px;
+      padding: 18px 22px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 12px;
+      justify-content: flex-start;
       color: #fff;
       background-size: cover;
       background-position: center;
       box-shadow: var(--card-shadow);
-      transition: transform var(--transition), box-shadow var(--transition);
       cursor: pointer;
       isolation: isolate;
       transform-origin: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      min-height: 160px;
     }
 
     .product-card::before {
@@ -135,106 +84,57 @@
       transition: opacity var(--transition);
     }
 
-    .product-card[data-product="symphony"] {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .product-card[data-product="synergy"] {
-      grid-column: 3;
-      grid-row: 1;
-    }
-
     .product-card.expanded {
       transform: scale(1.02) translateY(-4px);
       box-shadow: var(--card-shadow-active);
-      min-height: 340px;
-    }
-
-    .product-card.expanded[data-product="symphony"] {
-      grid-column: 1 / span 2;
-    }
-
-    .product-card.expanded[data-product="synergy"] {
-      grid-column: 2 / span 2;
     }
 
     .product-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 20px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 10px; margin-bottom: 12px;
     }
 
     .product-tag {
-      padding: 6px 20px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-      color: #1a2f29;
-      background: rgba(248, 255, 253, 0.9);
-      box-shadow: 0 8px 20px -10px rgba(60, 192, 164, 0.55);
-      backdrop-filter: blur(8px);
+      padding: 6px 20px; border-radius: 999px; font-size: 12px; letter-spacing: 0.12em;
+      font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center;
+      line-height: 1; color: #1a2f29; background: rgba(248,255,253,0.9);
+      box-shadow: 0 8px 20px -10px rgba(60,192,164,0.55); backdrop-filter: blur(8px);
     }
-
-    .product-tag[data-variant="synergy"] {
-      color: #fff;
-      background: rgba(97, 22, 51, 0.85);
-      box-shadow: 0 8px 20px -10px rgba(97, 22, 51, 0.7);
-    }
+    .product-tag[data-variant="synergy"] { color:#fff; background: rgba(97,22,51,0.85); box-shadow: 0 8px 20px -10px rgba(97,22,51,0.7); }
+    .product-tag[data-variant="ritual"] { color:#fff; background: rgba(122,83,36,0.85); box-shadow: 0 8px 20px -10px rgba(122,83,36,0.7); }
 
     .product-toggle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(6px);
-      color: #2f2a26;
-      font-size: 20px;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: transform var(--transition), background var(--transition), color var(--transition);
+      width: 40px; height: 40px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
+      color: #2f2a26; font-size: 20px; display: grid; place-items: center;
+      cursor: pointer; transition: transform var(--transition), background var(--transition), color var(--transition);
     }
-
-    .product-card.expanded .product-toggle {
-      background: rgba(0, 0, 0, 0.65);
-      color: #fff;
-      transform: rotate(45deg);
-    }
+    .product-card.expanded .product-toggle { background: rgba(0,0,0,0.65); color:#fff; transform: rotate(45deg); }
 
     .product-inner {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      transition: gap var(--transition), flex-direction var(--transition);
+      gap: 12px;
+      transition: gap var(--transition);
     }
 
-    .product-card.expanded .product-inner {
-      flex-direction: row;
-      align-items: flex-end;
-      gap: 40px;
+    .product-card:not(.expanded) .product-inner {
+      gap: 8px;
     }
 
     .product-primary {
-      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-width: 460px;
+      gap: 0;
+    }
+
+    .product-card.expanded .product-primary {
+      gap: 10px;
     }
 
     .product-title {
       font-family: var(--header-font);
-      font-size: clamp(20px, 2.3vw, 28px);
+      font-size: clamp(18px, 1.9vw, 23px);
       font-weight: 600;
       margin: 0;
       line-height: 1.2;
@@ -242,55 +142,47 @@
 
     .product-summary {
       margin: 0;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 500;
       line-height: 1.45;
+      color: rgba(255, 255, 255, 0.88);
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      visibility: hidden;
+      transition: max-height var(--transition), opacity var(--transition);
     }
 
     .product-details {
-      flex: 0 0 0%;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      pointer-events: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transform: translateX(20px);
-      transition: max-width var(--transition), opacity var(--transition), transform var(--transition);
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transform: translateY(8px);
+      visibility: hidden;
+      transition: max-height var(--transition), opacity var(--transition), transform var(--transition);
+    }
+
+    .product-card.expanded .product-summary {
+      max-height: 160px;
+      opacity: 1;
+      visibility: visible;
     }
 
     .product-card.expanded .product-details {
-      flex: 1 1 280px;
-      max-width: 360px;
+      max-height: 520px;
       opacity: 1;
       pointer-events: auto;
-      transform: translateX(0);
+      transform: translateY(0);
+      visibility: visible;
     }
 
-    .product-description {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.88);
-    }
-
-    .product-benefits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .product-benefits span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 12px;
-      font-weight: 500;
-    }
+    .product-description { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.88); }
+    .product-benefits { display: flex; flex-wrap: wrap; gap: 8px; }
+    .product-benefits span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 500; }
 
     .product-cta {
       align-self: flex-start;
@@ -308,112 +200,34 @@
     }
 
     .product-card.expanded .product-cta {
-      transform: translateX(4px);
+      transform: translateY(2px);
       box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.63);
     }
 
-    .card-grid[data-active] {
-      row-gap: 36px;
-    }
-
-    .card-grid[data-active] .info-block {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      align-self: start;
-      max-height: 320px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-grid[data-active="symphony"] {
-      grid-template-columns: minmax(240px, 300px) minmax(340px, 1.15fr) minmax(320px, 1fr);
-    }
-
-    .card-grid[data-active="symphony"] .info-block {
-      opacity: 0;
-      transform: translateX(-24px);
-      max-height: 0;
-      margin: 0;
-      pointer-events: none;
-    }
-
-    .card-grid[data-active="symphony"] [data-product="symphony"] {
-      grid-column: 1 / span 2;
-    }
-
-    .card-grid[data-active="synergy"] {
-      grid-template-columns: minmax(240px, 300px) minmax(300px, 0.95fr) minmax(360px, 1.2fr);
-    }
-
-    .card-grid[data-active="synergy"] [data-product="symphony"] {
-      grid-column: 1;
-    }
-
-    .card-grid[data-active="synergy"] [data-product="synergy"] {
-      grid-column: 2 / span 2;
-    }
-
+    /* Responsive */
     @media (max-width: 1120px) {
       .card-grid {
-        grid-template-columns: minmax(220px, 280px) repeat(2, minmax(260px, 1fr));
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        gap: 24px;
       }
     }
 
-    @media (max-width: 920px) {
+    @media (max-width: 768px) {
       .hero {
         padding-inline: 28px;
       }
 
       .card-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .info-block,
-      .card-grid[data-active] .info-block {
-        grid-column: auto;
-        grid-row: auto;
-        max-height: none;
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-        margin: 0;
-      }
-
-      .product-card {
-        grid-column: auto;
-        grid-row: auto;
-        min-height: 300px;
-      }
-
-      .product-card.expanded,
-      .product-card.expanded[data-product="symphony"],
-      .product-card.expanded[data-product="synergy"],
-      .card-grid[data-active="symphony"] [data-product="symphony"],
-      .card-grid[data-active="synergy"] [data-product="symphony"],
-      .card-grid[data-active="synergy"] [data-product="synergy"] {
-        grid-column: auto;
-        grid-row: auto;
-      }
-
-      .card-grid[data-active] {
-        row-gap: 28px;
-      }
-
-      .product-card.expanded .product-inner {
-        flex-direction: column;
-        align-items: flex-start;
         gap: 20px;
       }
 
-      .product-card.expanded .product-details {
-        max-width: none;
-        width: 100%;
-        transform: translateX(0);
+      .product-card {
+        padding: 20px;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 560px) {
       .hero {
         padding: 68px 20px 96px;
       }
@@ -423,11 +237,7 @@
       }
 
       .product-card {
-        padding: 24px;
-      }
-
-      .product-details {
-        transform: translateY(14px);
+        padding: 20px 18px;
       }
     }
   </style>
@@ -444,13 +254,6 @@
     </header>
 
     <div class="card-grid">
-      <article class="info-block">
-        <h3>Elige SŌRŌ</h3>
-        <p>
-          Porque cuidarte no es una moda, es sabiduría. Explora cada mezcla, despliega las tarjetas y encuentra el acompañamiento perfecto para tu ritual diario.
-        </p>
-      </article>
-
       <article class="product-card" data-product="symphony" style="background-image: url('https://images.unsplash.com/photo-1589308078054-832fc0bd5b69?auto=format&fit=crop&w=1400&q=80');">
         <div class="product-header">
           <span class="product-tag" data-variant="symphony">Symphony</span>
@@ -499,6 +302,32 @@
               <span>🌱 Adaptógenos naturales</span>
             </div>
             <button class="product-cta" type="button">Explora Synergy</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product="ritual" style="background-image: url('https://images.unsplash.com/photo-1521579971123-1192931a1452?auto=format&fit=crop&w=1400&q=80');">
+        <div class="product-header">
+          <span class="product-tag" data-variant="ritual">Ritual</span>
+          <button class="product-toggle" type="button" aria-label="Alternar detalles de Ritual">+</button>
+        </div>
+
+        <div class="product-inner">
+          <div class="product-primary">
+            <h2 class="product-title">Elige SŌRŌ como tu ritual consciente</h2>
+            <p class="product-summary">Explora cada mezcla, despliega las tarjetas y encuentra el acompañamiento perfecto para tu rutina diaria.</p>
+          </div>
+
+          <div class="product-details">
+            <p class="product-description">
+              Porque cuidarte no es una moda, es sabiduría. Integrar SŌRŌ a tu día a día es abrazar ingredientes nobles y fórmulas pensadas para cuerpo, mente y espíritu.
+            </p>
+            <div class="product-benefits">
+              <span>🌞 Bienestar diario</span>
+              <span>🧠 Claridad y foco</span>
+              <span>🤍 Autocuidado consciente</span>
+            </div>
+            <button class="product-cta" type="button">Crea tu Ritual</button>
           </div>
         </div>
       </article>
