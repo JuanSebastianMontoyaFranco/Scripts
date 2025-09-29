@@ -6,7 +6,7 @@
   <title>SŌRŌ Desplegable de Producto</title>
   <style>
     :root {
-      --bg: #fbf3e7;
+      --bg: #fff9f2;
       --card-radius: 24px;
       --header-font: "Poppins", "Helvetica Neue", Arial, sans-serif;
       --body-font: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -52,7 +52,20 @@
       grid-template-columns: repeat(3, minmax(240px, 1fr));
       gap: var(--gap);
       align-items: stretch;
-      transition: gap var(--transition);
+      transition: gap var(--transition), grid-template-columns var(--transition);
+    }
+
+    .card-grid.shifted {
+      grid-template-columns: 0fr 1fr 1fr;
+    }
+
+    .card-grid.shifted .product-card:first-child {
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      padding: 0;
+      margin: 0;
+      transition: opacity var(--transition), visibility 0s var(--transition), width var(--transition), padding var(--transition), margin var(--transition);
     }
 
     .product-card {
@@ -71,8 +84,8 @@
       cursor: pointer;
       isolation: isolate;
       transform-origin: center;
-      transition: transform var(--transition), box-shadow var(--transition);
-      min-height: 160px;
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition), visibility var(--transition), width var(--transition), padding var(--transition), margin var(--transition);
+      height: 450px;
     }
 
     .product-card::before {
@@ -87,6 +100,17 @@
     .product-card.expanded {
       transform: scale(1.02) translateY(-4px);
       box-shadow: var(--card-shadow-active);
+    }
+
+    .title-card {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: default;
+    }
+
+    .title-card .product-title {
+      font-size: clamp(24px, 2.5vw, 32px);
     }
 
     .product-header {
@@ -247,37 +271,11 @@
     <header class="hero-header">
       <div class="hero-kicker">Más que un suplemento</div>
       <h1 class="hero-title">Un estilo de vida</h1>
-      <p class="hero-subtitle">Más energía para hoy, más vitalidad para mañana, más claridad</p>
-      <p class="hero-description">
-        Descubre los blends inteligentes de SŌRŌ y activa una rutina de bienestar que abraza lo natural, lo delicioso y lo eficaz.
-      </p>
     </header>
 
     <div class="card-grid">
-      <article class="product-card" data-product="symphony" style="background-image: url('https://images.unsplash.com/photo-1589308078054-832fc0bd5b69?auto=format&fit=crop&w=1400&q=80');">
-        <div class="product-header">
-          <span class="product-tag" data-variant="symphony">Symphony</span>
-          <button class="product-toggle" type="button" aria-label="Alternar detalles de Symphony">+</button>
-        </div>
-
-        <div class="product-inner">
-          <div class="product-primary">
-            <h2 class="product-title">La sinfonía diaria de tu bienestar</h2>
-            <p class="product-summary">Proteínas vegetales, vitaminas esenciales y grasas inteligentes para un comienzo ligero y lleno de energía.</p>
-          </div>
-
-          <div class="product-details">
-            <p class="product-description">
-              Comienza tu día con una mezcla inteligente que combina proteína pura de arveja, magnesio, vitamina D, vitamina B6 y grasas nobles de coco y palta. Diseñada para equilibrar cuerpo y mente.
-            </p>
-            <div class="product-benefits">
-              <span>⚡ Energía sostenida</span>
-              <span>🧘 Equilibrio cuerpo-mente</span>
-              <span>✨ Claridad mental</span>
-            </div>
-            <button class="product-cta" type="button">Descubre Symphony</button>
-          </div>
-        </div>
+      <article class="product-card title-card" data-product="symphony" style="background-image: url('https://images.unsplash.com/photo-1589308078054-832fc0bd5b69?auto=format&fit=crop&w=1400&q=80');">
+        <h2 class="product-title">La sinfonía diaria de tu bienestar</h2>
       </article>
 
       <article class="product-card" data-product="synergy" style="background-image: url('https://images.unsplash.com/photo-1542444459-db07b741f4b1?auto=format&fit=crop&w=1400&q=80');">
@@ -347,28 +345,51 @@
       });
     };
 
-    cards.forEach((card) => {
+    const updateGridShift = () => {
+      const isCard2or3Expanded = cards.length > 1 && (cards[1].classList.contains('expanded') || (cards.length > 2 && cards[2].classList.contains('expanded')));
+      if (isCard2or3Expanded) {
+        grid.classList.add('shifted');
+      } else {
+        grid.classList.remove('shifted');
+      }
+    };
+
+    cards.forEach((card, index) => {
       const toggleButton = card.querySelector('.product-toggle');
 
-      const toggleCard = () => {
-        const willExpand = !card.classList.contains('expanded');
+      // The first card is a non-interactive title card.
+      if (index === 0) {
+        card.setAttribute('aria-expanded', 'false');
+        // Ensure it's not expanded by default
+        card.classList.remove('expanded'); 
+        return;
+      }
 
-        if (willExpand) {
-          closeAllExcept(card);
+      const toggleCard = () => {
+        const isCurrentlyExpanded = card.classList.contains('expanded');
+        
+        // Always close all other cards first.
+        closeAllExcept(card);
+
+        if (!isCurrentlyExpanded) {
+          // If it wasn't expanded, expand it now.
           card.classList.add('expanded');
           card.setAttribute('aria-expanded', 'true');
           grid.dataset.active = card.dataset.product;
         } else {
-          card.classList.remove('expanded');
-          card.setAttribute('aria-expanded', 'false');
+          // If it was already expanded, it will now be closed by the closeAllExcept call,
+          // so we just need to clean up the grid dataset.
           delete grid.dataset.active;
         }
+        updateGridShift();
       };
 
-      toggleButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        toggleCard();
-      });
+      if (toggleButton) {
+        toggleButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          toggleCard();
+        });
+      }
 
       card.addEventListener('click', (event) => {
         if (!event.target.closest('.product-cta') && event.target !== toggleButton) {
