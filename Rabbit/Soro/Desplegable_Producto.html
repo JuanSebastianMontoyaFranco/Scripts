@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SŌRŌ Desplegable de Producto</title>
   <style>
-    :root {
-      --bg: #fff9f2;
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: none;
+      color: #2f2a26;
+    }
+
+    .hero {
       --card-radius: 24px;
-      --header-font: "Poppins", "Helvetica Neue", Arial, sans-serif;
-      --body-font: "Inter", "Helvetica Neue", Arial, sans-serif;
+      --header-font: "Inter", sans-serif;
+      --body-font: "Inter", sans-serif;
       --text-primary: #2f2a26;
       --text-muted: #6f655c;
       --card-shadow: 0 24px 50px -34px rgba(0, 0, 0, 0.55);
       --card-shadow-active: 0 32px 60px -28px rgba(0, 0, 0, 0.65);
       --transition: 360ms cubic-bezier(0.22, 0.61, 0.36, 1);
       --gap: 28px;
-    }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--body-font);
-      background: var(--bg);
+      padding: 5px;
+      padding-bottom: 50px;
+      background-color: #fff9f2;
+      border-radius: 0;
+      box-shadow: none;
       color: var(--text-primary);
+      font-family: var(--body-font);
     }
 
-    .hero {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 100px 40px 128px;
+    .hero-header {
+      text-align: center;
+      margin-bottom: 70px;
     }
 
-    .hero-header { text-align: center; margin-bottom: 70px; }
     .hero-kicker {
       font-size: clamp(16px, 1.6vw, 18px);
       font-weight: 600;
@@ -43,9 +55,29 @@
       color: rgba(47, 42, 38, 0.45);
       margin-bottom: 18px;
     }
-    .hero-title { font-family: var(--header-font); font-size: clamp(36px, 4.6vw, 58px); font-weight: 600; margin: 0; }
-    .hero-subtitle { font-family: var(--header-font); font-weight: 300; font-size: clamp(20px, 2.4vw, 30px); margin: 10px 0 20px; color: rgba(47, 42, 38, 0.75); font-style: italic; }
-    .hero-description { max-width: 520px; margin: 0 auto; font-size: clamp(15px, 1.5vw, 18px); color: var(--text-muted); line-height: 1.6; }
+
+    .hero-title {
+      font-family: var(--header-font);
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      font-family: var(--header-font);
+      font-weight: 300;
+      font-size: 28px;
+      margin: 10px 0 20px;
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: clamp(15px, 1.5vw, 18px);
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
     .card-grid {
       display: grid;
@@ -84,7 +116,7 @@
       cursor: pointer;
       isolation: isolate;
       transform-origin: center;
-      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition), visibility var(--transition), width var(--transition), padding var(--transition), margin var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition), visibility var(--transition), width var(--transition), padding var(--transition), margin var(--transition), height var(--transition);
       height: 450px;
     }
 
@@ -102,38 +134,82 @@
       box-shadow: var(--card-shadow-active);
     }
 
+    /* --------- PRIMERA CARD (title-card) --------- */
     .title-card {
+      display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       cursor: default;
+      padding: 24px;
     }
 
     .title-card .product-title {
-      font-size: clamp(24px, 2.5vw, 32px);
+      font-size: clamp(22px, 2.2vw, 32px);
+      line-height: 1.25;
+      max-width: 22ch;
+      margin: 0 auto;
+      text-wrap: balance;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
     }
 
     .product-header {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 10px; margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
     .product-tag {
-      padding: 6px 20px; border-radius: 999px; font-size: 12px; letter-spacing: 0.12em;
-      font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center;
-      line-height: 1; color: #1a2f29; background: rgba(248,255,253,0.9);
-      box-shadow: 0 8px 20px -10px rgba(60,192,164,0.55); backdrop-filter: blur(8px);
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      color: #1a2f29;
+      background: rgba(248, 255, 253, 0.9);
+      box-shadow: 0 8px 20px -10px rgba(60, 192, 164, 0.55);
+      backdrop-filter: blur(8px);
     }
-    .product-tag[data-variant="synergy"] { color:#fff; background: rgba(97,22,51,0.85); box-shadow: 0 8px 20px -10px rgba(97,22,51,0.7); }
-    .product-tag[data-variant="ritual"] { color:#fff; background: rgba(122,83,36,0.85); box-shadow: 0 8px 20px -10px rgba(122,83,36,0.7); }
+
+    .product-tag[data-variant="synergy"] {
+      color: #fff;
+      background: rgba(97, 22, 51, 0.85);
+      box-shadow: 0 8px 20px -10px rgba(97, 22, 51, 0.7);
+    }
+
+    .product-tag[data-variant="symphony"] {
+      color: #fff;
+      background: rgb(136, 209, 190);
+      box-shadow: 0 8px 20px -10px rgba(122, 83, 36, 0.7);
+    }
 
     .product-toggle {
-      width: 40px; height: 40px; border-radius: 50%; border: none;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
-      color: #2f2a26; font-size: 20px; display: grid; place-items: center;
-      cursor: pointer; transition: transform var(--transition), background var(--transition), color var(--transition);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      color: #2f2a26;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition), color var(--transition);
     }
-    .product-card.expanded .product-toggle { background: rgba(0,0,0,0.65); color:#fff; transform: rotate(45deg); }
+
+    .product-card.expanded .product-toggle {
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      transform: rotate(45deg);
+    }
 
     .product-inner {
       display: flex;
@@ -142,8 +218,27 @@
       transition: gap var(--transition);
     }
 
+    /* ---------- PLEGADA: centrar texto al fondo ----------- */
     .product-card:not(.expanded) .product-inner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       gap: 8px;
+      padding: 14px 18px 18px;
+      display: flex;
+      align-items: center;
+      /* centra horizontalmente */
+      text-align: center;
+      /* centra el texto */
+    }
+
+    .product-card:not(.expanded) .product-primary {
+      align-items: center;
+    }
+
+    .product-card:not(.expanded) .product-title {
+      text-align: center;
     }
 
     .product-primary {
@@ -162,10 +257,12 @@
       font-weight: 600;
       margin: 0;
       line-height: 1.2;
+      color: #fff;
     }
 
     .product-summary {
       margin: 0;
+      padding-top: 35px;
       font-size: 13px;
       font-weight: 500;
       line-height: 1.45;
@@ -204,9 +301,24 @@
       visibility: visible;
     }
 
-    .product-description { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.88); }
-    .product-benefits { display: flex; flex-wrap: wrap; gap: 8px; }
-    .product-benefits span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 12px; font-weight: 500; }
+    .product-description {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .product-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .product-benefits span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;\r\n      padding: 6px 12px;\r\n      border-radius: 999px;\r\n      background: rgba(255, 255, 255, 0.14);\r\n      font-size: 14px;\r\n      font-weight: 500;
+    }
 
     .product-cta {
       align-self: flex-start;
@@ -216,8 +328,23 @@
       border: none;
       font-weight: 600;
       font-size: 13px;
-      background: rgba(255, 255, 255, 0.94);
-      color: #253021;
+      background: rgb(136, 209, 190);
+      color: white;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.55);
+    }
+
+    .product-cta2 {
+      align-self: flex-start;
+      margin-top: 4px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 13px;
+      background: rgba(97, 22, 51, 0.85);
+      color: white;
       cursor: pointer;
       transition: transform var(--transition), box-shadow var(--transition);
       box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.55);
@@ -228,14 +355,44 @@
       box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.63);
     }
 
-    /* Responsive */
+    /* --------- Responsive mejoras --------- */
+    @media (max-width: 1280px) {
+      .product-card {
+        height: 420px;
+      }
+    }
+
     @media (max-width: 1120px) {
       .card-grid {
         grid-template-columns: repeat(2, minmax(240px, 1fr));
         gap: 24px;
       }
+
+      /* En pantallas medianas, NO ocultar la primera card cuando haya shifted */
+      .card-grid.shifted {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-grid.shifted .product-card:first-child {
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: auto !important;
+        padding: 18px 22px !important;
+        margin: 0 !important;
+      }
     }
 
+    @media (max-width: 900px) {
+      .product-card {
+        height: 396px;
+      }
+
+      .title-card .product-title {
+        max-width: 26ch;
+      }
+    }
+
+    /* ===== MOBILE: expandir verticalmente ===== */
     @media (max-width: 768px) {
       .hero {
         padding-inline: 28px;
@@ -246,86 +403,129 @@
         gap: 20px;
       }
 
+      .card-grid.shifted {
+        grid-template-columns: 1fr;
+      }
+
+      /* Altura base plegada */
       .product-card {
         padding: 20px;
+        height: 380px;
+      }
+
+      /* Cuando se expande, dejar crecer verticalmente */
+      .product-card.expanded {
+        height: auto;
+        /* crece según contenido */
+        padding-bottom: 24px;
+      }
+
+      /* Al expandir en móvil, el bloque vuelve al flujo normal y el texto se alinea a la izquierda para lectura */
+      .product-card.expanded .product-inner {
+        position: static;
+        align-items: flex-start;
+        text-align: left;
+        padding: 0;
+      }
+
+      /* Asegurar que el texto largo pueda mostrarse completo */
+      .product-card.expanded .product-summary {
+        max-height: 1000px;
+      }
+
+      .product-card.expanded .product-details {
+        max-height: 2000px;
+      }
+
+      .title-card {
+        padding: 20px;
+      }
+
+      .title-card .product-title {
+        font-size: clamp(20px, 6vw, 28px);
+        max-width: 28ch;
+      }
+
+      /* En móvil, jamás ocultar la primera card */
+      .card-grid.shifted .product-card:first-child {
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: auto !important;
+        padding: 20px 18px !important;
       }
     }
 
     @media (max-width: 560px) {
       .hero {
-        padding: 68px 20px 96px;
+        padding: 36px 20px 72px;
       }
 
       .hero-header {
-        margin-bottom: 48px;
+        margin-bottom: 40px;
       }
 
       .product-card {
         padding: 20px 18px;
+        height: 360px;
+      }
+
+      .title-card .product-title {
+        max-width: 30ch;
       }
     }
   </style>
 </head>
+
 <body>
   <section class="hero">
-    <header class="hero-header">
-      <div class="hero-kicker">Más que un suplemento</div>
-      <h1 class="hero-title">Un estilo de vida</h1>
-    </header>
-
     <div class="card-grid">
-      <article class="product-card title-card" data-product="symphony" style="background-image: url('https://images.unsplash.com/photo-1589308078054-832fc0bd5b69?auto=format&fit=crop&w=1400&q=80');">
-        <h2 class="product-title">La sinfonía diaria de tu bienestar</h2>
+      <article class="product-card title-card" data-product="ritual"
+        style="background-image:url('https://cdn.shopify.com/s/files/1/0860/4290/2885/files/DUO_01.png?v=1759363794');">
+        <h2 class="product-title">Elige SŌRŌ: porque cuidarse no es moda, es sabiduría, centrado en todos los sentidos
+        </h2>
       </article>
 
-      <article class="product-card" data-product="synergy" style="background-image: url('https://images.unsplash.com/photo-1542444459-db07b741f4b1?auto=format&fit=crop&w=1400&q=80');">
+      <article class="product-card" data-product="symphony"
+        style="background-image:url('https://cdn.shopify.com/s/files/1/0860/4290/2885/files/CARD_ABIERTA_cc5def78-8499-4104-b1aa-360cffbdde79.png?v=1759202939');">
+        <div class="product-header">
+          <span class="product-tag" data-variant="symphony">Symphony</span>
+          <button class="product-toggle" type="button">+</button>
+        </div>
+        <div class="product-inner">
+          <div class="product-primary">
+            <h2 class="product-title">La sinfonía diaria de tu bienestar</h2>
+            <p class="product-summary">Comienza el día con una mezcla inteligente que combina proteína pura de arveja,
+              magnesio, vitamina D, vitamina B6 y grasas nobles de coco y aguacate.</p>
+          </div>
+          <div class="product-details">
+            <p class="product-description">Una fórmula ligera, fácil de digerir y diseñada para darle a tu cuerpo lo que
+              necesita desde la primera hora.</p>
+            <div class="product-benefits"><span>✔️ Energía sostenida </span><span>✔️ Equilibrio
+                cuerpo–mente</span><span>✔️ Claridad mental para tus decisiones</span></div>
+            <button class="product-cta" type="button">DESCUBRE SYMPHONY</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product="synergy"
+        style="background-image:url('https://cdn.shopify.com/s/files/1/0860/4290/2885/files/CARD_ABIERTA.png?v=1759202932');">
         <div class="product-header">
           <span class="product-tag" data-variant="synergy">Synergy</span>
-          <button class="product-toggle" type="button" aria-label="Alternar detalles de Synergy">+</button>
+          <button class="product-toggle" type="button">+</button>
         </div>
-
         <div class="product-inner">
           <div class="product-primary">
             <h2 class="product-title">La sinergia perfecta entre fuerza y recuperación</h2>
-            <p class="product-summary">Antioxidantes, adaptógenos y aminoácidos que acompañan tu entrenamiento y tu descanso.</p>
+            <p class="product-summary">Potencia tu vitalidad con una fórmula que une proteína de arveja, colágeno,
+              omega-3 y frutos rojos antioxidantes.</p>
           </div>
-
           <div class="product-details">
-            <p class="product-description">
-              Eleva tu rendimiento con una fórmula pensada para reforzar músculos, articulaciones y tu sistema inmune. Perfecta para quienes buscan balance entre potencia y bienestar prolongado.
-            </p>
-            <div class="product-benefits">
-              <span>💪 Recuperación muscular</span>
-              <span>🛡️ Defensa antioxidante</span>
-              <span>🌱 Adaptógenos naturales</span>
-            </div>
-            <button class="product-cta" type="button">Explora Synergy</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card" data-product="ritual" style="background-image: url('https://images.unsplash.com/photo-1521579971123-1192931a1452?auto=format&fit=crop&w=1400&q=80');">
-        <div class="product-header">
-          <span class="product-tag" data-variant="ritual">Ritual</span>
-          <button class="product-toggle" type="button" aria-label="Alternar detalles de Ritual">+</button>
-        </div>
-
-        <div class="product-inner">
-          <div class="product-primary">
-            <h2 class="product-title">Elige SŌRŌ como tu ritual consciente</h2>
-            <p class="product-summary">Explora cada mezcla, despliega las tarjetas y encuentra el acompañamiento perfecto para tu rutina diaria.</p>
-          </div>
-
-          <div class="product-details">
-            <p class="product-description">
-              Porque cuidarte no es una moda, es sabiduría. Integrar SŌRŌ a tu día a día es abrazar ingredientes nobles y fórmulas pensadas para cuerpo, mente y espíritu.
-            </p>
-            <div class="product-benefits">
-              <span>🌞 Bienestar diario</span>
-              <span>🧠 Claridad y foco</span>
-              <span>🤍 Autocuidado consciente</span>
-            </div>
-            <button class="product-cta" type="button">Crea tu Ritual</button>
+            <p class="product-description">Un aliado diseñado para mantener tus músculos, articulaciones y corazón en
+              equilibrio, sin pesadez ni malestar digestivo.</p>
+            <div class="product-benefits"><span>✔️ Recuperación inteligente después de la actividad
+                física</span><span>✔️ Articulaciones fuertes y flexibles</span><span>✔️ Refuerzo natural de tus defensas
+                con antioxidantes</span></div>
+            <button class="product-cta2" type="button">DESCUBRE SYNERGY</button>
           </div>
         </div>
       </article>
@@ -335,6 +535,7 @@
   <script>
     const cards = document.querySelectorAll('.product-card');
     const grid = document.querySelector('.card-grid');
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
 
     const closeAllExcept = (activeCard) => {
       cards.forEach((card) => {
@@ -346,7 +547,8 @@
     };
 
     const updateGridShift = () => {
-      const isCard2or3Expanded = cards.length > 1 && (cards[1].classList.contains('expanded') || (cards.length > 2 && cards[2].classList.contains('expanded')));
+      const isCard2or3Expanded = cards.length > 1 &&
+        (cards[1].classList.contains('expanded') || (cards.length > 2 && cards[2].classList.contains('expanded')));
       if (isCard2or3Expanded) {
         grid.classList.add('shifted');
       } else {
@@ -356,49 +558,44 @@
 
     cards.forEach((card, index) => {
       const toggleButton = card.querySelector('.product-toggle');
-
-      // The first card is a non-interactive title card.
-      if (index === 0) {
-        card.setAttribute('aria-expanded', 'false');
-        // Ensure it's not expanded by default
-        card.classList.remove('expanded'); 
-        return;
-      }
+      if (index === 0) { card.classList.remove('expanded'); card.setAttribute('aria-expanded', 'false'); return; }
 
       const toggleCard = () => {
-        const isCurrentlyExpanded = card.classList.contains('expanded');
-        
-        // Always close all other cards first.
-        closeAllExcept(card);
-
-        if (!isCurrentlyExpanded) {
-          // If it wasn't expanded, expand it now.
+        const willExpand = !card.classList.contains('expanded');
+        if (willExpand) {
+          closeAllExcept(card);
           card.classList.add('expanded');
           card.setAttribute('aria-expanded', 'true');
           grid.dataset.active = card.dataset.product;
         } else {
-          // If it was already expanded, it will now be closed by the closeAllExcept call,
-          // so we just need to clean up the grid dataset.
+          card.classList.remove('expanded');
+          card.setAttribute('aria-expanded', 'false');
           delete grid.dataset.active;
         }
         updateGridShift();
       };
 
       if (toggleButton) {
-        toggleButton.addEventListener('click', (event) => {
-          event.stopPropagation();
-          toggleCard();
-        });
+        toggleButton.addEventListener('click', (event) => { event.stopPropagation(); toggleCard(); });
       }
 
-      card.addEventListener('click', (event) => {
-        if (!event.target.closest('.product-cta') && event.target !== toggleButton) {
+      if (supportsHover) {
+        // Hover desktop
+        card.addEventListener('mouseenter', () => { if (!card.classList.contains('expanded')) toggleCard(); });
+        card.addEventListener('mouseleave', () => { if (card.classList.contains('expanded')) toggleCard(); });
+      }
+
+      // Fallback móvil: tocar la card (excepto CTA y el botón +) también alterna
+      card.addEventListener('touchstart', (event) => {
+        const isCTA = event.target.closest('.product-cta, .product-cta2, .product-toggle');
+        if (!isCTA) {
           toggleCard();
         }
-      });
+      }, { passive: true });
 
       card.setAttribute('aria-expanded', 'false');
     });
   </script>
 </body>
+
 </html>

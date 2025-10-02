@@ -11,20 +11,23 @@
       flex-direction: column;
       align-items: center;
       transition: background 0.4s ease;
+      opacity: 1; /* Aseguramos que toda la sección tenga opacidad controlada */
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__intro {
       text-align: center;
       max-width: 640px;
-      margin: 0 auto 48px;
+      margin: 0 auto 36px;
       color: #3c3c3c;
     }
 
     .product-detail-carousel__title-section {
-      font-size: 40px;
+      font-size: 50px;
       font-weight: 700;
-      color: #1f1f1f;
-      margin: 0 0 18px;
+      color: #666666;
+      margin: 0 0 4px;
+      padding-bottom: 50px;;
     }
 
     .product-detail-carousel__title-section-highlight {
@@ -35,7 +38,7 @@
     .product-detail-carousel__subtitle-section {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 4px; /* Reducido aún más */
       color: #4c5161;
     }
 
@@ -54,11 +57,13 @@
         'price visual'
         'cta visual'
         'nav visual';
-      column-gap: 96px;
-      row-gap: 18px;
+      column-gap: 32px; /* Reducido desde 48px */
+      row-gap: 8px; /* Reducido desde 12px */
       align-items: center;
       justify-items: center;
       text-align: center;
+      opacity: 1; /* Aseguramos que toda la sección de info tenga opacidad controlada */
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__title {
@@ -66,7 +71,9 @@
       font-size: 30px;
       font-weight: 700;
       margin: 0;
-      color: #373041;
+      color: #666666;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__stars {
@@ -75,22 +82,28 @@
       letter-spacing: 6px;
       color: #463775;
       margin: 0;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__description {
       grid-area: description;
       font-size: 18px;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 4px; /* Reducido aún más */
       color: #4c5161;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__price {
       grid-area: price;
       font-size: 26px;
       font-weight: 600;
-      margin: 0;
-      color: #2e2e2e;
+      margin: 0 0 4px; /* Reducido aún más */
+      color: #666666;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     .product-detail-carousel__cta {
@@ -99,7 +112,7 @@
       align-items: center;
       justify-content: center;
       padding: 14px 36px;
-      background: #4f3fa5;
+      background: #463d76; /* Cambio de color a #463D76 */
       color: #fff;
       border-radius: 18px;
       font-size: 16px;
@@ -107,7 +120,7 @@
       border: none;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin: 0 auto;
+      margin: 0 auto 10px; /* Reducido aún más */
     }
 
     .product-detail-carousel__cta:hover {
@@ -145,12 +158,13 @@
       grid-area: visual;
       position: relative;
       width: 100%;
-      max-width: 520px;
+      max-width: 400px; /* Tamaño consistente para todas las imágenes */
       border-radius: 32px;
       padding: 0;
       background: none;
       box-shadow: none;
       justify-self: stretch;
+      transition: opacity 0.4s ease; /* Animación sutil al cambiar de producto */
     }
 
     .product-detail-carousel__image-frame {
@@ -166,11 +180,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.35s ease; /* Animación de desvanecimiento */
     }
 
     .product-detail-carousel__image--hover {
       opacity: 0;
+      transition: opacity 0.35s ease; /* Animación de hover */
     }
 
     .product-detail-carousel__image-frame:hover .product-detail-carousel__image--hover {
@@ -198,7 +213,7 @@
       }
 
       .product-detail-carousel__title-section {
-        font-size: 32px;
+        font-size: 42px;
       }
 
       .product-detail-carousel__title {
@@ -215,7 +230,7 @@
           'price'
           'cta'
           'nav';
-        row-gap: 20px;
+        row-gap: 12px; /* Reducido aún más */
       }
 
       .product-detail-carousel__visual {
@@ -229,12 +244,13 @@
       .product-detail-carousel__cta,
       .product-detail-carousel__nav {
         justify-self: center;
+        color: #666666;
       }
     }
   </style>
 
   <div class="product-detail-carousel__intro">
-    <h2 class="product-detail-carousel__title-section">Descubre tu<br /><span class="product-detail-carousel__title-section-highlight">vitalidad</span></h2>
+    <h2 class="product-detail-carousel__title-section">Descubre tu <span >vitalidad</span></h2>
   </div>
 
   <div class="product-detail-carousel__wrapper" data-carousel>
@@ -280,9 +296,9 @@
           price: '$120.000',
           rating: 5,
           primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO.png?v=1759087514',
-          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_TABLA.png?v=1759087510',
-          background: '#fff9f2',
-          link: '#/producto/symphony'
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO.png?v=1759087514',
+          background: '#F2FFDF',
+          link: '/product/symphony'
         },
         {
           name: 'Synergy',
@@ -290,19 +306,19 @@
           price: '$115.000',
           rating: 5,
           primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_7caa241b-5649-42b8-8654-c361d6db386d.png?v=1759087519',
-          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_TABLAT.png?v=1759087518',
-          background: '#f2ffdf',
-          link: '#/producto/synergy'
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_7caa241b-5649-42b8-8654-c361d6db386d.png?v=1759087519',
+          background: '#F2FFDF',
+          link: '/product/synergy'
         },
         {
-          name: 'Caja duo',
+          name: 'Caja Duo',
           description: 'Ideal para despedir el día con una mezcla que invita al descanso profundo.',
           price: '$200.000',
           rating: 5,
-          primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_Nocturne.png?v=1759087523',
-          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/FOTO_PRODUCTO_Nocturne_Tabla.png?v=1759087521',
-          background: '#fff9f2',
-          link: '#/producto/nocturne'
+          primaryImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/DUO_01.png?v=1759363794',
+          hoverImage: 'https://cdn.shopify.com/s/files/1/0860/4290/2885/files/DUO_01.png?v=1759363794',
+          background: '#F2FFDF',
+          link: '/product/caja-duo'
         }
       ];
 
@@ -344,6 +360,13 @@
         const emptyStar = '&#9734;';
         starsEl.innerHTML = `${filledStar.repeat(product.rating)}${emptyStar.repeat(Math.max(0, 5 - product.rating))}`;
         starsEl.setAttribute('aria-label', `${product.rating} de 5 estrellas`);
+
+        // Animación de cambio de producto
+        sectionEl.style.opacity = 0;
+        
+        setTimeout(() => {
+          sectionEl.style.opacity = 1;
+        }, 400); // Retraso para la animación
       }
 
       function showPrevious() {

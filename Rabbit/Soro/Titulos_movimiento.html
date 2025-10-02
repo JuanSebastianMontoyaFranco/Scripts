@@ -1,14 +1,13 @@
 <section class="titulos-section">
   <div class="titulos-wrapper">
-    <span id="linea1" class="titulos-linea titulos-linea--principal"></span>
-    <span id="linea2" class="titulos-linea titulos-linea--secundaria"></span>
+    <span id="linea" class="titulos-linea titulos-linea--principal"></span>
   </div>
 </section>
 
 <style>
   .titulos-section {
     width: 100%;
-    min-height: 30vh; /* más delgada */
+    min-height: 20vh; /* más delgada */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,16 +19,19 @@
   .titulos-wrapper {
     text-align: center;
     line-height: 1.12;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem); /* responsive */
     letter-spacing: 0.04em;
     padding: 1rem 0;
   }
 
   .titulos-linea {
-    display: block;
+    display: inline-block;
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+    white-space: normal; /* permite salto de línea */
+    word-break: break-word;
+    max-width: 90vw;
   }
 
   .titulos-linea--visible {
@@ -39,39 +41,29 @@
 
   .titulos-linea--principal {
     font-weight: 700;
-  }
-
-  .titulos-linea--secundaria {
-    font-style: italic;
+    font-style: normal;
   }
 </style>
 
 <script>
   const frases = [
     ["Más que un suplemento,", "un estilo de vida"],
-    ["Más energía para hoy,", "más vitalidad para mañana"],
-    ["Más claridad,", "más propósito"],
+    ["Más claridad,", "más propósito"]
   ];
 
   let indice = 0;
-  const linea1 = document.getElementById("linea1");
-  const linea2 = document.getElementById("linea2");
+  const linea = document.getElementById("linea");
 
   function mostrarFrase() {
     const [texto1, texto2] = frases[indice];
-    linea1.textContent = texto1;
-    linea2.textContent = texto2;
-
+    linea.textContent = `${texto1} ${texto2}`;
     requestAnimationFrame(() => {
-      linea1.classList.add("titulos-linea--visible");
-      linea2.classList.add("titulos-linea--visible");
+      linea.classList.add("titulos-linea--visible");
     });
   }
 
   function rotarFrases() {
-    linea1.classList.remove("titulos-linea--visible");
-    linea2.classList.remove("titulos-linea--visible");
-
+    linea.classList.remove("titulos-linea--visible");
     setTimeout(() => {
       indice = (indice + 1) % frases.length;
       mostrarFrase();
