@@ -1,0 +1,26 @@
+# Ignorar archivos de Excel
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.xlt
+*.xltx
+*.xltm
+*.csv
+# Ignorar archivos de imagen
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tif
+*.tiff
+*.svg
+*.webp
+*.heic
+*.heif
+*.raw
+*.arw
+*.cr2
+*.nef
+*.dng
