@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redes Sociales</title>
+  <style>
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* un poco más de espacio entre íconos */
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 70px;   /* antes 30px */
+      height: 70px;  /* antes 30px */
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 480px) {
+      .social-icons img {
+        width: 55px;   /* antes 40px */
+        height: 55px;  /* antes 40px */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/share/1FEqVCvdDd/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/image_87.png?v=1759520952" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/mybebecito.co" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/image_88.png?v=1759520952" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/@mybebecito.co" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <img src="https://cdn.shopify.com/s/files/1/0629/0567/9949/files/image_89.png?v=1759520952" alt="TikTok">
+    </a>
+  </div>
+
+</body>
+</html>
