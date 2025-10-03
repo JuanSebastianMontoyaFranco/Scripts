@@ -1,7 +1,7 @@
 <div class="locator-widget">
   <div class="locator-container">
     <div class="locator-sidebar">
-      <div class="locator-search-box" style="padding-bottom: 40px;">
+      <div class="locator-search-box">
         <div class="locator-search-group">
           <input
             type="text"
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div class="locator-map-container mobile-only" style="margin-top: 60px;">
+      <div class="locator-map-container mobile-only">
         <div id="locatorMapMobile"></div>
       </div>
 
@@ -82,6 +82,8 @@
 .locator-container{display:flex;flex-wrap:wrap;}
 
 .locator-sidebar{flex:1 1 300px;padding:5px 20px 20px 20px;box-sizing:border-box;}
+
+.locator-search-box{padding-bottom:40px;}
 
 /* ======= Búsqueda redondeada con ícono integrado ======= */
 .locator-search-group{
@@ -157,11 +159,11 @@ font-family: 'Open Sans', sans-serif;
 
 @media (max-width:768px){
   .locator-container{flex-direction:column;}
-  .locator-sidebar{display:flex;flex-direction:column;gap:16px;}
-  .locator-search-box{order:1;margin-bottom:20px;padding-bottom:20px;}
-  .locator-location-list{order:2;}
+  .locator-sidebar{display:flex;flex-direction:column;gap:12px;}
+  .locator-search-box{order:1;margin-bottom:12px;padding-bottom:12px;}
+  .locator-location-list{order:2;margin-top:10px;}
   .locator-map-container{height:300px;}
-  .locator-map-container.mobile-only{order:3;margin-top:0;}
+  .locator-map-container.mobile-only{order:3;margin-top:16px;}
   .mobile-only{display:block;}
   .desktop-only{display:none;}
 }
