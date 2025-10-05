@@ -273,36 +273,36 @@
             }
 
             .protein-table th.row-head {
-                width: 132px;
+                width: 160px; /* más espacio para el texto */
                 padding-left: 0;
                 padding-right: 6px;
                 white-space: nowrap;
-                font-size: 10px;
-                line-height: 1.1;
-                background: linear-gradient(90deg, var(--panel) 48%, transparent);
+                font-size: 13.5px; /* más grande en mobile */
+                line-height: 1.15;
+                background: linear-gradient(90deg, var(--panel) 55%, transparent);
             }
 
             .protein-table col.col-head {
-                width: 132px;
+                width: 160px; /* acompasa el ancho del head */
             }
 
             .protein-table col.col-data {
-                width: 116px;
+                width: 96px; /* reduce ancho de columnas de checks */
             }
 
             .protein-card {
-                min-width: 56px;
-                height: 40px;
+                min-width: 40px; /* más angosto */
+                height: 32px;    /* un poco más bajo */
             }
 
             .dot {
-                width: 18px;
-                height: 18px;
+                width: 13px; /* proporcional al card */
+                height: 13px;
             }
 
             .dot svg {
-                width: 11px;
-                height: 11px;
+                width: 8px;
+                height: 8px;
             }
         }
         .protein-table tr {
