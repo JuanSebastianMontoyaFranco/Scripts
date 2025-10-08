@@ -1,84 +1,291 @@
 <section id="packs-scope-4" aria-label="Product Pack Carousel">
   <style>
-    /* ===== Estilos 100% scopeados a #packs-scope-4 ===== */
-    #packs-scope-4{
-      --ps4-bg:#2B1A12;
-      --ps4-dot:#F6E9D4; --ps4-dot-active:#F3C049;
-      --ps4-pill:#F3C049; --ps4-pill-text:#6B2C1C;
-      --ps4-title:#F4EFE7; --ps4-text:#D9D0C6;
-      --ps4-brown:#5a2f20; /* contorno café */
-      --ps4-card-radius:18px; --ps4-container:min(1200px,92vw);
-      --ps4-gap:clamp(24px,3vw,36px);
-      font-family:system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:var(--ps4-bg); color:var(--ps4-title);
-      padding:clamp(44px,6vw,68px) 0;
-    }
-    #packs-scope-4 .ps4-wrap{width:var(--ps4-container);margin:auto;display:grid;justify-items:center}
-    /* Asegura que el carrusel use todo el ancho del contenedor aun con grid centrado */
-    #packs-scope-4 .ps4-rail{width:100%;justify-self:stretch}
-
-    /* Carrusel */
-    #packs-scope-4 .ps4-rail{position:relative;overflow:hidden;height:clamp(280px,34vw,420px);display:grid;place-items:center;margin-bottom:clamp(14px,2.5vw,20px);touch-action: pan-y;-webkit-user-select:none;user-select:none}
-    #packs-scope-4 .ps4-track{display:flex;align-items:center;gap:var(--ps4-gap);transition:transform .5s ease;will-change:transform}
-    #packs-scope-4 .ps4-card{position:relative;flex:0 0 auto;width:clamp(220px,26vw,340px);aspect-ratio:1/1;border-radius:var(--ps4-card-radius);display:grid;place-items:center;filter:none;transition:transform .45s ease,opacity .45s ease,filter .45s ease;opacity:.9;cursor:pointer}
-    #packs-scope-4 .ps4-tile{position:relative;width:100%;height:100%;border-radius:inherit;overflow:hidden;display:grid;place-items:center;background:#ccc}
-    #packs-scope-4 .ps4-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:6px solid var(--ps4-brown);border-radius:inherit}
-
-    /* Badge */
-    #packs-scope-4 .ps4-badge{position:absolute;top:10px;right:12px;background:#8F7DD9;color:#fff;font-weight:800;font-size:12px;padding:6px 10px;border-radius:999px;display:flex;align-items:center;gap:6px;z-index:2;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
-
-    /* Centro destacado */
-    #packs-scope-4 .ps4-card.ps4-center{transform:scale(1.14);opacity:1;filter:none}
-    #packs-scope-4 .ps4-card.ps4-center .ps4-img{border-width:8px}
-
-    /* Bullets */
-    #packs-scope-4 .ps4-dots{display:flex;gap:10px;justify-content:center;align-items:center;margin:8px 0 18px}
-    #packs-scope-4 .ps4-dot{width:12px;height:12px;border-radius:999px;background:var(--ps4-dot);opacity:.9;border:2px solid rgba(0,0,0,.15);cursor:pointer}
-    #packs-scope-4 .ps4-dot.ps4-active{background:var(--ps4-dot-active);border-color:transparent}
-
-    /* Meta (layout como imagen) */
-    #packs-scope-4 .ps4-meta{display:grid;place-items:center}
-    #packs-scope-4 .ps4-row{display:grid;grid-template-columns:auto 1px auto;align-items:center;justify-content:center;gap:clamp(16px,2.5vw,28px);margin-inline:auto}
-    #packs-scope-4 .ps4-left{text-align:left}
-    #packs-scope-4 .ps4-right{text-align:left;max-width:520px}
-    #packs-scope-4 .ps4-divider{width:1px;height:70px;background:rgba(244,239,231,.35);border-radius:2px}
-
-    #packs-scope-4 .ps4-title{font-weight:900;font-size:40px;letter-spacing:.2px;font-family: 'Mouse Memoirs', sans-serif;}
-    #packs-scope-4 .ps4-rating{display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-top:8px}
-    #packs-scope-4 .ps4-stars{display:flex;gap:6px}
-    #packs-scope-4 .ps4-star{width:14px;height:14px;background:#F3C049;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-    #packs-scope-4 .ps4-score{color:#F1E7D8;font-weight:700}
-    #packs-scope-4 .ps4-desc{color:var(--ps4-text);line-height:1.55;font-size:clamp(14px,2vw,18px);max-width:520px;margin:0;  font-family: 'Open Sans', sans-serif;}
-
-    /* CTA global (Quick Add con link dinámico) */
-    #packs-scope-4 .ps4-cta-wrap{text-align:center;margin-top:14px}
-    #packs-scope-4 .ps4-cta{
-      display:inline-flex;align-items:center;gap:12px;
-      background:var(--ps4-pill);color:#000;
-      border-radius:999px;padding:14px 22px;
-      box-shadow:0 8px 0 rgba(0,0,0,.22);border:0;text-decoration:none;
-      font-family:'Open Sans', sans-serif;font-size:14px;font-weight:700;
-
-    }
-    #packs-scope-4 .ps4-bag{display:grid;place-items:center;background:transparent;border-radius:0;padding:0}
-    #packs-scope-4 .ps4-bag svg{width:20px;height:20px;display:block}
-
-    @media (max-width:900px){
-      #packs-scope-4 .ps4-img{border-width:6px}
+    #packs-scope-4 {
+      --ps4-bg: #2B1A12;
+      --ps4-dot: #F6E9D4;
+      --ps4-dot-active: #F3C049;
+      --ps4-pill: #F3C049;
+      --ps4-pill-text: #6B2C1C;
+      --ps4-title: #F4EFE7;
+      --ps4-text: #D9D0C6;
+      --ps4-brown: #5a2f20;
+      --ps4-card-radius: 18px;
+      --ps4-container: min(1200px, 92vw);
+      --ps4-gap: clamp(24px, 3vw, 36px);
+      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--ps4-bg);
+      color: var(--ps4-title);
+      padding: clamp(44px, 6vw, 68px) 0;
     }
 
-    /* Responsive para la sección de texto */
-    @media (max-width:720px){
-      #packs-scope-4 .ps4-row{grid-template-columns:1fr;gap:12px}
-      #packs-scope-4 .ps4-divider{display:none}
-      #packs-scope-4 .ps4-left,#packs-scope-4 .ps4-right{text-align:center}
-      #packs-scope-4 .ps4-rating{justify-content:center}
-      #packs-scope-4 .ps4-desc{max-width:min(560px,85vw);margin:0 auto;text-align:center}
+    #packs-scope-4 .ps4-wrap {
+      width: var(--ps4-container);
+      margin: auto;
+      display: grid;
+      justify-items: center
     }
-  
-    @media (max-width:600px){
-      #packs-scope-4 .ps4-cta{padding:10px 18px;font-size:14px;gap:8px;box-shadow:0 6px 0 rgba(0,0,0,.2)}
-      #packs-scope-4 .ps4-bag svg{width:18px;height:18px}
+
+    #packs-scope-4 .ps4-rail {
+      width: 100%;
+      justify-self: stretch
+    }
+
+    #packs-scope-4 .ps4-rail {
+      position: relative;
+      overflow: hidden;
+      height: clamp(280px, 34vw, 420px);
+      display: grid;
+      place-items: center;
+      margin-bottom: clamp(14px, 2.5vw, 20px);
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      user-select: none
+    }
+
+    #packs-scope-4 .ps4-track {
+      display: flex;
+      align-items: center;
+      gap: var(--ps4-gap);
+      transition: transform .5s ease;
+      will-change: transform
+    }
+
+    #packs-scope-4 .ps4-card {
+      position: relative;
+      flex: 0 0 auto;
+      width: clamp(220px, 26vw, 340px);
+      aspect-ratio: 1/1;
+      border-radius: var(--ps4-card-radius);
+      display: grid;
+      place-items: center;
+      filter: none;
+      transition: transform .45s ease, opacity .45s ease, filter .45s ease;
+      opacity: .9;
+      cursor: pointer
+    }
+
+    #packs-scope-4 .ps4-tile {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: #ccc
+    }
+
+    #packs-scope-4 .ps4-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 6px solid var(--ps4-brown);
+      border-radius: inherit
+    }
+
+    #packs-scope-4 .ps4-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: #8F7DD9;
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .25))
+    }
+
+    #packs-scope-4 .ps4-card.ps4-center {
+      transform: scale(1.14);
+      opacity: 1;
+      filter: none
+    }
+
+    #packs-scope-4 .ps4-card.ps4-center .ps4-img {
+      border-width: 8px
+    }
+
+    #packs-scope-4 .ps4-dots {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin: 8px 0 18px
+    }
+
+    #packs-scope-4 .ps4-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--ps4-dot);
+      opacity: .9;
+      border: 2px solid rgba(0, 0, 0, .15);
+      cursor: pointer
+    }
+
+    #packs-scope-4 .ps4-dot.ps4-active {
+      background: var(--ps4-dot-active);
+      border-color: transparent
+    }
+
+    #packs-scope-4 .ps4-meta {
+      display: grid;
+      place-items: center
+    }
+
+    #packs-scope-4 .ps4-row {
+      display: grid;
+      grid-template-columns: auto 1px auto;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2.5vw, 28px);
+      margin-inline: auto
+    }
+
+    #packs-scope-4 .ps4-left {
+      text-align: left
+    }
+
+    #packs-scope-4 .ps4-right {
+      text-align: left;
+      max-width: 520px
+    }
+
+    #packs-scope-4 .ps4-divider {
+      width: 1px;
+      height: 70px;
+      background: rgba(244, 239, 231, .35);
+      border-radius: 2px
+    }
+
+    #packs-scope-4 .ps4-title {
+      font-weight: 900;
+      font-size: 40px;
+      letter-spacing: .2px;
+      font-family: 'Mouse Memoirs', sans-serif;
+    }
+
+    #packs-scope-4 .ps4-rating {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px
+    }
+
+    #packs-scope-4 .ps4-stars {
+      display: flex;
+      gap: 6px
+    }
+
+    #packs-scope-4 .ps4-star {
+      width: 14px;
+      height: 14px;
+      background: #F3C049;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)
+    }
+
+    #packs-scope-4 .ps4-score {
+      color: #F1E7D8;
+      font-weight: 700
+    }
+
+    #packs-scope-4 .ps4-desc {
+      color: var(--ps4-text);
+      line-height: 1.55;
+      font-size: clamp(14px, 2vw, 18px);
+      max-width: 520px;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    #packs-scope-4 .ps4-cta-wrap {
+      text-align: center;
+      margin-top: 14px
+    }
+
+    #packs-scope-4 .ps4-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--ps4-pill);
+      color: #000;
+      border-radius: 999px;
+      padding: 14px 22px;
+      box-shadow: 0 8px 0 rgba(0, 0, 0, .22);
+      border: 0;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+
+    }
+
+    #packs-scope-4 .ps4-bag {
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border-radius: 0;
+      padding: 0
+    }
+
+    #packs-scope-4 .ps4-bag svg {
+      width: 20px;
+      height: 20px;
+      display: block
+    }
+
+    @media (max-width:900px) {
+      #packs-scope-4 .ps4-img {
+        border-width: 6px
+      }
+    }
+
+    @media (max-width:720px) {
+      #packs-scope-4 .ps4-row {
+        grid-template-columns: 1fr;
+        gap: 12px
+      }
+
+      #packs-scope-4 .ps4-divider {
+        display: none
+      }
+
+      #packs-scope-4 .ps4-left,
+      #packs-scope-4 .ps4-right {
+        text-align: center
+      }
+
+      #packs-scope-4 .ps4-rating {
+        justify-content: center
+      }
+
+      #packs-scope-4 .ps4-desc {
+        max-width: min(560px, 85vw);
+        margin: 0 auto;
+        text-align: center
+      }
+    }
+
+    @media (max-width:600px) {
+      #packs-scope-4 .ps4-cta {
+        padding: 10px 18px;
+        font-size: 14px;
+        gap: 8px;
+        box-shadow: 0 6px 0 rgba(0, 0, 0, .2)
+      }
+
+      #packs-scope-4 .ps4-bag svg {
+        width: 18px;
+        height: 18px
+      }
     }
   </style>
 
@@ -98,14 +305,16 @@
           <div class="ps4-title" data-title>The Whole Pack</div>
           <div class="ps4-rating">
             <div class="ps4-stars" aria-hidden="true">
-              <span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span>
+              <span class="ps4-star"></span><span class="ps4-star"></span><span class="ps4-star"></span><span
+                class="ps4-star"></span><span class="ps4-star"></span>
             </div>
             <span class="ps4-score" data-score>4.9</span>
           </div>
         </div>
         <div class="ps4-divider" aria-hidden="true"></div>
         <div class="ps4-right">
-          <p class="ps4-desc" data-desc> The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.</p>
+          <p class="ps4-desc" data-desc> The full flavor tour: six single-ingredient treats for rotation, variety, and
+            go-time.</p>
         </div>
       </div>
     </div>
@@ -114,15 +323,10 @@
     <div class="ps4-cta-wrap">
       <a class="ps4-cta" data-cta href="/products/the-whole-pack">
         <span class="ps4-bag">
-          <svg
-            class="m-svg-icon--medium"
-            fill="currentColor"
-            stroke="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-            aria-hidden="true"
-          >
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+          <svg class="m-svg-icon--medium" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512" aria-hidden="true">
+            <path
+              d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
           </svg>
         </span>
         <span>Quick Add</span>
@@ -132,110 +336,105 @@
   </div>
 
   <script>
-    (function(){
-      const root   = document.getElementById("packs-scope-4");
-      const rail   = root.querySelector("[data-rail]");
-      const track  = root.querySelector("[data-track]");
+    (function () {
+      const root = document.getElementById("packs-scope-4");
+      const rail = root.querySelector("[data-rail]");
+      const track = root.querySelector("[data-track]");
       const dotsEl = root.querySelector("[data-dots]");
       const tTitle = root.querySelector("[data-title]");
-      const tDesc  = root.querySelector("[data-desc]");
+      const tDesc = root.querySelector("[data-desc]");
       const tScore = root.querySelector("[data-score]");
       const tPrice = root.querySelector("[data-price]");
-      const tCTA   = root.querySelector("[data-cta]");
+      const tCTA = root.querySelector("[data-cta]");
 
-      /* Datos (con url para el link del Quick Add) */
       const data = [
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" },
-        { title:"The Whole Pack", desc:"The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price:"$24.99", score:"4.9", badge:"Top Seller", img:"https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url:"/products/the-whole-pack" }
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" },
+        { title: "The Whole Pack", desc: "The full flavor tour: six single-ingredient treats for rotation, variety, and go-time.", price: "$24.99", score: "4.9", badge: "Top Seller", img: "https://cdn.shopify.com/s/files/1/0941/1457/8711/files/Group_6.png?v=1757812739", url: "/products/the-whole-pack" }
       ];
 
-      /* Crea tarjeta */
-      function createCard(item){
-        const card = document.createElement("div"); card.className="ps4-card";
-        const tile = document.createElement("div"); tile.className="ps4-tile";
-        const img  = document.createElement("img"); img.className="ps4-img"; img.alt="Product image"; img.decoding="async"; img.src=item.img;
+      function createCard(item) {
+        const card = document.createElement("div"); card.className = "ps4-card";
+        const tile = document.createElement("div"); tile.className = "ps4-tile";
+        const img = document.createElement("img"); img.className = "ps4-img"; img.alt = "Product image"; img.decoding = "async"; img.src = item.img;
         tile.appendChild(img);
-        if(item.badge){
-          const b = document.createElement("div"); b.className="ps4-badge"; b.innerHTML = '🏷️ <span>'+item.badge+'</span>';
+        if (item.badge) {
+          const b = document.createElement("div"); b.className = "ps4-badge"; b.innerHTML = '🏷️ <span>' + item.badge + '</span>';
           tile.appendChild(b);
         }
         card.appendChild(tile);
-        card.addEventListener("click", ()=> focusCard(card));
+        card.addEventListener("click", () => focusCard(card));
         return card;
       }
-      data.forEach(d=> track.appendChild(createCard(d)));
+      data.forEach(d => track.appendChild(createCard(d)));
 
       const cards = () => Array.from(track.children);
-      const gap   = () => parseFloat(getComputedStyle(track).gap) || 24;
-      const cW    = () => cards()[0].getBoundingClientRect().width;
-      const rW    = () => rail.clientWidth;
+      const gap = () => parseFloat(getComputedStyle(track).gap) || 24;
+      const cW = () => cards()[0].getBoundingClientRect().width;
+      const rW = () => rail.clientWidth;
 
-      /* Estado */
       let center = 1;   // índice DOM centrado
       let active = 1;   // índice lógico (meta/dots)
       let animating = false;
 
-      function translateTo(i){
-        const x = (rW()/2) - (i*(cW()+gap()) + cW()/2);
+      function translateTo(i) {
+        const x = (rW() / 2) - (i * (cW() + gap()) + cW() / 2);
         track.style.transform = `translateX(${x}px)`;
-        cards().forEach((c,idx)=> c.classList.toggle("ps4-center", idx===i));
+        cards().forEach((c, idx) => c.classList.toggle("ps4-center", idx === i));
       }
 
-      function setMeta(){
+      function setMeta() {
         // Meta fija: no actualizamos por slide
       }
 
-      /* Bullets */
-      const dots = data.map((_,i)=>{
-        const b=document.createElement("button"); b.type="button"; b.className="ps4-dot";
-        b.addEventListener("click", ()=> goTo(i));
+      const dots = data.map((_, i) => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "ps4-dot";
+        b.addEventListener("click", () => goTo(i));
         dotsEl.appendChild(b);
         return b;
       });
-      function renderDots(){ dots.forEach((d,i)=> d.classList.toggle("ps4-active", i===active)); }
+      function renderDots() { dots.forEach((d, i) => d.classList.toggle("ps4-active", i === active)); }
 
-      /* Rotación con cola (solo por interacción) */
-      function next(){
-        if(animating) return; animating = true;
-        center += 1; track.style.transition="transform .5s ease"; translateTo(center);
-        track.addEventListener("transitionend", ()=>{
-          track.style.transition="none";
+      function next() {
+        if (animating) return; animating = true;
+        center += 1; track.style.transition = "transform .5s ease"; translateTo(center);
+        track.addEventListener("transitionend", () => {
+          track.style.transition = "none";
           track.appendChild(track.firstElementChild); // rota DOM
           data.push(data.shift());                    // rota datos
           center -= 1; translateTo(center);
           void track.offsetWidth;
           animating = false;
           active = (active + 1) % data.length; renderDots();
-        }, {once:true});
+        }, { once: true });
       }
-      function prev(){
-        if(animating) return; animating = true;
-        center -= 1; track.style.transition="transform .5s ease"; translateTo(center);
-        track.addEventListener("transitionend", ()=>{
-          track.style.transition="none";
+      function prev() {
+        if (animating) return; animating = true;
+        center -= 1; track.style.transition = "transform .5s ease"; translateTo(center);
+        track.addEventListener("transitionend", () => {
+          track.style.transition = "none";
           track.insertBefore(track.lastElementChild, track.firstElementChild);
           data.unshift(data.pop());
           center += 1; translateTo(center);
           void track.offsetWidth;
           animating = false;
           active = (active - 1 + data.length) % data.length; renderDots();
-        }, {once:true});
+        }, { once: true });
       }
 
-      function goTo(target){
-        if(target === active) return;
-        const n=data.length, fwd=(target-active+n)%n, back=(active-target+n)%n;
-        const step = fwd<=back ? next : prev;
-        let i=0; const run=()=>{ if(i++<Math.min(fwd,back)) { step(); setTimeout(run,520); } };
+      function goTo(target) {
+        if (target === active) return;
+        const n = data.length, fwd = (target - active + n) % n, back = (active - target + n) % n;
+        const step = fwd <= back ? next : prev;
+        let i = 0; const run = () => { if (i++ < Math.min(fwd, back)) { step(); setTimeout(run, 520); } };
         run();
       }
 
-      function focusCard(cardEl){
+      function focusCard(cardEl) {
         const idx = cards().indexOf(cardEl);
         if (idx === center) return;
         const steps = Math.abs(idx - center);
@@ -244,49 +443,46 @@
         run();
       }
 
-      /* Init */
       translateTo(center);
       setMeta();        // establece título/desc/precio y HREF inicial
       renderDots();
 
-      /* Teclado scopeado a la sección */
-      root.addEventListener("keydown", (e)=>{
-        if(e.key === "ArrowRight") next();
-        if(e.key === "ArrowLeft")  prev();
+      root.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
       });
 
-      /* Gestos táctiles (swipe) en mobile */
-      let tsX=0, tsY=0, dx=0, didSwipe=false, t0=0;
-      function onTouchStart(ev){
+      let tsX = 0, tsY = 0, dx = 0, didSwipe = false, t0 = 0;
+      function onTouchStart(ev) {
         const t = ev.touches && ev.touches[0];
-        if(!t) return;
+        if (!t) return;
         tsX = t.clientX; tsY = t.clientY; dx = 0; didSwipe = false; t0 = Date.now();
       }
-      function onTouchMove(ev){
+      function onTouchMove(ev) {
         const t = ev.touches && ev.touches[0];
-        if(!t) return;
+        if (!t) return;
         const mx = t.clientX - tsX; const my = t.clientY - tsY;
         // Solo capturamos si predomina el gesto horizontal
-        if(!didSwipe && Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my)){
+        if (!didSwipe && Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my)) {
           didSwipe = true;
         }
-        if(didSwipe){
+        if (didSwipe) {
           ev.preventDefault(); // evitamos desplazamiento de la página
           dx = mx;
         }
       }
-      function onTouchEnd(){
-        if(!didSwipe) return;
+      function onTouchEnd() {
+        if (!didSwipe) return;
         const dt = Date.now() - t0;
-        const velocity = Math.abs(dx) / Math.max(dt,1);
+        const velocity = Math.abs(dx) / Math.max(dt, 1);
         const threshold = 30; // px
-        if(Math.abs(dx) > threshold || velocity > 0.6){
-          if(dx < 0) next(); else prev();
+        if (Math.abs(dx) > threshold || velocity > 0.6) {
+          if (dx < 0) next(); else prev();
         }
         tsX = tsY = dx = 0; didSwipe = false;
       }
-      rail.addEventListener('touchstart', onTouchStart, {passive:true});
-      rail.addEventListener('touchmove',  onTouchMove,  {passive:false});
-      rail.addEventListener('touchend',   onTouchEnd,   {passive:true});
+      rail.addEventListener('touchstart', onTouchStart, { passive: true });
+      rail.addEventListener('touchmove', onTouchMove, { passive: false });
+      rail.addEventListener('touchend', onTouchEnd, { passive: true });
     })();
   </script>

@@ -19,24 +19,24 @@
     @media (min-width:769px) {
       .video-carousel-desktop {
         width: 100%;
-        background: var(--bg-color); /* fondo marrón a todo el ancho */
+        background: var(--bg-color);
         color: var(--text-color);
-        padding: 1.25rem 0; /* menos alto vertical */
+        padding: 1.25rem 0; 
       }
 
       .video-carousel-inner {
-        max-width: 1200px; /* aquí ajustas ancho máximo */
+        max-width: 1200px; 
         margin: 0 auto;
         display: flex;
-        align-items: center; /* centra verticalmente el panel de texto */
+        align-items: center; 
       }
 
       .text-panel {
         width: 40%;
-        padding: 1.25rem; /* menos alto vertical */
-        position: static; /* quitar sticky para centrar */
+        padding: 1.25rem; 
+        position: static; 
         top: auto;
-        align-self: center; /* asegurar centrado vertical */
+        align-self: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -106,7 +106,7 @@
       }
 
       .video-card {
-        flex: 0 0 70%; /* menor tamaño horizontal -> menor altura del video */
+        flex: 0 0 70%;
         scroll-snap-align: center;
         position: relative;
         border-radius: 12px;
@@ -184,7 +184,6 @@
 
   <section class="video-carousel-desktop">
     <div class="video-carousel-inner">
-      <!-- Panel de texto fijo -->
       <div class="text-panel" id="textPanel">
         <h3 id="videoTitle" class="carousel-title">Trusted by Many, Loved by All</h3>
         <p id="videoDesc" class="carousel-desc">The full flavor tour: seven single-ingredient treats, vacuum-sealed and
@@ -197,7 +196,6 @@
         </a>
       </div>
 
-      <!-- Carrusel de vídeos -->
       <div class="carousel-container">
         <div class="carousel-track" id="carouselTrackDesktop">
           <div class="video-card" data-title="Chicken Breast"
@@ -292,10 +290,8 @@
 
     let cardsDesktop = [...trackDesktop.children];
 
-    // clonar primeras para bucle
     cardsDesktop.slice(0, 7).forEach(c => trackDesktop.appendChild(c.cloneNode(true)));
 
-    // indicadores
     cardsDesktop.forEach((_, i) => {
       const dot = document.createElement('span');
       if (i === 0) dot.classList.add('active');
@@ -314,7 +310,6 @@
         const distance = Math.abs(center - cardCenter);
         if (distance < rect.width / 2) {
           card.classList.remove('not-active');
-          // actualiza panel
           titleEl.textContent = card.dataset.title;
           descEl.textContent = card.dataset.desc;
           btnTextEl.textContent = card.dataset.btn || 'Comprar';
@@ -335,7 +330,6 @@
 
     updateActiveCardDesktop();
 
-    // clic para centrar
     [...trackDesktop.children].forEach((card, index) => {
       card.addEventListener('click', () => {
         const cardWidth = cardsDesktop[0].getBoundingClientRect().width + 16;

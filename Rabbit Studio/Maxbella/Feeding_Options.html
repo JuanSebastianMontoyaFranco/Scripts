@@ -1,8 +1,7 @@
 <section id="fo-scope-1" class="feeding-options" aria-label="Feeding Options">
     <style>
-        /* Importamos fuentes desde Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Open+Sans:wght@300;400;600;700;800&display=swap');
-        /* ===== Scope aislado ===== */
+
         #fo-scope-1 {
             --bg: #FFF2DE;
             --panel: #F5EEE3;
@@ -29,7 +28,7 @@
             line-height: .95;
             color: var(--brand);
             font-size: clamp(40px, 7vw, 84px);
-            font-family: 'Mouse Memoirs', sans-serif; 
+            font-family: 'Mouse Memoirs', sans-serif;
             padding-bottom: 40px;
         }
 
@@ -38,24 +37,19 @@
             margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            /* mismo tamaño */
             gap: var(--gap);
             align-items: start;
         }
 
-        /* Panel izquierdo */
         #fo-scope-1 .fo-panel {
             background: var(--panel);
             border-radius: var(--radius);
             border: 2px solid #00000020;
             box-shadow: 0 2px 0 #00000014 inset;
             padding: 0;
-            /* sin padding: la imagen llega al borde */
             overflow: hidden;
-            /* respeta el radio del panel */
             height: 100%;
             display: block;
-            /* dejamos que el contenido fluya vertical */
         }
 
         #fo-scope-1 .fo-card {
@@ -65,7 +59,6 @@
             align-items: center;
         }
 
-        /* padding solo para el bloque de texto, no para la imagen */
         #fo-scope-1 .fo-card>div {
             padding: clamp(14px, 2.6vw, 22px)
         }
@@ -74,9 +67,7 @@
             position: relative;
             width: 100%;
             aspect-ratio: 4/3;
-            /* tamaño uniforme */
             border-radius: 0;
-            /* el clipping lo hace el panel */
             overflow: hidden;
             background: #ddd;
         }
@@ -117,11 +108,8 @@
             line-height: 1.55;
             margin: 0;
             text-align: justify;
-            /* Justificado */
         }
 
-
-        /* Acordeón */
         #fo-scope-1 .fo-acc {
             background: transparent;
             border-radius: var(--radius);
@@ -162,7 +150,7 @@
             font-weight: 900;
             font-size: clamp(24px, 3.2vw, 36px);
             line-height: 1.2;
-            font-family: 'Mouse Memoirs', sans-serif; 
+            font-family: 'Mouse Memoirs', sans-serif;
         }
 
         #fo-scope-1 .acc-sub {
@@ -198,7 +186,6 @@
             outline-offset: 3px
         }
 
-        /* Responsive dentro del scope */
         @media (max-width:980px) {
             #fo-scope-1 .fo-wrap {
                 grid-template-columns: 1fr
@@ -259,7 +246,7 @@
                     <span class="acc-plus">—</span>
                     <div>
                         <div class="acc-title">Training Treats &amp; Healthy Snacks
-                    </div>
+                        </div>
                 </button>
                 <!--         <div class="acc-content"><p>Tip: keep a pocketful during walks—crumb-free and non-greasy.</p></div>
  -->
@@ -288,7 +275,7 @@
                     <span class="acc-plus">+</span>
                     <div>
                         <div class="acc-title">Rehydrated For Meals
-                    </div>
+                        </div>
                 </button>
                 <!--         <div class="acc-content"><p>Customize the texture adding more or less water.</p></div>
  -->

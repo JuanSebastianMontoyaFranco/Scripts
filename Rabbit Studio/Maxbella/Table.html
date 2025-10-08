@@ -2,25 +2,13 @@
 
 <section class="protein-section">
     <style>
-        /* ====== Scope local ====== */
         .protein-section {
             --bg: #FFF2DE;
-            /* fondo general */
             --panel: #FFF2DE;
-            /* fondo panel */
             --cell: rgba(0, 0, 0, .15);
-            /* fondo celda */
             --text: #F6EBD5;
-            /* texto principal */
             --muted: #000;
-            /* texto secundario */
-
             font-family: 'Open Sans', sans-serif;
-            /* todo el resto en Open Sans */
-
-
-
-            /* colores por columna (inspirados en la captura) */
             --c-chicken: #2F8A68;
             --c-hearts: #D98A90;
             --c-liver: #6D1A10;
@@ -39,7 +27,6 @@
             padding: clamp(20px, 4vw, 48px);
         }
 
-        /* Contenedor centrado para el contenido, manteniendo el fondo full-width */
         .protein-inner {
             max-width: 1100px;
             margin: 0 auto;
@@ -48,58 +35,48 @@
 
         .protein-title {
             font-family: 'Mouse Memoirs', sans-serif;
-            /* solo el título en Mouse Memoirs */
-            font-size: clamp(28px, 4.5vw, 72px);
+            font-size: clamp(36px, 4.5vw, 72px);
             text-align: center;
             letter-spacing: .5px;
             margin: 0 0 24px;
         }
 
-        /* ====== Contenedor scroll horizontal ====== */
         .protein-scroller {
             background: var(--panel);
             border-radius: 16px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            /* En mobile activamos scroll horizontal */
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* ====== Tabla ====== */
         .protein-table {
             width: 100%;
             min-width: 860px;
-            /* para provocar scroll en pantallas pequeñas */
             border-collapse: separate;
             border-spacing: 10px 10px;
-            /* gajos entre celdas como en la captura */
             padding: 10px;
             table-layout: fixed;
-            /* columnas de ancho consistente */
         }
 
         .protein-table thead th {
             position: sticky;
-            /* cabecera sticky al hacer scroll vertical */
             top: 0;
             z-index: 3;
             text-align: center;
             padding: 10px 12px;
             font-size: 12px;
-            line-height: 1.05;
+            line-height: 1.5;
             text-transform: uppercase;
             letter-spacing: .7px;
-            color: #fff;
+            color: #F6EBD5;
             border-radius: 10px;
             box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .15);
             white-space: normal;
-            /* permitir ajuste de texto */
             overflow-wrap: anywhere;
             word-break: break-word;
         }
 
-        /* Anchos consistentes de columnas */
         .protein-table col.col-head {
             width: 220px;
         }
@@ -108,7 +85,6 @@
             width: 120px;
         }
 
-        /* “Pills” por columna */
         .th-chicken {
             background: var(--c-chicken);
         }
@@ -138,7 +114,6 @@
             background: var(--c-krill);
         }
 
-        /* Primera columna (beneficios) */
         .protein-table th.row-head {
             text-align: left;
             font-weight: 600;
@@ -146,11 +121,10 @@
             position: relative;
             padding-left: 8px;
             width: 220px;
-            color: #000;
+            color: #2D1A0E;
             white-space: nowrap;
         }
 
-        /* Celdas tipo “cards” */
         .protein-table td {
             padding: 0;
             text-align: center;
@@ -158,7 +132,7 @@
         }
 
         .protein-card {
-            height: 36px;
+            height: 30px;
             min-width: 48px;
             background: var(--cell);
             border-radius: 8px;
@@ -166,7 +140,6 @@
             place-items: center;
         }
 
-        /* Check redondo coloreado según columna */
         .dot {
             width: 20px;
             height: 20px;
@@ -182,7 +155,6 @@
             fill: #fff;
         }
 
-        /* Colores de las dots por columna (coinciden con pills) */
         .col-chicken .dot {
             background: var(--c-chicken);
         }
@@ -214,16 +186,10 @@
         @media (min-width: 901px) {
             .protein-table th.row-head {
                 font-size: clamp(13px, 1.05vw, 18px);
-                /* un poco más grande */
                 line-height: 1.2;
                 white-space: normal;
             }
-
-            /* Si la ves muy apretada, puedes devolver el ancho original */
-            /* .protein-table col.col-head { width: 220px; } */
         }
-
-        /* ====== Sticky de la primera columna SOLO en vistas estrechas ====== */
 
         @media (max-width: 900px) {
             .protein-table th.row-head {
@@ -273,30 +239,30 @@
             }
 
             .protein-table th.row-head {
-                width: 160px; /* más espacio para el texto */
+                width: 160px;
                 padding-left: 0;
                 padding-right: 6px;
                 white-space: nowrap;
-                font-size: 13.5px; /* más grande en mobile */
+                font-size: 13.5px;
                 line-height: 1.15;
                 background: linear-gradient(90deg, var(--panel) 55%, transparent);
             }
 
             .protein-table col.col-head {
-                width: 160px; /* acompasa el ancho del head */
+                width: 160px;
             }
 
             .protein-table col.col-data {
-                width: 96px; /* reduce ancho de columnas de checks */
+                width: 96px;
             }
 
             .protein-card {
-                min-width: 40px; /* más angosto */
-                height: 32px;    /* un poco más bajo */
+                min-width: 40px;
+                height: 32px;
             }
 
             .dot {
-                width: 13px; /* proporcional al card */
+                width: 13px;
                 height: 13px;
             }
 
@@ -305,6 +271,7 @@
                 height: 8px;
             }
         }
+
         .protein-table tr {
             height: 46px;
         }
@@ -796,7 +763,6 @@
                             </td>
                         </tr>
 
-                        <!-- Agrega aquí Brain Function, Skin & Coat Health, ... etc. -->
                     </tbody>
                 </table>
             </div>

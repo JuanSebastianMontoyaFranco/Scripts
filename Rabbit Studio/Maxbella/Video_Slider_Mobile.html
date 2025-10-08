@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,8 @@
   <title>Carrusel Vertical</title>
   <style>
     :root {
-      --bg-color: #2D1A0E;        /* café */
-      --text-color: #ffffff;      /* blanco */
+      --bg-color: #2D1A0E;
+      --text-color: #ffffff;
       --dot-active: #ffffff;
       --dot-inactive: #999999;
     }
@@ -39,10 +40,9 @@
         scroll-snap-align: center;
         background: transparent;
         position: relative;
-        padding-left: 0.5rem; /* margen a la izquierda para texto y vídeo */
+        padding-left: 0.5rem;
       }
 
-      /* contenedor fijo para textos */
       .video-info {
         display: flex;
         flex-direction: column;
@@ -94,10 +94,9 @@
         text-decoration: none;
       }
 
-      /* tamaño del icono */
       .action-btn svg {
-        width: 18px;  /* << ajusta aquí ancho */
-        height: 18px; /* << ajusta aquí alto */
+        width: 18px;
+        height: 18px;
         object-fit: contain;
         display: block;
       }
@@ -119,7 +118,6 @@
         display: block;
       }
 
-      /* overlay solo sobre el video */
       .video-wrapper::after {
         content: "";
         position: absolute;
@@ -127,19 +125,18 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0,0,0,0);
+        background: rgba(0, 0, 0, 0);
         transition: background 0.3s ease;
         border-radius: 12px;
         pointer-events: none;
       }
 
-      /* escala + overlay cuando no activo */
       .video-card.not-active .video-wrapper {
         transform: scale(0.9);
       }
 
       .video-card.not-active .video-wrapper::after {
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
       }
 
       .carousel-indicators {
@@ -164,189 +161,212 @@
     }
 
     @media (min-width:769px) {
-      .video-carousel { display: none; }
+      .video-carousel {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<section class="video-carousel">
-  <div class="carousel-track" id="carouselTrack">
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Chicken Breast</h3>
-        <p class="carousel-desc">Pure energy in every strip—ideal for daily fuel and easy grab-and-go snacking.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-chicken-breast">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
+  <section class="video-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Chicken Breast</h3>
+          <p class="carousel-desc">Pure energy in every strip—ideal for daily fuel and easy grab-and-go snacking.</p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-chicken-breast">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Chicken Hearts</h3>
+          <p class="carousel-desc">Taurine-rich crunchies that support heart health and make training moments
+            effortless.</p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-chicken-hearts">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Beef Liver</h3>
+          <p class="carousel-desc">Packed with iron and vitamins for shiny coats, strong immunity, and a bold taste pets
+            crave.</p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-beef-liver">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Salmon</h3>
+          <p class="carousel-desc">Omega-3 rich bites that keep skin glowing, joints moving, and lifestyles shining.</p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-salmon">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Capelin</h3>
+          <p class="carousel-desc">Calcium-loaded whole fish that strengthen bones and add foodie flair to treat time.
+          </p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-capelin">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">Antarctic Krill</h3>
+          <p class="carousel-desc">Antioxidant-rich minis with brain, heart, and coat benefits—portable and powerful.
+          </p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-antarctic-krill">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-info">
+          <h3 class="carousel-title">The Whole Pack</h3>
+          <p class="carousel-desc">Six proteins designed for rotation—keeping nutrition balanced, cravings fresh, and
+            discovery ongoing.</p>
+          <a class="action-btn" href="https://iwantmaxbella.com/products/the-whole-pack">
+            <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path
+                d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z" />
+            </svg>
+            Grab Now
+          </a>
+        </div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
+    <div class="carousel-indicators" id="carouselIndicators"></div>
+  </section>
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Chicken Hearts</h3>
-        <p class="carousel-desc">Taurine-rich crunchies that support heart health and make training moments effortless.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-chicken-hearts">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const cards = [...track.children];
+    const indicatorsContainer = document.getElementById('carouselIndicators');
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Beef Liver</h3>
-        <p class="carousel-desc">Packed with iron and vitamins for shiny coats, strong immunity, and a bold taste pets crave.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-beef-liver">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+    // clonar las primeras para bucle
+    cards.slice(0, 2).forEach(c => track.appendChild(c.cloneNode(true)));
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Salmon</h3>
-        <p class="carousel-desc">Omega-3 rich bites that keep skin glowing, joints moving, and lifestyles shining.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-salmon">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+    // indicadores según número original
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      indicatorsContainer.appendChild(dot);
+    });
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Capelin</h3>
-        <p class="carousel-desc">Calcium-loaded whole fish that strengthen bones and add foodie flair to treat time.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-capelin">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+    const dots = [...indicatorsContainer.children];
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">Antarctic Krill</h3>
-        <p class="carousel-desc">Antioxidant-rich minis with brain, heart, and coat benefits—portable and powerful.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/freeze-dried-antarctic-krill">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+    // función para detectar la card activa
+    function updateActiveCard() {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
 
-    <div class="video-card">
-      <div class="video-info">
-        <h3 class="carousel-title">The Whole Pack</h3>
-        <p class="carousel-desc">Six proteins designed for rotation—keeping nutrition balanced, cravings fresh, and discovery ongoing.</p>
-        <a class="action-btn" href="https://iwantmaxbella.com/products/the-whole-pack">
-          <svg class="m-svg-icon--medium" fill="#000000" stroke="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M352 128C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128H0v304c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V128h-96zM224 48c44.112 0 80 35.888 80 80H144c0-44.112 35.888-80 80-80zm176 384c0 17.645-14.355 32-32 32H80c-17.645 0-32-14.355-32-32V176h48v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h160v40c0 13.255 10.745 24 24 24s24-10.745 24-24v-40h48v256z"/>
-          </svg>
-          Grab Now
-        </a>
-      </div>
-      <div class="video-wrapper">
-        <video autoplay muted loop playsinline>
-          <source src="https://cdn.shopify.com/videos/c/o/v/419890f35a6d460e86e1e2f38e4fd79e.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-indicators" id="carouselIndicators"></div>
-</section>
-
-<script>
-const track = document.getElementById('carouselTrack');
-const cards = [...track.children];
-const indicatorsContainer = document.getElementById('carouselIndicators');
-
-// clonar las primeras para bucle
-cards.slice(0, 2).forEach(c => track.appendChild(c.cloneNode(true)));
-
-// indicadores según número original
-cards.forEach((_, i) => {
-  const dot = document.createElement('span');
-  if (i === 0) dot.classList.add('active');
-  indicatorsContainer.appendChild(dot);
-});
-
-const dots = [...indicatorsContainer.children];
-
-// función para detectar la card activa
-function updateActiveCard() {
-  const trackRect = track.getBoundingClientRect();
-  const center = trackRect.left + trackRect.width / 2;
-
-  [...track.children].forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const cardCenter = rect.left + rect.width / 2;
-    const distance = Math.abs(center - cardCenter);
-    if (distance < rect.width / 2) {
-      card.classList.remove('not-active');
-    } else {
-      card.classList.add('not-active');
+      [...track.children].forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(center - cardCenter);
+        if (distance < rect.width / 2) {
+          card.classList.remove('not-active');
+        } else {
+          card.classList.add('not-active');
+        }
+      });
     }
-  });
-}
 
-// actualizar al hacer scroll
-track.addEventListener('scroll', () => {
-  const cardWidth = cards[0].getBoundingClientRect().width + 16;
-  let scrollIndex = Math.round(track.scrollLeft / cardWidth) % cards.length;
-  dots.forEach(d => d.classList.remove('active'));
-  dots[scrollIndex].classList.add('active');
-  updateActiveCard();
-});
+    // actualizar al hacer scroll
+    track.addEventListener('scroll', () => {
+      const cardWidth = cards[0].getBoundingClientRect().width + 16;
+      let scrollIndex = Math.round(track.scrollLeft / cardWidth) % cards.length;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[scrollIndex].classList.add('active');
+      updateActiveCard();
+    });
 
-// inicializar
-updateActiveCard();
-</script>
+    // inicializar
+    updateActiveCard();
+  </script>
 
 </body>
+
 </html>
