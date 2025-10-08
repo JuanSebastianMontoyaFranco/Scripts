@@ -1,94 +1,142 @@
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+<section class="video-section">
+  <div class="video-wrapper">
+    <!-- Video desktop -->
+    <video class="video-desktop" autoplay loop muted playsinline preload="auto" poster="">
+      <source src="https://cdn.shopify.com/videos/c/o/v/d040aab9a2d44185a7d0f2da31aadf8e.mp4" type="video/mp4">
+    </video>
 
-        .title {
-            font-weight: bold;
-            color: #FFFFFF;
-        }
-        .video-banner {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
+    <!-- Video mobile -->
+    <video class="video-mobile" autoplay loop muted playsinline preload="auto" poster="">
+      <source src="https://cdn.shopify.com/videos/c/o/v/ec9ece698f8847a88e17db93b30a6ba8.mp4" type="video/mp4">
+    </video>
 
-        .video-banner video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    <!-- Overlay -->
+    <div class="video-overlay">
+      <h2>Vitalidad con propósito</h2>
+      <p>Más nutrición, más sabiduría</p>
+      <a href="/pages/test" class="m-button">HAZ EL TEST DE VITALIDAD</a>
+    </div>
+  </div>
+</section>
 
-        .video-banner .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
+<style>
+  .video-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
 
-        .video-banner h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+  }
 
-        .video-banner p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
 
-        .video-banner .m-button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: #463D76;
-            background-color: #88d1be;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+  /* Overlay centrado */
+  .video-overlay {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 800px;
+    width: 100%;
+  }
 
-        .video-banner .m-button:hover {
-            background-color: #463D76;
-            color: #FFFFFF;
-        }
+  .video-overlay h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .video-banner h1 {
-                font-size: 2rem;
-            }
+  .video-overlay p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.35;
+    margin: 0 0 1.5rem;
+  }
 
-            .video-banner p {
-                font-size: 1rem;
-            }
+  /* Botón con los estilos que pediste */
+  .m-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold; /* <-- Texto en negrita */
+  color: #463D76;
+  background-color: #88d1be;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-            .video-banner .m-button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
 
-    <section class="video-banner">
-        <video autoplay muted loop playsinline>
-            <!-- Cambia "your-video.mp4" por la URL de tu video -->
-            <source src="https://cdn.shopify.com/videos/c/o/v/d040aab9a2d44185a7d0f2da31aadf8e.mp4" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-        </video>
-        <div class="content">
-            <h1 class="title">Vitalidad con propósito</h1>
-            <p>Más nutrición, más sabiduría</p>
-            <a href="#" class="m-button m-button--primary">Haz el test de vitalidad</a>
-        </div>
-    </section>
+  .m-button:hover {
+    background-color: #463D76;
+    color: #FFFFFF;
+  }
+
+  /* Mostrar/ocultar videos */
+  .video-mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .video-desktop {
+      display: none;
+    }
+    .video-mobile {
+      display: block;
+    }
+
+    /* Mobile: todo más pequeño */
+    .video-overlay {
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      max-width: none;
+      width: 92%;
+      padding: 0 0.5rem;
+      text-align: center;
+    }
+
+    .video-overlay h2 {
+      font-size: 1.6rem;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .video-overlay p {
+      font-size: 0.95rem;
+      line-height: 1.3;
+      margin-bottom: 0.9rem;
+    }
+
+    .m-button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .video-overlay h2 {
+      font-size: 1.45rem;
+    }
+    .video-overlay p {
+      font-size: 0.9rem;
+    }
+    .m-button {
+      font-size: 0.85rem;
+      padding: 7px 14px;
+    }
+  }
+</style>
