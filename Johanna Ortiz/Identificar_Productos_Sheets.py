@@ -2,7 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import csv
 import time
-from gspread.exceptions import APIError
+from gspread.exceptions import APIError, SpreadsheetNotFound
 
 # --- Configuración ---
 TXT_PATH = "Productos_Pendientes.txt"
@@ -31,6 +31,10 @@ SPREADSHEETS = [
     "1UNjtd11eSTbJo-uEYacH42xDT2Gl8bZUM2NEOTaI-qw",
     "1IrtQwEu3H0bIXVeBU6SJcrbsSFuJ2dJJgFnNzygwJkA",
     "1GY-itwxCDjnVjApT8ze4rXpusago8UrIW9vxXVh5PZ0",
+    "14F1auvC559f-ls8T7m7Y--7hHWcGlicwpmFzAEmbrmc",
+    "1G-FiSl4Zn1jY_FEgetxnW2GuLWFswtEJ7yqbuPoDgrA",
+    "1y5s3UdS-D5k6ypwQ8R-Tnvqwzs9cKkaDFZGK9UNwJco",
+    "1C24hD9LqQHksTQpzRfPjfMP8WlXwjBY9IRdSv6Ai7SM",
 ]
 OUTPUT_CSV = "resultados.csv"
 
@@ -82,30 +86,35 @@ def leer_datos_en_bloques(ws, bloque_filas=1000):
     return all_data
 
 # --- Buscar en los Sheets ---
-resultados = []
-
-for sid in SPREADSHEETS:
-    try:
-        sheet = client.open_by_key(sid)
-    except APIError as e:
-        print(f"❌ No se pudo abrir hoja {sid}: {e}")
-        continue
-
-    print(f"🔍 Buscando en: {sheet.title}")
-
-    for ws in sheet.worksheets():
-        print(f"   ↳ Leyendo hoja: {ws.title}")
-        datos = leer_datos_en_bloques(ws)
-
-        for i, fila in enumerate(datos):
-            for j, celda in enumerate(fila):
-                if celda.strip() in codigos_set:
-                    resultados.append([sheet.title, ws.title, i + 1, j + 1, celda])
-
-# --- Exportar resultados ---
 with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["Archivo", "Hoja", "Fila", "Columna", "Código encontrado"])
-    writer.writerows(resultados)
+    f.flush()
+
+    for sid in SPREADSHEETS:
+        if not sid.strip():
+            continue
+
+        try:
+            sheet = client.open_by_key(sid)
+        except SpreadsheetNotFound:
+            print(f"❌ No se encontró una hoja con el ID {sid} o no hay permiso de acceso.")
+            continue
+        except APIError as e:
+            print(f"❌ No se pudo abrir hoja {sid}: {e}")
+            continue
+
+        print(f"🔍 Buscando en: {sheet.title}")
+
+        for ws in sheet.worksheets():
+            print(f"   ↳ Leyendo hoja: {ws.title}")
+            datos = leer_datos_en_bloques(ws)
+
+            for i, fila in enumerate(datos):
+                for j, celda in enumerate(fila):
+                    valor = celda.strip()
+                    if valor and valor in codigos_set:
+                        writer.writerow([sheet.title, ws.title, i + 1, j + 1, celda])
+                        f.flush()
 
 print(f"✅ Búsqueda completada. Resultados guardados en {OUTPUT_CSV}")
