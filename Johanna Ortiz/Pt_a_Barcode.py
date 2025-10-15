@@ -4,7 +4,7 @@ import pandas as pd
 
 # Ajusta estas rutas:
 archivo_excel = "pendientes.xlsx"                 # tu archivo de Excel
-carpeta_origen = "Imagenes"           # carpeta donde están las imágenes actuales
+carpeta_origen = "Fotos"           # carpeta donde están las imágenes actuales
 carpeta_destino = "Fotos_gs1"           # carpeta donde se guardarán con el nuevo nombre
 
 # Crea la carpeta destino si no existe

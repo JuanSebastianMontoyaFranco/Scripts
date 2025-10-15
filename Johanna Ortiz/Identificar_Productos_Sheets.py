@@ -35,6 +35,10 @@ SPREADSHEETS = [
     "1G-FiSl4Zn1jY_FEgetxnW2GuLWFswtEJ7yqbuPoDgrA",
     "1y5s3UdS-D5k6ypwQ8R-Tnvqwzs9cKkaDFZGK9UNwJco",
     "1C24hD9LqQHksTQpzRfPjfMP8WlXwjBY9IRdSv6Ai7SM",
+    "1AC0rOHHS4YlAXdlf-5Nckybwju1QqJ2UToqU8ONmx7c",
+    "1nZVcvL_9WHS-NXg_yFzwdLK50okL6gTl2lFDgsXeQVw",
+    "14wiOvdhhyTzhu9dxmUncClO1VanQr-pbEYJwI9ZNlrQ",
+    "1D07kZYCJw1ztPaqhygASQca3r_ul44m7MzlddaGDBXY"
 ]
 OUTPUT_CSV = "resultados.csv"
 
